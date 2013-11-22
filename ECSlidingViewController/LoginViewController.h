@@ -12,11 +12,7 @@
 #import "LoginHTTPModel.h"
 
 @interface LoginViewController : UIViewController <LoginHTTPDelegate>{
-    
-    
     IBOutlet UILabel *uiLabelTitle;
-    
-    
 }
 
 @property (strong, nonatomic) LoginHTTPModel *loginHTTP;

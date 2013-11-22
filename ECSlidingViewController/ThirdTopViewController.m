@@ -44,7 +44,7 @@
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     }
     
-    if (![self.slidingViewController.underRightViewController isKindOfClass:[UnderRightViewController class]]) {
+    if (![self.slidingViewController.underRightViewController isKindOfClass:[SettingsViewController class]]) {
         self.slidingViewController.underRightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"UnderRight"];
     }
     

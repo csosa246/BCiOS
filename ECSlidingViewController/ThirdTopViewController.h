@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ECSlidingViewController.h"
 #import "MenuViewController.h"
-#import "UnderRightViewController.h"
+#import "SettingsViewController.h"
 
 @interface ThirdTopViewController : UIViewController
 - (IBAction)revealMenu:(id)sender;

@@ -38,12 +38,6 @@
     self.view.backgroundColor = background;
 }
 
-////Table View code
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-//    return 2;
-//}
-//
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex{
     return self.menuItems.count;
 }

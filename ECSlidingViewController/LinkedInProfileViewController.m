@@ -63,7 +63,6 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     NSLog(@"didFailWithError");
-//    [alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {

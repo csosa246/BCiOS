@@ -10,7 +10,7 @@
 @synthesize responseData,delegate;
 
 -(int) controlSetup:(int) s{
-    
+    return 0;
 }
 
 -(void) serverConfirmation:(NSString *)uuidsToLoad{
@@ -45,7 +45,6 @@
     NSError *myError = nil;
     NSDictionary *data = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
     NSString *response = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding];
-    
     //NSLog(response);
     [[self delegate] scanHTTPconnectionDidFinishLoading:data];
 }

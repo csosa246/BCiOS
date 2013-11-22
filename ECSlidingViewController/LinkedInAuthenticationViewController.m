@@ -27,8 +27,6 @@
     [super viewDidLoad];
     loadedPage = 0;
 
-    
-    
     webView.delegate = self;
     
     DataClass *obj=[DataClass getInstance];
