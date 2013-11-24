@@ -11,7 +11,7 @@
 #import "ECSlidingViewController.h"
 #import "DesignLibaryModel.h"
 #import "SampleTableViewController.h"
-
+#import "KeychainItemWrapper.h"
 @interface MenuViewController : UIViewController <UITableViewDataSource, UITabBarControllerDelegate>
 
 @end

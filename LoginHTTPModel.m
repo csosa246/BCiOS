@@ -4,30 +4,41 @@
 //
 //  Created by Crae Sosa on 10/25/13.
 
+
 #import "LoginHTTPModel.h"
 
 @implementation LoginHTTPModel
-@synthesize responseData,delegate,alertScanningDevices;
+@synthesize responseData,delegate,alertScanningDevices,email,password;
 
 -(int) controlSetup:(int) s{
-    
+    [self keychainCheck];
+    return 0;
 }
 
--(void) serverConfirmation{
+-(void) keychainCheck{
+    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BCLOGIN" accessGroup:nil];
+    
+    NSString *password = [keychainItem objectForKey:(__bridge id)(kSecValueData)];
+    NSString *username = [keychainItem objectForKey:(__bridge id)(kSecAttrAccount)];
+    
+    NSLog(password);
+    NSLog(username);
+    
+    if(username.length!=0){
+        [self serverConfirmation:email password:password];
+    }
+}
+
+-(void) serverConfirmation:(NSString*)email password:(NSString*) password{
     [self alert:YES];
     self.responseData = [NSMutableData data];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[@"http://bluecanary.herokuapp.com/mobile/login" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     
+    self.email = email;
     
-    NSString *email = @"craetester@gmail.com";
-    NSString *password = @"craetester";
-    
-    NSDictionary *tmp = [[NSDictionary alloc] initWithObjectsAndKeys:
-                         email, @"email",
-                         password, @"password",
-                         nil];
+    NSDictionary *tmp = [[NSDictionary alloc] initWithObjectsAndKeys: email, @"email", password, @"password", nil];
     NSError *error;
     NSData *postdata = [NSJSONSerialization dataWithJSONObject:tmp options:0 error:&error];
     [request setHTTPBody:postdata];
@@ -49,14 +60,23 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection{
     [self alert:NO];
+    
     NSError *myError = nil;
     NSDictionary *data = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
+    NSString *response = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding];
+    //Getting the token
+    
     for (NSDictionary * key in data) {
         NSString *token = [key objectForKey:@"token"];
         //Declare the token in the global data class
         DataClass *obj=[DataClass getInstance];
         obj.str = token;
+        
+        KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BCLOGIN" accessGroup:nil];
+        [keychainItem setObject:self.email forKey:(__bridge id)(kSecValueData)];
+        [keychainItem setObject:token forKey:(__bridge id)(kSecAttrAccount)];
     }
+    
     [[self delegate] loginHTTPconnectionDidFinishLoading:data];
 }
 

@@ -13,7 +13,7 @@
 @end
 
 @implementation LoginViewController
-@synthesize loginHTTP;
+@synthesize loginHTTP,loginEmail,loginPassword;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +33,12 @@
     loginHTTP = [[LoginHTTPModel alloc] init];
     [loginHTTP controlSetup:1];
     loginHTTP.delegate = self;
+    
+    
+    
+
+    
+    
 }
 
 -(void)loadDesign{
@@ -42,7 +48,6 @@
     UIImage *imageToBeBlurred = [im blur:image];
     UIColor *background = [[UIColor alloc] initWithPatternImage:imageToBeBlurred];
     self.view.backgroundColor = background;
-    
 }
 
 //Set fonts
@@ -55,12 +60,12 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)didPressLogin:(id)sender {
-    [loginHTTP serverConfirmation];
+    NSString*email = loginEmail.text;
+    NSString*password = loginPassword.text;
+    [loginHTTP serverConfirmation:email password:password];
 }
 
 -(void) loginHTTPconnectionDidFinishLoading:(NSDictionary *)data{
-    
-    
     [self performSegueWithIdentifier:@"login2init" sender:nil];
 }
 

@@ -4,7 +4,6 @@
 //
 //  Created by Crae Sosa on 10/24/13.
 //
-//
 
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>

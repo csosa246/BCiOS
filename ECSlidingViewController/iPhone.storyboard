@@ -409,6 +409,8 @@
                     <navigationItem key="navigationItem" id="qfz-sj-7Jm"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="loginEmail" destination="9Ga-c6-Wzn" id="Lj9-dr-oq1"/>
+                        <outlet property="loginPassword" destination="9qO-UU-Eo9" id="S7U-HI-f4U"/>
                         <outlet property="uiLabelTitle" destination="j1D-56-ulR" id="aaj-xP-q8D"/>
                         <segue destination="H2v-Ob-DhD" kind="modal" identifier="login2init" id="Ltu-3i-l7D"/>
                     </connections>

@@ -34,9 +34,10 @@ int i;
     self.slidingViewController.underRightWidthLayout = ECVariableRevealWidth;
     
     //NOTE THAT THIS WILL DESTROY THE PERIPHERALS ABILITY TO BROADCAST
-    ble = [[BLE alloc] init];
-    [ble controlSetup:1];
-    ble.delegate = self;
+    
+//    ble = [[BLE alloc] init];
+//    [ble controlSetup:1];
+//    ble.delegate = self;
     
     //Initiatilizing the peripheral array
     peripheralDeviceArray = [[NSMutableArray alloc] init];

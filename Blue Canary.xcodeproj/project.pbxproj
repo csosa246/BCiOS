@@ -50,6 +50,7 @@
 		9B889E881813173500952C05 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B889E871813173500952C05 /* LoginViewController.m */; };
 		9BB3D02D1828519200E58670 /* LoginHTTPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB3D02C1828519200E58670 /* LoginHTTPModel.m */; };
 		9BB3D03318292D9000E58670 /* DataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB3D03218292D9000E58670 /* DataClass.m */; };
+		9BBC335418404EBE000280D8 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBC335318404EBE000280D8 /* KeychainItemWrapper.m */; };
 		9BD20F2D18138CCF006262AC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD20F2C18138CCF006262AC /* Security.framework */; };
 		9BEFE32B18186A2F007D5294 /* facebookbgimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEFE32A18186A2F007D5294 /* facebookbgimage.png */; };
 		9BFA62551810B760006D4D59 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BFA62541810B706006D4D59 /* Roboto-Light.ttf */; };
@@ -131,6 +132,8 @@
 		9BB3D02C1828519200E58670 /* LoginHTTPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginHTTPModel.m; sourceTree = "<group>"; };
 		9BB3D03118292D9000E58670 /* DataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataClass.h; sourceTree = "<group>"; };
 		9BB3D03218292D9000E58670 /* DataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataClass.m; sourceTree = "<group>"; };
+		9BBC335218404EBE000280D8 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		9BBC335318404EBE000280D8 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		9BD20F2C18138CCF006262AC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9BEFE32A18186A2F007D5294 /* facebookbgimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookbgimage.png; sourceTree = "<group>"; };
 		9BFA62541810B706006D4D59 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -233,20 +236,20 @@
 		2750E78A14CDB1CF007727A0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B889E861813173500952C05 /* LoginViewController.h */,
+				9B889E871813173500952C05 /* LoginViewController.m */,
+				2750E79214CDB93A007727A0 /* MenuViewController.h */,
+				2750E79314CDB93A007727A0 /* MenuViewController.m */,
 				9B7AE5641810A93A00E9B0AA /* ScanTopViewController.h */,
 				9B7AE5651810A93A00E9B0AA /* ScanTopViewController.m */,
+				27498DD314E96EEF005C043E /* SampleTableViewController.h */,
+				27498DD414E96EEF005C043E /* SampleTableViewController.m */,
+				2750E79E14CDBC32007727A0 /* SettingsViewController.h */,
+				2750E79F14CDBC32007727A0 /* SettingsViewController.m */,
 				2750E79514CDB959007727A0 /* FirstTopViewController.h */,
 				2750E79614CDB959007727A0 /* FirstTopViewController.m */,
 				27FC94DE14D0C14E0000B18C /* InitialSlidingViewController.h */,
 				27FC94DF14D0C14E0000B18C /* InitialSlidingViewController.m */,
-				2750E79214CDB93A007727A0 /* MenuViewController.h */,
-				2750E79314CDB93A007727A0 /* MenuViewController.m */,
-				2750E79E14CDBC32007727A0 /* SettingsViewController.h */,
-				2750E79F14CDBC32007727A0 /* SettingsViewController.m */,
-				9B889E861813173500952C05 /* LoginViewController.h */,
-				9B889E871813173500952C05 /* LoginViewController.m */,
-				27498DD314E96EEF005C043E /* SampleTableViewController.h */,
-				27498DD414E96EEF005C043E /* SampleTableViewController.m */,
 				9B23A394181427E90014E0B0 /* LinkedInAuthenticationViewController.h */,
 				9B23A395181427E90014E0B0 /* LinkedInAuthenticationViewController.m */,
 				9B74DE9C1812014B006545CA /* LinkedInProfileViewController.h */,
@@ -308,6 +311,8 @@
 				9BB3D03218292D9000E58670 /* DataClass.m */,
 				9B73B318182C636A006C58A2 /* LXCBPeripheralServer.h */,
 				9B73B319182C636A006C58A2 /* LXCBPeripheralServer.m */,
+				9BBC335218404EBE000280D8 /* KeychainItemWrapper.h */,
+				9BBC335318404EBE000280D8 /* KeychainItemWrapper.m */,
 			);
 			name = Models;
 			path = ..;
@@ -436,6 +441,7 @@
 				9BB3D02D1828519200E58670 /* LoginHTTPModel.m in Sources */,
 				9B74DE9E1812014B006545CA /* LinkedInProfileViewController.m in Sources */,
 				9B889E881813173500952C05 /* LoginViewController.m in Sources */,
+				9BBC335418404EBE000280D8 /* KeychainItemWrapper.m in Sources */,
 				9B73B31A182C636A006C58A2 /* LXCBPeripheralServer.m in Sources */,
 				2750E79A14CDB99A007727A0 /* SecondTopViewController.m in Sources */,
 				9B7AE5661810A93A00E9B0AA /* ScanTopViewController.m in Sources */,

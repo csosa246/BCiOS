@@ -9,6 +9,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DataClass.h"
+#import "KeychainItemWrapper.h"
 
 @protocol LoginHTTPDelegate
 -(void) loginHTTPconnectionDidFinishLoading:(NSDictionary *)data;
@@ -17,9 +18,14 @@
 @interface LoginHTTPModel : NSObject <NSURLConnectionDelegate>
 
 -(int) controlSetup:(int) s;
--(void) serverConfirmation;
+-(void) serverConfirmation:(NSString*)email password:(NSString*)password;
+-(void) keychainCheck;
+
 @property (strong,nonatomic) UIAlertView *alertScanningDevices;
 @property (nonatomic,assign) id <LoginHTTPDelegate> delegate;
 @property (strong,nonatomic) NSMutableData *responseData;
+
+@property (weak, nonatomic) NSString* email;
+@property (weak, nonatomic) NSString* password;
 
 @end

@@ -24,7 +24,6 @@
   if (NSClassFromString(@"CBPeripheralManager") == nil) {
     return NO;
   }
-
   // TODO: Make a check to see if the CBPeripheralManager is in unsupported state.
   return YES;
 }

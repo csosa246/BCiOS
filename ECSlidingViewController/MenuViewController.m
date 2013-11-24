@@ -61,6 +61,13 @@
     NSString *identifier = [self.menuItems objectAtIndex:indexPath.row];
     if([identifier isEqualToString:@"Logout"]){
         
+        KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
+        
+        [keychainItem resetKeychainItem];
+        
+        
+
+        
         [self.slidingViewController setNeedsStatusBarAppearanceUpdate];
         SampleTableViewController * vc = [[SampleTableViewController alloc]init];
         [vc removeViewController];
