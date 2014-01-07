@@ -6,14 +6,14 @@
 //  Copyright (c) 2012 EdgeCase. All rights reserved.
 //
 
-#import "SampleTableViewController.h"
+#import "ScanViewController.h"
 #import "LinkedInProfileViewController.h"
 
-@interface SampleTableViewController()
+@interface ScanViewController()
 @property (nonatomic, strong) NSArray *sampleItems;
 @end
 
-@implementation SampleTableViewController
+@implementation ScanViewController
 @synthesize sampleItems;
 
 @synthesize ble,responseData,alertScanningDevices,scanHttp,refresh;
@@ -58,23 +58,14 @@ NSString *uuidToLoad;
     NSMutableString *uuids = [NSMutableString string];
     for (int i = 0; i < peripherals.count; i++){
         Peripheral *p = [peripherals objectAtIndex:i];
-        
         NSString *manufacturerData = [p manufacturerData];
         NSLog(@"Coming from the BLE model:");
         NSLog(manufacturerData);
-        
-//        CBPeripheral *p = [peripherals objectAtIndex:i];
-//        if (p.UUID != NULL){
-//            CFStringRef s = CFUUIDCreateString(NULL, p.UUID);
-//            NSString *uuidFormatted = (__bridge NSString *)s;
-//            //NSLog(uuidFormatted);
-//            [uuids appendString:[NSString stringWithFormat:@"%@",uuidFormatted]];
-//            [uuids appendString:[NSString stringWithFormat:@"%@",@","]];
-//        }
     }
     
+    NSString *uuidsToLoad = @"FC01C226-0EF5-8F59-75C6-1E3CCCFBCA01-ED";
 //    NSString *uuidsToLoad = [uuids substringToIndex:[uuids length]-1];
-//    [scanHttp serverConfirmation:uuidsToLoad];
+    [scanHttp serverConfirmation:uuidsToLoad];
 }
 
 -(void) bleDidReceivePeripheralAdvertisementData:(NSNumber *)rssi uuid:(NSString *)uuid{}

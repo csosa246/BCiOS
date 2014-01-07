@@ -3,8 +3,6 @@
 //  ECSlidingViewController
 //
 //  Created by Crae Sosa on 10/17/13.
-//
-//
 
 #import "ScanTopViewController.h"
 
@@ -12,9 +10,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    // shadowPath, shadowOffset, and rotation is handled by ECSlidingViewController.
-    // You just need to set the opacity, radius, and color.
+    // shadowPath, shadowOffset
     self.view.layer.shadowOpacity = 0.50f;
     self.view.layer.shadowRadius = 5.0f;
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -26,9 +22,6 @@
     if (![self.slidingViewController.underRightViewController isKindOfClass:[SettingsViewController class]]) {
         self.slidingViewController.underRightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"UnderRight"];
     }
-    
-    
     [self.view addGestureRecognizer:self.slidingViewController.panGesture];
 }
-
 @end

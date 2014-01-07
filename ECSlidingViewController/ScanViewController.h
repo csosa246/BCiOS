@@ -21,7 +21,7 @@
 @end
 
 
-@interface SampleTableViewController : UITableViewController <UITableViewDataSource,BLEDelegate,ScanHTTPDelegate>{
+@interface ScanViewController : UITableViewController <UITableViewDataSource,BLEDelegate,ScanHTTPDelegate>{
 }
 
 

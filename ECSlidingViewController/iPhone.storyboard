@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BMu-Kv-L88">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="H2v-Ob-DhD">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -110,10 +110,10 @@
             </objects>
             <point key="canvasLocation" x="216" y="-2580"/>
         </scene>
-        <!--Sample Table View Controller - Blue Canary-->
+        <!--Scan View Controller - Blue Canary-->
         <scene sceneID="Yq6-PB-2Ba">
             <objects>
-                <tableViewController id="IJx-7N-r3m" customClass="SampleTableViewController" sceneMemberID="viewController">
+                <tableViewController id="IJx-7N-r3m" customClass="ScanViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="l96-ys-R5e">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -377,7 +377,7 @@
                                 <rect key="frame" x="12" y="67" width="296" height="45"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.86775453629999999" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                 <color key="textColor" red="0.062658388790000005" green="0.45157049630000001" blue="0.56610903530000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -411,7 +411,7 @@
                     <connections>
                         <outlet property="loginEmail" destination="9Ga-c6-Wzn" id="Lj9-dr-oq1"/>
                         <outlet property="loginPassword" destination="9qO-UU-Eo9" id="S7U-HI-f4U"/>
-                        <outlet property="uiLabelTitle" destination="j1D-56-ulR" id="aaj-xP-q8D"/>
+                        <outlet property="uiLabelTitle" destination="j1D-56-ulR" id="sVZ-1V-Ofe"/>
                         <segue destination="H2v-Ob-DhD" kind="modal" identifier="login2init" id="Ltu-3i-l7D"/>
                     </connections>
                 </viewController>
@@ -514,7 +514,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bsf-Db-40h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1162" y="-241"/>
+            <point key="canvasLocation" x="896" y="-233"/>
         </scene>
         <!--View Controller - Social Networks-->
         <scene sceneID="awd-CA-JFP">
@@ -709,7 +709,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crae Sosa" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTM-dc-M0q">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edwin Mak" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTM-dc-M0q">
                                         <rect key="frame" x="153" y="8" width="108" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -736,7 +736,7 @@
                                             <action selector="didPressSignup:" destination="vwe-da-WyF" eventType="touchUpInside" id="3YR-9a-jhd"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="prof.png" translatesAutoresizingMaskIntoConstraints="NO" id="AyP-Al-u0k">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="edwin.png" translatesAutoresizingMaskIntoConstraints="NO" id="AyP-Al-u0k">
                                         <rect key="frame" x="36" y="15" width="78" height="77"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -884,13 +884,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="edwin.png" width="200" height="200"/>
         <image name="facebook-icon.png" width="960" height="960"/>
         <image name="gear.png" width="30" height="30"/>
         <image name="icon.png" width="57" height="57"/>
         <image name="info.png" width="30" height="30"/>
         <image name="linkedin-icon.png" width="1024" height="1024"/>
         <image name="man.png" width="30" height="30"/>
-        <image name="prof.png" width="80" height="80"/>
         <image name="text-left.png" width="30" height="30"/>
     </resources>
     <color key="tintColor" red="0.049932151869999997" green="0.35985423560000002" blue="0.45112941579999999" alpha="1" colorSpace="calibratedRGB"/>

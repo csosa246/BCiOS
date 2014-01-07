@@ -25,11 +25,10 @@
     
     [super viewDidLoad];
     
-    NSString *fullURL = @"http://www.linkedin.com/in/haythamelhawary";
+    NSString *fullURL = @"http://www.linkedin.com/pub/crae-sosa/69/7a6/607";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [webView loadRequest:requestObj];
-    
     
     //Loading dialog
     alert = [[UIAlertView alloc] initWithTitle:@"Loading..." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];

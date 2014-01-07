@@ -25,15 +25,23 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    NSLog(@"LOADING VIEW");
     loadedPage = 0;
 
     webView.delegate = self;
     
-    DataClass *obj=[DataClass getInstance];
+//    DataClass *obj=[DataClass getInstance];
+    
+    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLogin" accessGroup:nil];
+    
     NSString *baseUrl = @"http://bluecanary.herokuapp.com/linkedin/authorize?email=";
     NSString *email = @"craetester@gmail.com";
     NSString *remember = @"&remeber=";
-    NSString *token = obj.str;
+//    NSString *token = obj.str;
+    
+    NSString *token = [keychainItem objectForKey:(__bridge id)(kSecAttrAccount)];
+    
     NSArray *myStrings = [[NSArray alloc] initWithObjects:baseUrl, email, remember, token, nil];
     NSString *fullURL = [myStrings componentsJoinedByString:@""];
     

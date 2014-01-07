@@ -79,7 +79,6 @@ int i;
 - (void)topDidReset:(NSNotification *)notification{
     //Not so sure about whats going on here....
     NSLog(@"top did reset");
-    
     editStateEnabled = YES;
     [self didClickEdit:nil];
 }

@@ -31,11 +31,11 @@
 
 -(void) loadDesign{
     //Background
-    UIImage *image = [UIImage imageNamed:@"still2.png"];
-    DesignLibaryModel *im = [[DesignLibaryModel alloc] init];
-    UIImage *imageToBeBlurred = [im blur:image];
-    UIColor *background = [[UIColor alloc] initWithPatternImage:imageToBeBlurred];
-    self.view.backgroundColor = background;
+    UIImage *backgroundImage = [UIImage imageNamed:@"still2.png"];
+    DesignLibaryModel *designLibrary = [[DesignLibaryModel alloc] init];
+    UIImage *imageToBeBlurred = [designLibrary blur:backgroundImage];
+    UIColor *backgroundColor = [[UIColor alloc] initWithPatternImage:imageToBeBlurred];
+    self.view.backgroundColor = backgroundColor;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex{
@@ -61,15 +61,11 @@
     NSString *identifier = [self.menuItems objectAtIndex:indexPath.row];
     if([identifier isEqualToString:@"Logout"]){
         
-        KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
-        
+        KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLogin" accessGroup:nil];
         [keychainItem resetKeychainItem];
         
-        
-
-        
         [self.slidingViewController setNeedsStatusBarAppearanceUpdate];
-        SampleTableViewController * vc = [[SampleTableViewController alloc]init];
+        ScanViewController * vc = [[ScanViewController alloc]init];
         [vc removeViewController];
         
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -77,6 +73,7 @@
     }else{
         [self viewToLoad:identifier];
     }
+    
 
 }
 

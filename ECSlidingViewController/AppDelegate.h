@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ECSlidingViewController.h"
-#import "SampleTableViewController.h"
+#import "ScanViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

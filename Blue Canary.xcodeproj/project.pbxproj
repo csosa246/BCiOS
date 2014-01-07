@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		05EA26FE17F12A4200E6F107 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05EA26FD17F12A4200E6F107 /* Images.xcassets */; };
 		27407EEC14D8787E0035FD7F /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27407EEB14D8787E0035FD7F /* iPad.storyboard */; };
-		27498DD514E96EEF005C043E /* SampleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27498DD414E96EEF005C043E /* SampleTableViewController.m */; };
+		27498DD514E96EEF005C043E /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27498DD414E96EEF005C043E /* ScanViewController.m */; };
 		2750E77114CDB0DF007727A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2750E77014CDB0DF007727A0 /* UIKit.framework */; };
 		2750E77314CDB0DF007727A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2750E77214CDB0DF007727A0 /* Foundation.framework */; };
 		2750E77514CDB0DF007727A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2750E77414CDB0DF007727A0 /* CoreGraphics.framework */; };
@@ -43,6 +43,7 @@
 		9B74DEA718121CE4006545CA /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B74DEA618121CE4006545CA /* search.png */; };
 		9B74DEA918121DEB006545CA /* facebook-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B74DEA818121DEB006545CA /* facebook-icon.png */; };
 		9B74DEAB18121E5B006545CA /* linkedin-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B74DEAA18121E5B006545CA /* linkedin-icon.png */; };
+		9B79C276185BFE500050B01C /* edwin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B79C275185BFE500050B01C /* edwin.png */; };
 		9B7AE55E1810839900E9B0AA /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AE55C1810839900E9B0AA /* BLE.m */; };
 		9B7AE5601810A73500E9B0AA /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B7AE55F1810A73500E9B0AA /* CoreBluetooth.framework */; };
 		9B7AE5661810A93A00E9B0AA /* ScanTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AE5651810A93A00E9B0AA /* ScanTopViewController.m */; };
@@ -64,8 +65,8 @@
 /* Begin PBXFileReference section */
 		05EA26FD17F12A4200E6F107 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		27407EEB14D8787E0035FD7F /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
-		27498DD314E96EEF005C043E /* SampleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleTableViewController.h; sourceTree = "<group>"; };
-		27498DD414E96EEF005C043E /* SampleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleTableViewController.m; sourceTree = "<group>"; };
+		27498DD314E96EEF005C043E /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		27498DD414E96EEF005C043E /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		2750E76C14CDB0DF007727A0 /* Blue Canary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blue Canary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2750E77014CDB0DF007727A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2750E77214CDB0DF007727A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -118,6 +119,7 @@
 		9B74DEA618121CE4006545CA /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		9B74DEA818121DEB006545CA /* facebook-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon.png"; sourceTree = "<group>"; };
 		9B74DEAA18121E5B006545CA /* linkedin-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linkedin-icon.png"; sourceTree = "<group>"; };
+		9B79C275185BFE500050B01C /* edwin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edwin.png; sourceTree = "<group>"; };
 		9B7AE55B1810839900E9B0AA /* BLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLE.h; sourceTree = "<group>"; };
 		9B7AE55C1810839900E9B0AA /* BLE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLE.m; sourceTree = "<group>"; };
 		9B7AE55D1810839900E9B0AA /* BLEDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEDefines.h; sourceTree = "<group>"; };
@@ -242,8 +244,8 @@
 				2750E79314CDB93A007727A0 /* MenuViewController.m */,
 				9B7AE5641810A93A00E9B0AA /* ScanTopViewController.h */,
 				9B7AE5651810A93A00E9B0AA /* ScanTopViewController.m */,
-				27498DD314E96EEF005C043E /* SampleTableViewController.h */,
-				27498DD414E96EEF005C043E /* SampleTableViewController.m */,
+				27498DD314E96EEF005C043E /* ScanViewController.h */,
+				27498DD414E96EEF005C043E /* ScanViewController.m */,
 				2750E79E14CDBC32007727A0 /* SettingsViewController.h */,
 				2750E79F14CDBC32007727A0 /* SettingsViewController.m */,
 				2750E79514CDB959007727A0 /* FirstTopViewController.h */,
@@ -336,6 +338,7 @@
 				9B74DEA618121CE4006545CA /* search.png */,
 				9B74DEA818121DEB006545CA /* facebook-icon.png */,
 				9BEFE32A18186A2F007D5294 /* facebookbgimage.png */,
+				9B79C275185BFE500050B01C /* edwin.png */,
 				9B2F2EDE181770980054631F /* facebookbg.png */,
 				9B74DE9A18116428006545CA /* text-left.png */,
 				9B59570D1810E86C00802BDC /* still2.png */,
@@ -409,6 +412,7 @@
 				9B59570E1810E86C00802BDC /* still2.png in Resources */,
 				2750E77B14CDB0DF007727A0 /* InfoPlist.strings in Resources */,
 				05EA26FE17F12A4200E6F107 /* Images.xcassets in Resources */,
+				9B79C276185BFE500050B01C /* edwin.png in Resources */,
 				9B74DE9B18116428006545CA /* text-left.png in Resources */,
 				9B2F2EDD1817707A0054631F /* linkedinbg.png in Resources */,
 				9BEFE32B18186A2F007D5294 /* facebookbgimage.png in Resources */,
@@ -451,7 +455,7 @@
 				2750E7AE14CF1306007727A0 /* ECSlidingViewController.m in Sources */,
 				9B23A396181427E90014E0B0 /* LinkedInAuthenticationViewController.m in Sources */,
 				27FC94E014D0C14E0000B18C /* InitialSlidingViewController.m in Sources */,
-				27498DD514E96EEF005C043E /* SampleTableViewController.m in Sources */,
+				27498DD514E96EEF005C043E /* ScanViewController.m in Sources */,
 				9B48255A18198C26003B875D /* Peripheral.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

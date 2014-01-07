@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DataClass.h"
+#import "KeychainItemWrapper.h"
 
 @interface LinkedInAuthenticationViewController : UIViewController<UIWebViewDelegate>{
     int loadedPage;

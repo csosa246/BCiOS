@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "DesignLibaryModel.h"
-
 #import "LoginHTTPModel.h"
 
 @interface LoginViewController : UIViewController <LoginHTTPDelegate>{
