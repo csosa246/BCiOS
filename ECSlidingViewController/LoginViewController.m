@@ -49,8 +49,10 @@
 
     if(username.length!=0){
         credentialsDoExist = TRUE;
-        //Go directly to login using those credentials
+        NSLog(@"Credentials exist");
+//        [self performSegueWithIdentifier:@"login2initial" sender:nil];
         [self performSegueWithIdentifier:@"login2initial" sender:nil];
+
     }else{
         credentialsDoExist = FALSE;
         NSLog(@"credentials do not exist");
