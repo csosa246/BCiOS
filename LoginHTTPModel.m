@@ -15,21 +15,21 @@
     return 0;
 }
 
--(void) keychainCheck{
-    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLogin" accessGroup:nil];
-    NSString *username = [keychainItem objectForKey:(__bridge id)(kSecValueData)];
-    NSString *token = [keychainItem objectForKey:(__bridge id)(kSecAttrAccount)];
-    
-    NSLog(username);
-    NSLog(token);
-    
-    if(username.length!=0){
-        credentialsDoExist = TRUE;
-        [self serverConfirmation:username password:nil token:token];
-    }else{
-        credentialsDoExist = FALSE;
-    }
-}
+//-(void) keychainCheck{
+//    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLogin" accessGroup:nil];
+//    NSString *username = [keychainItem objectForKey:(__bridge id)(kSecValueData)];
+//    NSString *token = [keychainItem objectForKey:(__bridge id)(kSecAttrAccount)];
+//    
+//    NSLog(username);
+//    NSLog(token);
+//    
+//    if(username.length!=0){
+//        credentialsDoExist = TRUE;
+//        [self serverConfirmation:username password:nil token:token];
+//    }else{
+//        credentialsDoExist = FALSE;
+//    }
+//}
 
 -(void) serverConfirmation:(NSString*)email password:(NSString*) password token:(NSString*)token{
     [self alert:YES];
