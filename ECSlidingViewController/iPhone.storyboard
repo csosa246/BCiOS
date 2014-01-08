@@ -280,7 +280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BIB-pv-C48" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-252" y="-2216"/>
+            <point key="canvasLocation" x="-252" y="-2580"/>
         </scene>
         <!--Scan Top View Controller - Nearby-->
         <scene sceneID="wah-72-pmY">
@@ -384,13 +384,13 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="uiLabelTitle" destination="j1D-56-ulR" id="sVZ-1V-Ofe"/>
-                        <segue destination="H2v-Ob-DhD" kind="modal" identifier="login2init" id="Ltu-3i-l7D"/>
+                        <segue destination="H2v-Ob-DhD" kind="modal" identifier="login2initial" id="Ltu-3i-l7D"/>
                         <segue destination="Qij-yO-amf" kind="modal" identifier="splash2linkedinlogin" id="0ah-Ge-O5a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BjD-Z6-2kJ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1849" y="-2326"/>
+            <point key="canvasLocation" x="-845" y="-2562"/>
         </scene>
         <!--Login Linked In View Controller-->
         <scene sceneID="Gtm-dh-qNM">
@@ -418,7 +418,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HF9-Mg-Pqu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1285" y="-1619"/>
+            <point key="canvasLocation" x="-269" y="-1934"/>
         </scene>
         <!--Sign Up View Controller - Sign Up-->
         <scene sceneID="oql-pN-ZZZ">

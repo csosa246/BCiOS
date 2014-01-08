@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "DesignLibaryModel.h"
 //#import "LoginHTTPModel.h"
+#import "KeychainItemWrapper.h"
+
 
 @interface LoginViewController : UIViewController{
     IBOutlet UILabel *uiLabelTitle;
+    
+    BOOL credentialsDoExist;
 }
 //@property (weak, nonatomic) IBOutlet UITextField *loginEmail;
 //@property (weak, nonatomic) IBOutlet UITextField *loginPassword;

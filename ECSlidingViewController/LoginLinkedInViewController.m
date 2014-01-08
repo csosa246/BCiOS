@@ -4,9 +4,9 @@
 //
 //  Created by Crae Sosa on 1/8/14.
 //
-//
 
 #import "LoginLinkedInViewController.h"
+#import "KeychainItemWrapper.h"
 
 @interface LoginLinkedInViewController ()
 
@@ -30,11 +30,12 @@
     loadedPage = 0;
     webView.delegate = self;
     
-    //    DataClass *obj=[DataClass getInstance];
-//    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLogin" accessGroup:nil];
-    
-    //    NSString *token = obj.str;
-//    NSString *token = [keychainItem objectForKey:(__bridge id)(kSecAttrAccount)];
+//    //    DataClass *obj=[DataClass getInstance];
+//    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLinkedInLogin" accessGroup:nil];
+//    
+//    
+//    NSString *username
+//    NSString *bid = [keychainItem objectForKey:(__bridge id)(kSecAttrAccount)];
     
     NSString *urlText = @"https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=ul2re6tij2go&state=STATE&redirect_uri=https://bluecanaryalpha.herokuapp.com/linkedin_redirect";
     
@@ -50,10 +51,21 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     loadedPage++;
     if(loadedPage==2){
-        [self dismissViewControllerAnimated:YES completion:nil];
+        
+        NSString *currentURL = webView.request.URL.absoluteString;
+//        NSLog(currentURL);
+        
+        if([currentURL rangeOfString:@"error=access_denied"].location != NSNotFound){
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }else{
+            NSString *bid = [currentURL substringFromIndex: [currentURL length] - 1];
+            KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLinkedInLogin" accessGroup:nil];
+            [keychainItem setObject:@"user" forKey:(__bridge id)(kSecValueData)];
+            [keychainItem setObject:bid forKey:(__bridge id)(kSecAttrAccount)];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
     }
-    NSString *currentURL = webView.request.URL.absoluteString;
-    NSLog(currentURL);
 }
 
 - (void)didReceiveMemoryWarning{

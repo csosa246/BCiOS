@@ -38,7 +38,6 @@
     NSString *baseUrl = @"http://bluecanary.herokuapp.com/linkedin/authorize?email=";
     NSString *email = @"craetester@gmail.com";
     NSString *remember = @"&remeber=";
-//    NSString *token = obj.str;
     
     NSString *token = [keychainItem objectForKey:(__bridge id)(kSecAttrAccount)];
     
