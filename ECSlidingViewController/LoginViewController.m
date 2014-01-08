@@ -40,8 +40,24 @@
 - (IBAction)didPressLogin:(id)sender {
 //    [loginHTTP serverConfirmation:loginEmail.text password:loginPassword.text token:nil];
     [self performSegueWithIdentifier:@"splash2linkedinlogin" sender:nil];
-//    NSLog(@"LOGGING IN ");
     
+}
+
+
+-(void) keychainCheck{
+    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLinkedInLogin" accessGroup:nil];
+    NSString *username = [keychainItem objectForKey:(__bridge id)(kSecValueData)];
+    NSString *token = [keychainItem objectForKey:(__bridge id)(kSecAttrAccount)];
+
+    NSLog(username);
+    NSLog(token);
+
+    if(username.length!=0){
+        credentialsDoExist = TRUE;
+        [self serverConfirmation:username password:nil token:token];
+    }else{
+        credentialsDoExist = FALSE;
+    }
 }
 
 //-(void) loginHTTPconnectionDidFinishLoading:(NSDictionary *)data{

@@ -44,7 +44,7 @@
 }
 
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
-    
+    NSLog(@"Webview failed");
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
@@ -59,5 +59,7 @@
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
+
+
 
 @end

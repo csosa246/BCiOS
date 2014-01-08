@@ -80,7 +80,7 @@
 //            //Declare the token in the global data class
 //            DataClass *obj=[DataClass getInstance];
 //            obj.str = token;
-            KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLogin" accessGroup:nil];
+            KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLinkedinLogin" accessGroup:nil];
             [keychainItem setObject:@"craetester@gmail.com" forKey:(__bridge id)(kSecValueData)];
             [keychainItem setObject:token forKey:(__bridge id)(kSecAttrAccount)];
         }
