@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "DesignLibaryModel.h"
-#import "LoginHTTPModel.h"
+//#import "LoginHTTPModel.h"
 
-@interface LoginViewController : UIViewController <LoginHTTPDelegate>{
+@interface LoginViewController : UIViewController{
     IBOutlet UILabel *uiLabelTitle;
 }
-@property (weak, nonatomic) IBOutlet UITextField *loginEmail;
-@property (weak, nonatomic) IBOutlet UITextField *loginPassword;
+//@property (weak, nonatomic) IBOutlet UITextField *loginEmail;
+//@property (weak, nonatomic) IBOutlet UITextField *loginPassword;
 
-@property (strong, nonatomic) LoginHTTPModel *loginHTTP;
+//@property (strong, nonatomic) LoginHTTPModel *loginHTTP;
 - (IBAction)didPressLogin:(id)sender;
 
 @end

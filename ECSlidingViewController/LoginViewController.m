@@ -7,23 +7,22 @@
 @end
 
 @implementation LoginViewController
-@synthesize loginHTTP,loginEmail,loginPassword;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
     //Configuring security
-    [self willSetupSecurity];
+//    [self willSetupSecurity];
     //Loading design
     [self willSetupDesign];
     
-    loginHTTP = [[LoginHTTPModel alloc] init];
-    [loginHTTP controlSetup:1];
-    loginHTTP.delegate = self;
+//    loginHTTP = [[LoginHTTPModel alloc] init];
+//    [loginHTTP controlSetup:1];
+//    loginHTTP.delegate = self;
 }
 
-- (void) willSetupSecurity{
-    loginPassword.secureTextEntry = TRUE;
-}
+//- (void) willSetupSecurity{
+//    loginPassword.secureTextEntry = TRUE;
+//}
 
 -(void) willSetupDesign{
     UIImage *backgroundImage = [UIImage imageNamed:@"still2.png"];
@@ -39,11 +38,14 @@
 }
 
 - (IBAction)didPressLogin:(id)sender {
-    [loginHTTP serverConfirmation:loginEmail.text password:loginPassword.text token:nil];
+//    [loginHTTP serverConfirmation:loginEmail.text password:loginPassword.text token:nil];
+    [self performSegueWithIdentifier:@"splash2linkedinlogin" sender:nil];
+//    NSLog(@"LOGGING IN ");
+    
 }
 
--(void) loginHTTPconnectionDidFinishLoading:(NSDictionary *)data{
-    [self performSegueWithIdentifier:@"login2init" sender:nil];
-}
+//-(void) loginHTTPconnectionDidFinishLoading:(NSDictionary *)data{
+//    [self performSegueWithIdentifier:@"login2init" sender:nil];
+//}
 
 @end

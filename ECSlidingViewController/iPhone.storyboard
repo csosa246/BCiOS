@@ -385,55 +385,40 @@
                     <connections>
                         <outlet property="uiLabelTitle" destination="j1D-56-ulR" id="sVZ-1V-Ofe"/>
                         <segue destination="H2v-Ob-DhD" kind="modal" identifier="login2init" id="Ltu-3i-l7D"/>
-                        <segue destination="Qij-yO-amf" kind="push" identifier="login2linkedinlogin" id="0ah-Ge-O5a"/>
+                        <segue destination="Qij-yO-amf" kind="modal" identifier="splash2linkedinlogin" id="0ah-Ge-O5a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BjD-Z6-2kJ" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1849" y="-2326"/>
         </scene>
-        <!--View Controller-->
+        <!--Login Linked In View Controller-->
         <scene sceneID="Gtm-dh-qNM">
             <objects>
-                <viewController id="Qij-yO-amf" sceneMemberID="viewController">
+                <viewController id="Qij-yO-amf" customClass="LoginLinkedInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oV6-fX-QUy"/>
                         <viewControllerLayoutGuide type="bottom" id="3ay-Qq-4no"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nBV-nc-8bn">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3h-Xe-KvN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="B3h-Xe-KvN" id="EH3-9e-5Hv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HF9-Mg-Pqu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1285" y="-1619"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="KhK-S6-hK3">
-            <objects>
-                <viewController id="YQE-P8-NUp" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UKn-5t-RGw"/>
-                        <viewControllerLayoutGuide type="bottom" id="SaN-1H-K6W"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="io7-on-fQi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rEP-dK-lNH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-833" y="-1619"/>
         </scene>
         <!--Sign Up View Controller - Sign Up-->
         <scene sceneID="oql-pN-ZZZ">
