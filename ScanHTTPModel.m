@@ -44,12 +44,8 @@
     NSDictionary *data = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
     
     NSString *response = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
-    
-    
-//    NSString *parsed = [response stringByReplacingOccurrencesOfString:@"\\" withString:@""];
-
     NSLog(response);
-//    [[self delegate] scanHTTPconnectionDidFinishLoading:data];
+    [[self delegate] scanHTTPconnectionDidFinishLoading:data];
 }
 
 @end

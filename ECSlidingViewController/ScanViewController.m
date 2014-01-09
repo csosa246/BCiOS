@@ -126,38 +126,40 @@ NSString *uuidToLoad;
         
         NSMutableString *firstName = [NSMutableString string];
         [firstName appendString: key];
-        [firstName appendString: @".firstName"];
+//        [firstName appendString: @".firstName"];
         
-        NSMutableString *lastName = [NSMutableString string];
-        [lastName appendString: key];
-        [lastName appendString: @".lastName"];
+        NSLog(firstName);
         
-        NSMutableString *imageUrl = [NSMutableString string];
-        [imageUrl appendString: key];
-        [imageUrl appendString: @".pictureUrl"];
-        
-        NSMutableString *headline = [NSMutableString string];
-        [headline appendString:key];
-        [headline appendString:@".headline"];
-        
-        NSMutableString *name = [NSMutableString string];
-        
-        NSString *firstNameData = [data valueForKeyPath:firstName];
-        NSString *lastNameData = [data valueForKeyPath:lastName];
-        
-        [name appendString:firstNameData];
-        [name appendString:@" "];
-        [name appendString:lastNameData];
-        
-        NSString *imageUrlData = [data valueForKeyPath:imageUrl];
-        NSString *headlineData = [data valueForKeyPath:headline];
-        
-        bleDevice = [[BLEDevice alloc] init];
-        [bleDevice setName:name];
-        [bleDevice setHeadline:headlineData];
-        [bleDevice setImageUrl:imageUrlData];
-        [bleDevice setUuid:key];
-        [peripheralArray addObject:bleDevice];
+//        NSMutableString *lastName = [NSMutableString string];
+//        [lastName appendString: key];
+//        [lastName appendString: @".lastName"];
+//        
+//        NSMutableString *imageUrl = [NSMutableString string];
+//        [imageUrl appendString: key];
+//        [imageUrl appendString: @".pictureURl"];
+//        
+//        NSMutableString *headline = [NSMutableString string];
+//        [headline appendString:key];
+//        [headline appendString:@".headline"];
+//        
+//        NSMutableString *name = [NSMutableString string];
+//        
+//        NSString *firstNameData = [data valueForKeyPath:firstName];
+//        NSString *lastNameData = [data valueForKeyPath:lastName];
+//        
+//        [name appendString:firstNameData];
+//        [name appendString:@" "];
+//        [name appendString:lastNameData];
+//        
+//        NSString *imageUrlData = [data valueForKeyPath:imageUrl];
+//        NSString *headlineData = [data valueForKeyPath:headline];
+//        
+//        bleDevice = [[BLEDevice alloc] init];
+//        [bleDevice setName:name];
+//        [bleDevice setHeadline:headlineData];
+//        [bleDevice setImageUrl:imageUrlData];
+//        [bleDevice setUuid:key];
+//        [peripheralArray addObject:bleDevice];
     }
     [self.tableView reloadData];
     [self alert:NO];
