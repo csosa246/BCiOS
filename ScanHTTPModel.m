@@ -42,9 +42,13 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSError *myError = nil;
     NSDictionary *data = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
-    NSString *response = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding];
+    
+    NSString *response = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
+    
+    
 //    NSString *parsed = [response stringByReplacingOccurrencesOfString:@"\\" withString:@""];
-//    NSLog(parsed);
+
+    NSLog(response);
 //    [[self delegate] scanHTTPconnectionDidFinishLoading:data];
 }
 
