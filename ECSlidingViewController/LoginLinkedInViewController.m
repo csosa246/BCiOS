@@ -21,13 +21,6 @@
     loadedPage = 0;
     webView.delegate = self;
     
-//    //    DataClass *obj=[DataClass getInstance];
-//    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLinkedInLogin" accessGroup:nil];
-//    
-//    
-//    NSString *username
-//    NSString *bid = [keychainItem objectForKey:(__bridge id)(kSecAttrAccount)];
-    
     NSString *urlText = @"https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=ul2re6tij2go&state=STATE&redirect_uri=https://bluecanaryalpha.herokuapp.com/linkedin_redirect";
     
     NSURL *url = [NSURL URLWithString:urlText];
@@ -65,4 +58,8 @@
 
 
 
+- (IBAction)buttonBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+}
 @end

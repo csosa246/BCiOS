@@ -209,6 +209,7 @@
 			children = (
 				2750E78714CDB114007727A0 /* iPhone.storyboard */,
 				27407EEB14D8787E0035FD7F /* iPad.storyboard */,
+				9B4BB412187EE1B200005815 /* UnusedFiles */,
 				9B4BB40E187E4BA500005815 /* Adapters */,
 				2750E78A14CDB1CF007727A0 /* ViewControllers */,
 				9B4CA2EF1822945600D770FC /* SignUpViewControllers */,
@@ -257,18 +258,12 @@
 				27498DD414E96EEF005C043E /* ScanViewController.m */,
 				2750E79E14CDBC32007727A0 /* SettingsViewController.h */,
 				2750E79F14CDBC32007727A0 /* SettingsViewController.m */,
-				2750E79514CDB959007727A0 /* FirstTopViewController.h */,
-				2750E79614CDB959007727A0 /* FirstTopViewController.m */,
 				27FC94DE14D0C14E0000B18C /* InitialSlidingViewController.h */,
 				27FC94DF14D0C14E0000B18C /* InitialSlidingViewController.m */,
 				9B23A394181427E90014E0B0 /* LinkedInAuthenticationViewController.h */,
 				9B23A395181427E90014E0B0 /* LinkedInAuthenticationViewController.m */,
 				9B74DE9C1812014B006545CA /* LinkedInProfileViewController.h */,
 				9B74DE9D1812014B006545CA /* LinkedInProfileViewController.m */,
-				2750E79814CDB99A007727A0 /* SecondTopViewController.h */,
-				2750E79914CDB99A007727A0 /* SecondTopViewController.m */,
-				2750E79B14CDBA48007727A0 /* ThirdTopViewController.h */,
-				2750E79C14CDBA48007727A0 /* ThirdTopViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -291,6 +286,19 @@
 			);
 			name = Adapters;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		9B4BB412187EE1B200005815 /* UnusedFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2750E79814CDB99A007727A0 /* SecondTopViewController.h */,
+				2750E79914CDB99A007727A0 /* SecondTopViewController.m */,
+				2750E79B14CDBA48007727A0 /* ThirdTopViewController.h */,
+				2750E79C14CDBA48007727A0 /* ThirdTopViewController.m */,
+				2750E79514CDB959007727A0 /* FirstTopViewController.h */,
+				2750E79614CDB959007727A0 /* FirstTopViewController.m */,
+			);
+			name = UnusedFiles;
 			sourceTree = "<group>";
 		};
 		9B4CA2EF1822945600D770FC /* SignUpViewControllers */ = {

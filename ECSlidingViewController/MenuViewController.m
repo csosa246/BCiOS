@@ -61,7 +61,7 @@
     NSString *identifier = [self.menuItems objectAtIndex:indexPath.row];
     if([identifier isEqualToString:@"Logout"]){
         
-        KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLogin" accessGroup:nil];
+        KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLinkedInLogin" accessGroup:nil];
         [keychainItem resetKeychainItem];
         
         [self.slidingViewController setNeedsStatusBarAppearanceUpdate];
