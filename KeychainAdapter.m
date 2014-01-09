@@ -26,4 +26,11 @@
     }
 }
 
+-(void) setKeyChain:(NSString*) bid{
+    NSLog(@"is this even being called");
+    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLinkedInLogin" accessGroup:nil];
+    [keychainItem setObject:@"user" forKey:(__bridge id)(kSecValueData)];
+    [keychainItem setObject:bid forKey:(__bridge id)(kSecAttrAccount)];
+}
+
 @end

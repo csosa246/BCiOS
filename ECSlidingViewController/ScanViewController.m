@@ -48,24 +48,24 @@ NSString *uuidToLoad;
 }
 
 - (void) bleDidReceivePeripherals:(NSMutableArray *)peripherals{
-    if([peripherals count]==0){
-        peripheralArray = [[NSMutableArray alloc] init];
-        [self alert:NO];
-        [self.tableView reloadData];
-        return;
-    }
+//    if([peripherals count]==0){
+//        peripheralArray = [[NSMutableArray alloc] init];
+//        [self alert:NO];
+//        [self.tableView reloadData];
+//        return;
+//    }
+//    
+//    NSMutableString *uuids = [NSMutableString string];
+//    for (int i = 0; i < peripherals.count; i++){
+//        Peripheral *p = [peripherals objectAtIndex:i];
+//        NSString *manufacturerData = [p manufacturerData];
+//        NSLog(@"Coming from the BLE model:");
+//        NSLog(manufacturerData);
+//    }
     
-    NSMutableString *uuids = [NSMutableString string];
-    for (int i = 0; i < peripherals.count; i++){
-        Peripheral *p = [peripherals objectAtIndex:i];
-        NSString *manufacturerData = [p manufacturerData];
-        NSLog(@"Coming from the BLE model:");
-        NSLog(manufacturerData);
-    }
-    
-    NSString *uuidsToLoad = @"FC01C226-0EF5-8F59-75C6-1E3CCCFBCA01-ED";
+//    NSString *uuidsToLoad = @"FC01C226-0EF5-8F59-75C6-1E3CCCFBCA01-ED";
 //    NSString *uuidsToLoad = [uuids substringToIndex:[uuids length]-1];
-    [scanHttp serverConfirmation:uuidsToLoad];
+    [scanHttp serverConfirmation:@"2" bid:@"2"];
 }
 
 -(void) bleDidReceivePeripheralAdvertisementData:(NSNumber *)rssi uuid:(NSString *)uuid{}

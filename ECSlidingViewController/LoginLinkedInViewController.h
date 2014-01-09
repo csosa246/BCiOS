@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KeychainAdapter.h"
 
 @interface LoginLinkedInViewController : UIViewController<UIWebViewDelegate>{
     int loadedPage;
 }
+
+@property(strong,nonatomic) KeychainAdapter *keychainAdapter;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 - (IBAction)buttonBack:(id)sender;

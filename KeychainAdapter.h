@@ -19,6 +19,7 @@
 
 //Methods
 -(int) controlSetup:(int) s;
+-(void) setKeyChain:(NSString*) bid;
 -(void) keychainCheck;
 
 @property (nonatomic,assign) id <KeychainAdapterDelegate> delegate;

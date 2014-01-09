@@ -13,14 +13,22 @@
 @end
 
 @implementation LoginLinkedInViewController
-@synthesize webView;
+@synthesize webView,keychainAdapter;
+
 
 - (void)viewDidLoad{
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     loadedPage = 0;
     webView.delegate = self;
-    
+    //Setting up the keychain
+    keychainAdapter = [[KeychainAdapter alloc] init];
+    [keychainAdapter controlSetup:1];
+    //Setting up the webview
+    [self willLoadWebView];
+}
+
+-(void) willLoadWebView{
     NSString *urlText = @"https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=ul2re6tij2go&state=STATE&redirect_uri=https://bluecanaryalpha.herokuapp.com/linkedin_redirect";
     
     NSURL *url = [NSURL URLWithString:urlText];
@@ -35,18 +43,13 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     loadedPage++;
     if(loadedPage==2){
-        
         NSString *currentURL = webView.request.URL.absoluteString;
-//        NSLog(currentURL);
-        
         if([currentURL rangeOfString:@"error=access_denied"].location != NSNotFound){
             [self dismissViewControllerAnimated:YES completion:nil];
         }else{
             NSString *bid = [currentURL substringFromIndex: [currentURL length] - 1];
-            KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLinkedInLogin" accessGroup:nil];
-            [keychainItem setObject:@"user" forKey:(__bridge id)(kSecValueData)];
-            [keychainItem setObject:bid forKey:(__bridge id)(kSecAttrAccount)];
-            
+
+            [keychainAdapter setKeyChain:bid];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }
@@ -56,10 +59,7 @@
     [super didReceiveMemoryWarning];
 }
 
-
-
 - (IBAction)buttonBack:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
-
 }
 @end
