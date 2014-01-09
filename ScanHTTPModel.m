@@ -45,7 +45,7 @@
     NSError *myError = nil;
     NSDictionary *data = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
     NSString *response = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding];
-    //NSLog(response);
+//    NSLog(response);
     [[self delegate] scanHTTPconnectionDidFinishLoading:data];
 }
 

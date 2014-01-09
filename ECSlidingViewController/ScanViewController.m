@@ -55,17 +55,26 @@ NSString *uuidToLoad;
         return;
     }
     
-    NSMutableString *uuids = [NSMutableString string];
+    NSMutableString *manufacturerDataArray = [NSMutableString string];
     for (int i = 0; i < peripherals.count; i++){
         Peripheral *p = [peripherals objectAtIndex:i];
         NSString *manufacturerData = [p manufacturerData];
-        NSLog(@"Coming from the BLE model:");
-        NSLog(manufacturerData);
+        [manufacturerDataArray appendString:manufacturerData];
+        
+        if(i!=peripherals.count-1){
+            [manufacturerDataArray appendString:@","];
+        }
+
+//        NSLog(@"Coming from the BLE model:");
+//        NSLog(manufacturerData);
     }
+    NSLog(manufacturerDataArray);
     
-    NSString *uuidsToLoad = @"FC01C226-0EF5-8F59-75C6-1E3CCCFBCA01-ED";
+//    NSString *uuidsToLoad = [uuids substringToIndex:[[p manufacturerData] length]-1]
+    
+//    NSString *uuidsToLoad = @"FC01C226-0EF5-8F59-75C6-1E3CCCFBCA01-ED";
 //    NSString *uuidsToLoad = [uuids substringToIndex:[uuids length]-1];
-    [scanHttp serverConfirmation:uuidsToLoad];
+    [scanHttp serverConfirmation:manufacturerDataArray];
 }
 
 -(void) bleDidReceivePeripheralAdvertisementData:(NSNumber *)rssi uuid:(NSString *)uuid{}
