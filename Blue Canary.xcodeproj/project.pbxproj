@@ -32,6 +32,7 @@
 		9B2F2EDF181770980054631F /* facebookbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B2F2EDE181770980054631F /* facebookbg.png */; };
 		9B48255A18198C26003B875D /* Peripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B48255918198C26003B875D /* Peripheral.m */; };
 		9B4BB40D187D8BC600005815 /* LoginLinkedInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BB40C187D8BC600005815 /* LoginLinkedInViewController.m */; };
+		9B4BB411187E4BD500005815 /* KeychainAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BB410187E4BD500005815 /* KeychainAdapter.m */; };
 		9B4CA2F2182294A800D770FC /* SocialNetworkControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4CA2F1182294A800D770FC /* SocialNetworkControllerViewController.m */; };
 		9B57AF7318205396002F7FCF /* DesignLibaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B57AF7218205396002F7FCF /* DesignLibaryModel.m */; };
 		9B59570E1810E86C00802BDC /* still2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B59570D1810E86C00802BDC /* still2.png */; };
@@ -105,6 +106,8 @@
 		9B48255918198C26003B875D /* Peripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Peripheral.m; sourceTree = "<group>"; };
 		9B4BB40B187D8BC600005815 /* LoginLinkedInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginLinkedInViewController.h; sourceTree = "<group>"; };
 		9B4BB40C187D8BC600005815 /* LoginLinkedInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginLinkedInViewController.m; sourceTree = "<group>"; };
+		9B4BB40F187E4BD500005815 /* KeychainAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainAdapter.h; sourceTree = "<group>"; };
+		9B4BB410187E4BD500005815 /* KeychainAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainAdapter.m; sourceTree = "<group>"; };
 		9B4CA2F0182294A800D770FC /* SocialNetworkControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkControllerViewController.h; sourceTree = "<group>"; };
 		9B4CA2F1182294A800D770FC /* SocialNetworkControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkControllerViewController.m; sourceTree = "<group>"; };
 		9B57AF7118205396002F7FCF /* DesignLibaryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignLibaryModel.h; sourceTree = "<group>"; };
@@ -173,7 +176,7 @@
 				9BFA62591810C7B3006D4D59 /* Images */,
 				9BFA62531810B6FB006D4D59 /* Fonts */,
 				9B7AE55A1810839900E9B0AA /* BLE_Framework */,
-				2750E77614CDB0DF007727A0 /* BlueCanaryViewControllers */,
+				2750E77614CDB0DF007727A0 /* BlueCanary */,
 				2750E76F14CDB0DF007727A0 /* Frameworks */,
 				2750E76D14CDB0DF007727A0 /* Products */,
 			);
@@ -201,11 +204,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2750E77614CDB0DF007727A0 /* BlueCanaryViewControllers */ = {
+		2750E77614CDB0DF007727A0 /* BlueCanary */ = {
 			isa = PBXGroup;
 			children = (
 				2750E78714CDB114007727A0 /* iPhone.storyboard */,
 				27407EEB14D8787E0035FD7F /* iPad.storyboard */,
+				9B4BB40E187E4BA500005815 /* Adapters */,
 				2750E78A14CDB1CF007727A0 /* ViewControllers */,
 				9B4CA2EF1822945600D770FC /* SignUpViewControllers */,
 				9B7AE5671810AB3100E9B0AA /* Models */,
@@ -215,7 +219,7 @@
 				2750E77714CDB0DF007727A0 /* Supporting Files */,
 				05EA26FD17F12A4200E6F107 /* Images.xcassets */,
 			);
-			name = BlueCanaryViewControllers;
+			name = BlueCanary;
 			path = ECSlidingViewController;
 			sourceTree = "<group>";
 		};
@@ -277,6 +281,16 @@
 			);
 			name = ECSlidingViewController;
 			path = Vendor/ECSlidingViewController;
+			sourceTree = "<group>";
+		};
+		9B4BB40E187E4BA500005815 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				9B4BB40F187E4BD500005815 /* KeychainAdapter.h */,
+				9B4BB410187E4BD500005815 /* KeychainAdapter.m */,
+			);
+			name = Adapters;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		9B4CA2EF1822945600D770FC /* SignUpViewControllers */ = {
@@ -462,6 +476,7 @@
 				9B23A396181427E90014E0B0 /* LinkedInAuthenticationViewController.m in Sources */,
 				27FC94E014D0C14E0000B18C /* InitialSlidingViewController.m in Sources */,
 				27498DD514E96EEF005C043E /* ScanViewController.m in Sources */,
+				9B4BB411187E4BD500005815 /* KeychainAdapter.m in Sources */,
 				9B48255A18198C26003B875D /* Peripheral.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

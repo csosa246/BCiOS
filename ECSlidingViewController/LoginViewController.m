@@ -12,12 +12,10 @@
     [super viewDidLoad];
     //Loading design
     [self willSetupDesign];
-    
-    NSLog(@"login view controller did load");
-    
-//    loginHTTP = [[LoginHTTPModel alloc] init];
-//    [loginHTTP controlSetup:1];
-//    loginHTTP.delegate = self;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+//    [self keychainCheck];
 }
 
 -(void) willSetupDesign{
@@ -27,8 +25,6 @@
     self.view.backgroundColor = backgroundColor;
     //Fonts
     [designLibrary setFonts:uiLabelTitle];
-    [self keychainCheck];
-
 }
 
 - (void)didReceiveMemoryWarning{
@@ -39,27 +35,27 @@
     [self performSegueWithIdentifier:@"splash2linkedinlogin" sender:nil];
 }
 
--(void) keychainCheck{
-    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLinkedInLogin" accessGroup:nil];
-    NSString *username = [keychainItem objectForKey:(__bridge id)(kSecValueData)];
-    NSString *bid = [keychainItem objectForKey:(__bridge id)(kSecAttrAccount)];
-
+//-(void) keychainCheck{
+//    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLinkedInLogin" accessGroup:nil];
+//    NSString *username = [keychainItem objectForKey:(__bridge id)(kSecValueData)];
+//    NSString *bid = [keychainItem objectForKey:(__bridge id)(kSecAttrAccount)];
+//
 //    NSLog(username);
-//    NSLog(token);
-
-    if(username.length!=0){
-        credentialsDoExist = TRUE;
-        NSLog(@"Credentials exist");
+//    NSLog(bid);
+//
+//    if(username.length!=0){
+//        credentialsDoExist = TRUE;
+//        NSLog(@"Credentials exist");
+////        [self performSegueWithIdentifier:@"login2initial" sender:nil];
 //        [self performSegueWithIdentifier:@"login2initial" sender:nil];
-        [self performSegueWithIdentifier:@"login2initial" sender:nil];
-
-    }else{
-        credentialsDoExist = FALSE;
-        NSLog(@"credentials do not exist");
-        //go to the linkedin login page
-        
-    }
-}
+//
+//    }else{
+//        credentialsDoExist = FALSE;
+//        NSLog(@"credentials do not exist");
+//        //go to the linkedin login page
+//        
+//    }
+//}
 
 
 @end
