@@ -11,11 +11,16 @@
 @synthesize responseData,delegate,alertScanningDevices,email,password,credentialsDoExist;
 
 -(int) controlSetup:(int) s{
-    [self keychainCheck];
+    
+//    [self keychainCheck];
+    
+    
     return 0;
 }
 
 -(void) keychainCheck{
+    [[self delegate] doingKeychainCheck:1];
+    
     KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLogin" accessGroup:nil];
     NSString *username = [keychainItem objectForKey:(__bridge id)(kSecValueData)];
     NSString *token = [keychainItem objectForKey:(__bridge id)(kSecAttrAccount)];
@@ -30,6 +35,7 @@
         credentialsDoExist = FALSE;
     }
 }
+
 
 -(void) serverConfirmation:(NSString*)email password:(NSString*) password token:(NSString*)token{
     [self alert:YES];

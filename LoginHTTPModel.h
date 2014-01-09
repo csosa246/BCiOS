@@ -13,6 +13,7 @@
 
 @protocol LoginHTTPDelegate
 -(void) loginHTTPconnectionDidFinishLoading:(NSDictionary *)data;
+-(void) doingKeychainCheck:(int)number;
 @end
 
 @interface LoginHTTPModel : NSObject <NSURLConnectionDelegate>

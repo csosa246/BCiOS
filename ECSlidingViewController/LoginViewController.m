@@ -11,6 +11,9 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    
+    
     //Configuring security
     [self willSetupSecurity];
     //Loading design
@@ -19,7 +22,17 @@
     loginHTTP = [[LoginHTTPModel alloc] init];
     [loginHTTP controlSetup:1];
     loginHTTP.delegate = self;
+    
+    [loginHTTP keychainCheck];
+    
+    //Call the method
+    
 }
+
+-(void) doingKeychainCheck:(int)number{
+    NSLog(@"doing a keychain check");
+}
+
 
 - (void) willSetupSecurity{
     loginPassword.secureTextEntry = TRUE;
@@ -45,5 +58,7 @@
 -(void) loginHTTPconnectionDidFinishLoading:(NSDictionary *)data{
     [self performSegueWithIdentifier:@"login2init" sender:nil];
 }
+
+
 
 @end
