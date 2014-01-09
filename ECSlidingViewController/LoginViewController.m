@@ -7,17 +7,25 @@
 @end
 
 @implementation LoginViewController
+@synthesize keychainAdapter;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
     //Loading design
     [self willSetupDesign];
+    
+    keychainAdapter = [[KeychainAdapter alloc] init];
+    [keychainAdapter keychainCheck];
+//    [keychainAdapter controlSetup:1];
+    keychainAdapter.delegate = self;
 }
 
--(void)viewDidAppear:(BOOL)animated{
-//    [self keychainCheck];
-    
-}
+//-(void)viewDidAppear:(BOOL)animated{
+//    keychainAdapter = [[KeychainAdapter alloc] init];
+//    //    [keychainAdapter controlSetup:1];
+//    [keychainAdapter keychainCheck];
+//    keychainAdapter.delegate = self;
+//}
 
 -(void) willSetupDesign{
     UIImage *backgroundImage = [UIImage imageNamed:@"still2.png"];
@@ -37,34 +45,11 @@
 }
 
 -(void)userCredentialsDoExist{
-    
+    NSLog(@"CREDENTIALS EXIST YALL");
 }
 
 -(void)userCredentialsDoNotExist{
-    
+    NSLog(@"CREDENTIALS DONT EXIST YALL");
 }
-
-//-(void) keychainCheck{
-//    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLinkedInLogin" accessGroup:nil];
-//    NSString *username = [keychainItem objectForKey:(__bridge id)(kSecValueData)];
-//    NSString *bid = [keychainItem objectForKey:(__bridge id)(kSecAttrAccount)];
-//
-//    NSLog(username);
-//    NSLog(bid);
-//
-//    if(username.length!=0){
-//        credentialsDoExist = TRUE;
-//        NSLog(@"Credentials exist");
-////        [self performSegueWithIdentifier:@"login2initial" sender:nil];
-//        [self performSegueWithIdentifier:@"login2initial" sender:nil];
-//
-//    }else{
-//        credentialsDoExist = FALSE;
-//        NSLog(@"credentials do not exist");
-//        //go to the linkedin login page
-//        
-//    }
-//}
-
 
 @end

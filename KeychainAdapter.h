@@ -9,14 +9,21 @@
 #import <Foundation/Foundation.h>
 #import "KeychainItemWrapper.h"
 
-@protocol KeychainDelegate
+@protocol KeychainAdapterDelegate
+@required
 -(void) userCredentialsDoExist;
 -(void) userCredentialsDoNotExist;
 @end
 
 @interface KeychainAdapter : NSObject
 
-@property (nonatomic,assign) id <KeychainDelegate> delegate;
+//Methods
+-(int) controlSetup:(int) s;
+-(void) keychainCheck;
+
+@property (nonatomic,assign) id <KeychainAdapterDelegate> delegate;
+
+
 
 
 @end

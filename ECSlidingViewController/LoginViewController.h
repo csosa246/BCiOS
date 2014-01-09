@@ -12,15 +12,11 @@
 #import "KeychainAdapter.h"
 
 
-@interface LoginViewController : UIViewController<KeychainDelegate>{
+@interface LoginViewController : UIViewController<KeychainAdapterDelegate>{
     IBOutlet UILabel *uiLabelTitle;
-    
-    BOOL credentialsDoExist;
 }
-//@property (weak, nonatomic) IBOutlet UITextField *loginEmail;
-//@property (weak, nonatomic) IBOutlet UITextField *loginPassword;
 
-//@property (strong, nonatomic) LoginHTTPModel *loginHTTP;
+@property (strong, nonatomic) KeychainAdapter *keychainAdapter;
 - (IBAction)didPressLogin:(id)sender;
 
 @end
