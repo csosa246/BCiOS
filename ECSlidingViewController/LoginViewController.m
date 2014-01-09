@@ -14,18 +14,19 @@
     //Loading design
     [self willSetupDesign];
     
-    keychainAdapter = [[KeychainAdapter alloc] init];
-    [keychainAdapter keychainCheck];
-//    [keychainAdapter controlSetup:1];
-    keychainAdapter.delegate = self;
+
 }
 
-//-(void)viewDidAppear:(BOOL)animated{
-//    keychainAdapter = [[KeychainAdapter alloc] init];
-//    //    [keychainAdapter controlSetup:1];
-//    [keychainAdapter keychainCheck];
-//    keychainAdapter.delegate = self;
-//}
+-(void)viewDidAppear:(BOOL)animated{
+    keychainAdapter = [[KeychainAdapter alloc] init];
+    //    [keychainAdapter keychainCheck];
+    //    [keychainAdapter controlSetup:1];
+    //    keychainAdapter.delegate = self;
+    
+    if([keychainAdapter keychainCheck]){
+        [self performSegueWithIdentifier:@"login2initial" sender:nil];
+    }
+}
 
 -(void) willSetupDesign{
     UIImage *backgroundImage = [UIImage imageNamed:@"still2.png"];

@@ -16,14 +16,16 @@
 //    return 0;
 //}
 
--(void) keychainCheck{
+-(BOOL) keychainCheck{
     KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"BlueCanaryLinkedInLogin" accessGroup:nil];
     NSString *username = [keychainItem objectForKey:(__bridge id)(kSecValueData)];
     NSString *bid = [keychainItem objectForKey:(__bridge id)(kSecAttrAccount)];
     if(username.length!=0){
         [[self delegate] userCredentialsDoExist];
+        return true;
     }else{
         [[self delegate] userCredentialsDoNotExist];
+        return false;
     }
 }
 

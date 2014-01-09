@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DesignLibaryModel.h"
-//#import "LoginHTTPModel.h"
 #import "KeychainAdapter.h"
-
 
 @interface LoginViewController : UIViewController<KeychainAdapterDelegate>{
     IBOutlet UILabel *uiLabelTitle;
