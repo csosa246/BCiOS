@@ -14,18 +14,14 @@
     //Loading design
     [self willSetupDesign];
     
-
+    keychainAdapter = [[KeychainAdapter alloc] init];
+    [keychainAdapter controlSetup:1];
+    keychainAdapter.delegate = self;
+    
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    keychainAdapter = [[KeychainAdapter alloc] init];
-    //    [keychainAdapter keychainCheck];
-    //    [keychainAdapter controlSetup:1];
-    //    keychainAdapter.delegate = self;
-    
-    if([keychainAdapter keychainCheck]){
-        [self performSegueWithIdentifier:@"login2initial" sender:nil];
-    }
+-(void) viewDidAppear:(BOOL)animated{
+    [keychainAdapter keychainCheck];
 }
 
 -(void) willSetupDesign{
@@ -46,7 +42,7 @@
 }
 
 -(void)userCredentialsDoExist{
-    NSLog(@"CREDENTIALS EXIST YALL");
+    [self performSegueWithIdentifier:@"login2initial" sender:nil];
 }
 
 -(void)userCredentialsDoNotExist{

@@ -19,7 +19,7 @@
 
 //Methods
 -(int) controlSetup:(int) s;
--(BOOL) keychainCheck;
+-(void) keychainCheck;
 
 @property (nonatomic,assign) id <KeychainAdapterDelegate> delegate;
 
