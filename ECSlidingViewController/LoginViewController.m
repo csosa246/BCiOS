@@ -16,6 +16,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
 //    [self keychainCheck];
+    
 }
 
 -(void) willSetupDesign{
@@ -33,6 +34,14 @@
 
 - (IBAction)didPressLogin:(id)sender {
     [self performSegueWithIdentifier:@"splash2linkedinlogin" sender:nil];
+}
+
+-(void)userCredentialsDoExist{
+    
+}
+
+-(void)userCredentialsDoNotExist{
+    
 }
 
 //-(void) keychainCheck{

@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "DesignLibaryModel.h"
 //#import "LoginHTTPModel.h"
-#import "KeychainItemWrapper.h"
+#import "KeychainAdapter.h"
 
 
-@interface LoginViewController : UIViewController{
+@interface LoginViewController : UIViewController<KeychainDelegate>{
     IBOutlet UILabel *uiLabelTitle;
     
     BOOL credentialsDoExist;
