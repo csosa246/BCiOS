@@ -65,7 +65,7 @@ NSString *uuidToLoad;
     
 //    NSString *uuidsToLoad = @"FC01C226-0EF5-8F59-75C6-1E3CCCFBCA01-ED";
 //    NSString *uuidsToLoad = [uuids substringToIndex:[uuids length]-1];
-    [scanHttp serverConfirmation:@"2" bid:@"2"];
+    [scanHttp serverConfirmation:@"1" bid:@"1"];
 }
 
 -(void) bleDidReceivePeripheralAdvertisementData:(NSNumber *)rssi uuid:(NSString *)uuid{}
@@ -122,14 +122,15 @@ NSString *uuidToLoad;
     BLEDevice *bleDevice = [[BLEDevice alloc] init];
     peripheralArray = [[NSMutableArray alloc] init];
     
-    for(id key in data){
-        
-        NSMutableString *firstName = [NSMutableString string];
-        [firstName appendString: key];
+//    NSLog([data objectForKey:@"])
+    
+    
+//    for(id key in data){
+//        
+//        NSMutableString *firstName = [NSMutableString string];
+//        [firstName appendString: key];
 //        [firstName appendString: @".firstName"];
-        
-        NSLog(firstName);
-        
+//        
 //        NSMutableString *lastName = [NSMutableString string];
 //        [lastName appendString: key];
 //        [lastName appendString: @".lastName"];
@@ -160,7 +161,8 @@ NSString *uuidToLoad;
 //        [bleDevice setImageUrl:imageUrlData];
 //        [bleDevice setUuid:key];
 //        [peripheralArray addObject:bleDevice];
-    }
+//    }
+    
     [self.tableView reloadData];
     [self alert:NO];
 }

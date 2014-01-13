@@ -136,8 +136,8 @@
 		9B7AE5691810AB3C00E9B0AA /* BLEDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEDevice.m; sourceTree = "<group>"; };
 		9B889E861813173500952C05 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9B889E871813173500952C05 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		9BB3D02B1828519200E58670 /* LoginHTTPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginHTTPModel.h; sourceTree = "<group>"; };
-		9BB3D02C1828519200E58670 /* LoginHTTPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginHTTPModel.m; sourceTree = "<group>"; };
+		9BB3D02B1828519200E58670 /* LoginHTTPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginHTTPModel.h; path = ../LoginHTTPModel.h; sourceTree = "<group>"; };
+		9BB3D02C1828519200E58670 /* LoginHTTPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginHTTPModel.m; path = ../LoginHTTPModel.m; sourceTree = "<group>"; };
 		9BB3D03118292D9000E58670 /* DataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataClass.h; sourceTree = "<group>"; };
 		9BB3D03218292D9000E58670 /* DataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataClass.m; sourceTree = "<group>"; };
 		9BBC335218404EBE000280D8 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
@@ -291,6 +291,8 @@
 		9B4BB412187EE1B200005815 /* UnusedFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9BB3D02B1828519200E58670 /* LoginHTTPModel.h */,
+				9BB3D02C1828519200E58670 /* LoginHTTPModel.m */,
 				2750E79814CDB99A007727A0 /* SecondTopViewController.h */,
 				2750E79914CDB99A007727A0 /* SecondTopViewController.m */,
 				2750E79B14CDBA48007727A0 /* ThirdTopViewController.h */,
@@ -334,8 +336,6 @@
 				9B57AF7218205396002F7FCF /* DesignLibaryModel.m */,
 				9B67C3B4181AF73300C76E9B /* ScanHTTPModel.h */,
 				9B67C3B5181AF73300C76E9B /* ScanHTTPModel.m */,
-				9BB3D02B1828519200E58670 /* LoginHTTPModel.h */,
-				9BB3D02C1828519200E58670 /* LoginHTTPModel.m */,
 				9BB3D03118292D9000E58670 /* DataClass.h */,
 				9BB3D03218292D9000E58670 /* DataClass.m */,
 				9B73B318182C636A006C58A2 /* LXCBPeripheralServer.h */,
