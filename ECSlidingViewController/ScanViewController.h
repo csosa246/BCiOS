@@ -29,7 +29,7 @@
 @property (strong,nonatomic) NSMutableData *responseData;
 @property (strong, nonatomic) BLE *ble;
 @property(strong,nonatomic) UIRefreshControl *refresh;
-@property (strong, nonatomic) ScanHTTPModel *scanHttp;
+@property (strong, nonatomic) ScanHTTPAdapter *scanHttp;
 
 -(void) removeViewController;
 

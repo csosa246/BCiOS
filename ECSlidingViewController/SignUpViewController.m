@@ -26,7 +26,7 @@
     //Background
     //Background
     UIImage *image = [UIImage imageNamed:@"still2.png"];
-    DesignLibaryModel *im = [[DesignLibaryModel alloc] init];
+    DesignLibaryAdapter *im = [[DesignLibaryAdapter alloc] init];
     UIImage *imageToBeBlurred = [im blur:image];
     UIColor *background = [[UIColor alloc] initWithPatternImage:imageToBeBlurred];
     self.view.backgroundColor = background;

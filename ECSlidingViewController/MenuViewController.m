@@ -32,7 +32,7 @@
 -(void) loadDesign{
     //Background
     UIImage *backgroundImage = [UIImage imageNamed:@"still2.png"];
-    DesignLibaryModel *designLibrary = [[DesignLibaryModel alloc] init];
+    DesignLibaryAdapter *designLibrary = [[DesignLibaryAdapter alloc] init];
     UIImage *imageToBeBlurred = [designLibrary blur:backgroundImage];
     UIColor *backgroundColor = [[UIColor alloc] initWithPatternImage:imageToBeBlurred];
     self.view.backgroundColor = backgroundColor;

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DesignLibaryModel : NSObject
+@interface DesignLibaryAdapter : NSObject
 
 - (UIImage*) blur:(UIImage*)image;
 - (void) setFonts:(UILabel*)label;

@@ -25,7 +25,7 @@
 
 -(void) willSetupDesign{
     UIImage *backgroundImage = [UIImage imageNamed:@"still2.png"];
-    DesignLibaryModel *designLibrary = [[DesignLibaryModel alloc] init];
+    DesignLibaryAdapter *designLibrary = [[DesignLibaryAdapter alloc] init];
     UIColor *backgroundColor = [[UIColor alloc] initWithPatternImage:[designLibrary blur:backgroundImage]];
     self.view.backgroundColor = backgroundColor;
     //Fonts

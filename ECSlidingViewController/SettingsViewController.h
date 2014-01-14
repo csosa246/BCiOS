@@ -12,7 +12,7 @@
 #import "ECSlidingViewController.h"
 #import "BLE.h"
 #import "Peripheral.h"
-#import "DesignLibaryModel.h"
+#import "DesignLibaryAdapter.h"
 #import "AppDelegate.h"
 
 

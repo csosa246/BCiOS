@@ -6,7 +6,7 @@
 
 #import "ScanHTTPAdapter.h"
 
-@implementation ScanHTTPModel
+@implementation ScanHTTPAdapter
 @synthesize responseData,delegate;
 
 -(int) controlSetup:(int) s{

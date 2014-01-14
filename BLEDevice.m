@@ -9,7 +9,5 @@
 #import "BLEDevice.h"
 
 @implementation BLEDevice
-
-@synthesize name,uuid,imageUrl,headline;
-
+@synthesize name,uuid,imageURL,headline,linkedinURL;
 @end

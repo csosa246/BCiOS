@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DesignLibaryModel.h"
+#import "DesignLibaryAdapter.h"
 
 @interface SignUpViewController : UIViewController
 - (IBAction)didClickBack:(id)sender;

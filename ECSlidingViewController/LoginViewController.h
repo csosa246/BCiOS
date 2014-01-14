@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DesignLibaryModel.h"
+#import "DesignLibaryAdapter.h"
 #import "KeychainAdapter.h"
 
 @interface LoginViewController : UIViewController<KeychainAdapterDelegate>{

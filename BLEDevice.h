@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *headline;
 @property (nonatomic, strong) NSString *uuid;
-@property (nonatomic, strong) NSString *imageUrl;
+@property (nonatomic, strong) NSString *imageURL;
+@property (nonatomic, strong) NSString *linkedinURL;
 
 @end

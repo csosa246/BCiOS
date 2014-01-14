@@ -34,7 +34,7 @@
 		9B4BB40D187D8BC600005815 /* LoginLinkedInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BB40C187D8BC600005815 /* LoginLinkedInViewController.m */; };
 		9B4BB411187E4BD500005815 /* KeychainAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4BB410187E4BD500005815 /* KeychainAdapter.m */; };
 		9B4CA2F2182294A800D770FC /* SocialNetworkControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4CA2F1182294A800D770FC /* SocialNetworkControllerViewController.m */; };
-		9B57AF7318205396002F7FCF /* DesignLibaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B57AF7218205396002F7FCF /* DesignLibaryModel.m */; };
+		9B57AF7318205396002F7FCF /* DesignLibaryAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B57AF7218205396002F7FCF /* DesignLibaryAdapter.m */; };
 		9B59570E1810E86C00802BDC /* still2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B59570D1810E86C00802BDC /* still2.png */; };
 		9B67C3B6181AF73300C76E9B /* ScanHTTPAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B67C3B5181AF73300C76E9B /* ScanHTTPAdapter.m */; };
 		9B67C3BA181C31F100C76E9B /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67C3B9181C31F100C76E9B /* gear.png */; };
@@ -110,8 +110,8 @@
 		9B4BB410187E4BD500005815 /* KeychainAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainAdapter.m; sourceTree = "<group>"; };
 		9B4CA2F0182294A800D770FC /* SocialNetworkControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkControllerViewController.h; sourceTree = "<group>"; };
 		9B4CA2F1182294A800D770FC /* SocialNetworkControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkControllerViewController.m; sourceTree = "<group>"; };
-		9B57AF7118205396002F7FCF /* DesignLibaryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignLibaryModel.h; sourceTree = "<group>"; };
-		9B57AF7218205396002F7FCF /* DesignLibaryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignLibaryModel.m; sourceTree = "<group>"; };
+		9B57AF7118205396002F7FCF /* DesignLibaryAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignLibaryAdapter.h; sourceTree = "<group>"; };
+		9B57AF7218205396002F7FCF /* DesignLibaryAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignLibaryAdapter.m; sourceTree = "<group>"; };
 		9B59570D1810E86C00802BDC /* still2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = still2.png; sourceTree = "<group>"; };
 		9B67C3B4181AF73300C76E9B /* ScanHTTPAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanHTTPAdapter.h; sourceTree = "<group>"; };
 		9B67C3B5181AF73300C76E9B /* ScanHTTPAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanHTTPAdapter.m; sourceTree = "<group>"; };
@@ -255,6 +255,8 @@
 				9B7AE5651810A93A00E9B0AA /* ScanTopViewController.m */,
 				27498DD314E96EEF005C043E /* ScanViewController.h */,
 				27498DD414E96EEF005C043E /* ScanViewController.m */,
+				9B74DE9C1812014B006545CA /* LinkedInProfileViewController.h */,
+				9B74DE9D1812014B006545CA /* LinkedInProfileViewController.m */,
 				2750E79E14CDBC32007727A0 /* SettingsViewController.h */,
 				2750E79F14CDBC32007727A0 /* SettingsViewController.m */,
 				27FC94DE14D0C14E0000B18C /* InitialSlidingViewController.h */,
@@ -276,6 +278,8 @@
 		9B4BB40E187E4BA500005815 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
+				9B57AF7118205396002F7FCF /* DesignLibaryAdapter.h */,
+				9B57AF7218205396002F7FCF /* DesignLibaryAdapter.m */,
 				9B4BB40F187E4BD500005815 /* KeychainAdapter.h */,
 				9B4BB410187E4BD500005815 /* KeychainAdapter.m */,
 				9B67C3B4181AF73300C76E9B /* ScanHTTPAdapter.h */,
@@ -291,8 +295,6 @@
 				9B4CA2EF1822945600D770FC /* SignUpViewControllers */,
 				9B23A394181427E90014E0B0 /* LinkedInAuthenticationViewController.h */,
 				9B23A395181427E90014E0B0 /* LinkedInAuthenticationViewController.m */,
-				9B74DE9C1812014B006545CA /* LinkedInProfileViewController.h */,
-				9B74DE9D1812014B006545CA /* LinkedInProfileViewController.m */,
 				9BB3D02B1828519200E58670 /* LoginHTTPModel.h */,
 				9BB3D02C1828519200E58670 /* LoginHTTPModel.m */,
 				2750E79814CDB99A007727A0 /* SecondTopViewController.h */,
@@ -334,8 +336,6 @@
 				9B7AE5691810AB3C00E9B0AA /* BLEDevice.m */,
 				9B48255818198C26003B875D /* Peripheral.h */,
 				9B48255918198C26003B875D /* Peripheral.m */,
-				9B57AF7118205396002F7FCF /* DesignLibaryModel.h */,
-				9B57AF7218205396002F7FCF /* DesignLibaryModel.m */,
 				9BB3D03118292D9000E58670 /* DataClass.h */,
 				9BB3D03218292D9000E58670 /* DataClass.m */,
 				9B73B318182C636A006C58A2 /* LXCBPeripheralServer.h */,
@@ -476,7 +476,7 @@
 				9B73B31A182C636A006C58A2 /* LXCBPeripheralServer.m in Sources */,
 				2750E79A14CDB99A007727A0 /* SecondTopViewController.m in Sources */,
 				9B7AE5661810A93A00E9B0AA /* ScanTopViewController.m in Sources */,
-				9B57AF7318205396002F7FCF /* DesignLibaryModel.m in Sources */,
+				9B57AF7318205396002F7FCF /* DesignLibaryAdapter.m in Sources */,
 				2750E79D14CDBA48007727A0 /* ThirdTopViewController.m in Sources */,
 				2750E7A014CDBC32007727A0 /* SettingsViewController.m in Sources */,
 				9B4BB40D187D8BC600005815 /* LoginLinkedInViewController.m in Sources */,

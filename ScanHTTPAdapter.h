@@ -13,7 +13,7 @@
 -(void) scanHTTPconnectionDidFinishLoading:(NSArray *)data;
 @end
 
-@interface ScanHTTPModel : NSObject <NSURLConnectionDelegate>
+@interface ScanHTTPAdapter : NSObject <NSURLConnectionDelegate>
 
 -(int) controlSetup:(int) s;
 -(void) serverConfirmation:(NSString*)pid bid:(NSString*) bid;

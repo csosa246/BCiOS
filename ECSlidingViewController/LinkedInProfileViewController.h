@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 
-@property (strong,nonatomic) NSString *uuidToLoad;
+@property (strong,nonatomic) NSString *linkedinURL;
 
 @property (strong,nonatomic) UIAlertView *alert;
 

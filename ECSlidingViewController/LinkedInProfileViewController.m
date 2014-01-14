@@ -11,7 +11,7 @@
 @end
 
 @implementation LinkedInProfileViewController
-@synthesize responseData,alert,uuidToLoad;
+@synthesize responseData,alert,linkedinURL;
 @synthesize webView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
@@ -25,24 +25,24 @@
     
     [super viewDidLoad];
     
-    NSString *fullURL = @"http://www.linkedin.com/pub/crae-sosa/69/7a6/607";
+    NSString *fullURL = linkedinURL;
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [webView loadRequest:requestObj];
     
-    //Loading dialog
-    alert = [[UIAlertView alloc] initWithTitle:@"Loading..." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
-    [alert show];
-    
-    self.responseData = [NSMutableData data];
-    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[@"https://bluecanaryconnect.appspot.com/apphandle" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:@"ed" forHTTPHeaderField:@"NAME"];
-    [request setValue:@"ed" forHTTPHeaderField:@"PASSWORD"];
-    [request setValue:@"LINKEDIN" forHTTPHeaderField:@"COMMAND"];
-    [request setValue:uuidToLoad forHTTPHeaderField:@"UUID"];
-    //[request setValue:@"A2F01946-7461-BB1B-1C9E-CD2749EC2977" forHTTPHeaderField:@"UUID"];
-    (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
+//    //Loading dialog
+//    alert = [[UIAlertView alloc] initWithTitle:@"Loading..." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+//    [alert show];
+//    
+//    self.responseData = [NSMutableData data];
+//    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[@"https://bluecanaryconnect.appspot.com/apphandle" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
+//    [request setHTTPMethod:@"POST"];
+//    [request setValue:@"ed" forHTTPHeaderField:@"NAME"];
+//    [request setValue:@"ed" forHTTPHeaderField:@"PASSWORD"];
+//    [request setValue:@"LINKEDIN" forHTTPHeaderField:@"COMMAND"];
+//    [request setValue:linkedinURL forHTTPHeaderField:@"UUID"];
+//    //[request setValue:@"A2F01946-7461-BB1B-1C9E-CD2749EC2977" forHTTPHeaderField:@"UUID"];
+//    (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 - (void)didReceiveMemoryWarning{

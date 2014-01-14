@@ -18,7 +18,7 @@
 
 @synthesize ble,responseData,alertScanningDevices,scanHttp,refresh;
 NSMutableArray *peripheralArray;
-NSString *uuidToLoad;
+NSString *linkedinURLToLoad;
 
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -35,8 +35,8 @@ NSString *uuidToLoad;
     ble = [[BLE alloc] init];
     [ble controlSetup:1];
     ble.delegate = self;
-    
-    scanHttp = [[ScanHTTPModel alloc] init];
+
+    scanHttp = [[ScanHTTPAdapter alloc] init];
     [scanHttp controlSetup:1];
     scanHttp.delegate = self;
     
@@ -48,20 +48,21 @@ NSString *uuidToLoad;
 }
 
 - (void) bleDidReceivePeripherals:(NSMutableArray *)peripherals{
-//    if([peripherals count]==0){
-//        peripheralArray = [[NSMutableArray alloc] init];
-//        [self alert:NO];
-//        [self.tableView reloadData];
-//        return;
-//    }
-//    
+    if([peripherals count]==0){
+        peripheralArray = [[NSMutableArray alloc] init];
+        [self alert:NO];
+        [self.tableView reloadData];
+        return;
+    }
+    
 //    NSMutableString *uuids = [NSMutableString string];
-//    for (int i = 0; i < peripherals.count; i++){
-//        Peripheral *p = [peripherals objectAtIndex:i];
-//        NSString *manufacturerData = [p manufacturerData];
-//        NSLog(@"Coming from the BLE model:");
-//        NSLog(manufacturerData);
-//    }
+    for (int i = 0; i < peripherals.count; i++){
+        Peripheral *p = [peripherals objectAtIndex:i];
+        NSString *manufacturerData = [p manufacturerData];
+        NSString *bid = [manufacturerData substringWithRange:NSMakeRange(1, 1)];
+        NSLog(@"Coming from the BLE model:");
+        NSLog(bid);
+    }
     
 //    NSString *uuidsToLoad = @"FC01C226-0EF5-8F59-75C6-1E3CCCFBCA01-ED";
 //    NSString *uuidsToLoad = [uuids substringToIndex:[uuids length]-1];
@@ -99,7 +100,7 @@ NSString *uuidToLoad;
     NSLog(@"Cell being reloaded");
     //FIND A WAY TO GET THIS INTO THE CONDITIONAL SO THAT IMAGES ARENT DOWNLOADED EVERY FUCKING TIME IT LEAVES THE VIEW
     BLEDevice *current = [peripheralArray objectAtIndex:indexPath.row];
-    [cell.imageView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:current.imageUrl]]]];
+    [cell.imageView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:current.imageURL]]]];
     cell.textLabel.text = current.name;
     cell.textLabel.font = [UIFont fontWithName:@"Roboto-Light" size:20.0f];
     cell.detailTextLabel.text = current.headline;
@@ -114,7 +115,7 @@ NSString *uuidToLoad;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     BLEDevice *current = [peripheralArray objectAtIndex:indexPath.row];
-    uuidToLoad = current.uuid;
+    linkedinURLToLoad = current.linkedinURL;
     [self performSegueWithIdentifier:@"scan2linkedin" sender:self];
 }
 
@@ -124,24 +125,25 @@ NSString *uuidToLoad;
     
     for (int i = 0; i < [data count]; i++){
         NSDictionary *dict = [data objectAtIndex:i];
-
         for(id key in dict){
             NSMutableString *firstNameIndex = [NSMutableString stringWithFormat:@"%@%@", key, @".firstName"];
             NSMutableString *lastNameIndex = [NSMutableString stringWithFormat:@"%@%@", key ,@".lastName"];
             NSMutableString *headlineIndex = [NSMutableString stringWithFormat:@"%@%@", key, @".headline"];
             NSMutableString *pictureURLIndex = [NSMutableString stringWithFormat:@"%@%@", key, @".pictureURL"];
+            NSMutableString *linkedinURLIndex = [NSMutableString stringWithFormat:@"%@%@", key, @".linkedinURL"];
 
             NSMutableString *firstLastName = [NSMutableString stringWithFormat:@"%@%@%@", [dict valueForKeyPath:firstNameIndex],@" ", [dict valueForKeyPath: lastNameIndex]];
             NSString * headline = [dict valueForKeyPath:headlineIndex];
             NSString * pictureURL = [dict valueForKeyPath:pictureURLIndex];
+            NSString * linkedinURL = [dict valueForKeyPath:linkedinURLIndex];
             
             bleDevice = [[BLEDevice alloc] init];
             [bleDevice setName:firstLastName];
             [bleDevice setHeadline:headline];
-            [bleDevice setImageUrl:pictureURL];
+            [bleDevice setImageURL:pictureURL];
+            [bleDevice setLinkedinURL:linkedinURL];
             [bleDevice setUuid:key];
             [peripheralArray addObject:bleDevice];
-
         }
     }
     
@@ -164,9 +166,9 @@ NSString *uuidToLoad;
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"scan2optiontree"]){
+    if([segue.identifier isEqualToString:@"scan2linkedin"]){
         LinkedInProfileViewController *viewController = (LinkedInProfileViewController *) segue.destinationViewController;
-        viewController.uuidToLoad = uuidToLoad;
+        viewController.linkedinURL = linkedinURLToLoad;
     }
 }
 

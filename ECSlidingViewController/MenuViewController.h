@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "ECSlidingViewController.h"
-#import "DesignLibaryModel.h"
+#import "DesignLibaryAdapter.h"
 #import "ScanViewController.h"
 #import "KeychainItemWrapper.h"
 @interface MenuViewController : UIViewController <UITableViewDataSource, UITabBarControllerDelegate>
