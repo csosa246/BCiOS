@@ -212,7 +212,6 @@
 				9B4BB412187EE1B200005815 /* UnusedFiles */,
 				9B4BB40E187E4BA500005815 /* Adapters */,
 				2750E78A14CDB1CF007727A0 /* ViewControllers */,
-				9B4CA2EF1822945600D770FC /* SignUpViewControllers */,
 				9B7AE5671810AB3100E9B0AA /* Models */,
 				2750E78914CDB1C7007727A0 /* Vendor */,
 				2750E77F14CDB0DF007727A0 /* AppDelegate.h */,
@@ -287,6 +286,7 @@
 		9B4BB412187EE1B200005815 /* UnusedFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9B4CA2EF1822945600D770FC /* SignUpViewControllers */,
 				9B23A394181427E90014E0B0 /* LinkedInAuthenticationViewController.h */,
 				9B23A395181427E90014E0B0 /* LinkedInAuthenticationViewController.m */,
 				9B74DE9C1812014B006545CA /* LinkedInProfileViewController.h */,

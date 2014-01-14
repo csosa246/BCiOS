@@ -17,7 +17,6 @@
     keychainAdapter = [[KeychainAdapter alloc] init];
     [keychainAdapter controlSetup:1];
     keychainAdapter.delegate = self;
-    
 }
 
 -(void) viewDidAppear:(BOOL)animated{
