@@ -48,7 +48,6 @@
             [self dismissViewControllerAnimated:YES completion:nil];
         }else{
             NSString *bid = [currentURL substringFromIndex: [currentURL length] - 1];
-
             [keychainAdapter setKeyChain:bid];
             [self dismissViewControllerAnimated:YES completion:nil];
         }

@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol ScanHTTPDelegate
--(void) scanHTTPconnectionDidFinishLoading:(NSDictionary *)data;
+-(void) scanHTTPconnectionDidFinishLoading:(NSArray *)data;
 @end
 
 @interface ScanHTTPModel : NSObject <NSURLConnectionDelegate>

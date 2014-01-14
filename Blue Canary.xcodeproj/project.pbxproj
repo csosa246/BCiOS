@@ -260,10 +260,6 @@
 				2750E79F14CDBC32007727A0 /* SettingsViewController.m */,
 				27FC94DE14D0C14E0000B18C /* InitialSlidingViewController.h */,
 				27FC94DF14D0C14E0000B18C /* InitialSlidingViewController.m */,
-				9B23A394181427E90014E0B0 /* LinkedInAuthenticationViewController.h */,
-				9B23A395181427E90014E0B0 /* LinkedInAuthenticationViewController.m */,
-				9B74DE9C1812014B006545CA /* LinkedInProfileViewController.h */,
-				9B74DE9D1812014B006545CA /* LinkedInProfileViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -291,6 +287,10 @@
 		9B4BB412187EE1B200005815 /* UnusedFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9B23A394181427E90014E0B0 /* LinkedInAuthenticationViewController.h */,
+				9B23A395181427E90014E0B0 /* LinkedInAuthenticationViewController.m */,
+				9B74DE9C1812014B006545CA /* LinkedInProfileViewController.h */,
+				9B74DE9D1812014B006545CA /* LinkedInProfileViewController.m */,
 				9BB3D02B1828519200E58670 /* LoginHTTPModel.h */,
 				9BB3D02C1828519200E58670 /* LoginHTTPModel.m */,
 				2750E79814CDB99A007727A0 /* SecondTopViewController.h */,

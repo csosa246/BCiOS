@@ -40,12 +40,16 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSError *myError = nil;
-    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
+    NSError *error = nil;
+//    NSArray *array = [NSJSONSerialization JSONObjectWithData:self.responseData options:0 error:&jsonParsingError];
+//    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
+    NSArray *array = [NSJSONSerialization JSONObjectWithData: responseData options:NSJSONReadingMutableContainers error:&error];
+
     
     NSString *response = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
     NSLog(response);
-    [[self delegate] scanHTTPconnectionDidFinishLoading:data];
+    
+    [[self delegate] scanHTTPconnectionDidFinishLoading:array];
 }
 
 @end

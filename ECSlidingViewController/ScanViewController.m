@@ -65,7 +65,7 @@ NSString *uuidToLoad;
     
 //    NSString *uuidsToLoad = @"FC01C226-0EF5-8F59-75C6-1E3CCCFBCA01-ED";
 //    NSString *uuidsToLoad = [uuids substringToIndex:[uuids length]-1];
-    [scanHttp serverConfirmation:@"1" bid:@"1"];
+    [scanHttp serverConfirmation:@"1" bid:@"1,2,3"];
 }
 
 -(void) bleDidReceivePeripheralAdvertisementData:(NSNumber *)rssi uuid:(NSString *)uuid{}
@@ -118,50 +118,32 @@ NSString *uuidToLoad;
     [self performSegueWithIdentifier:@"scan2linkedin" sender:self];
 }
 
--(void) scanHTTPconnectionDidFinishLoading:(NSDictionary *)data{
+-(void) scanHTTPconnectionDidFinishLoading:(NSArray *)data{
     BLEDevice *bleDevice = [[BLEDevice alloc] init];
     peripheralArray = [[NSMutableArray alloc] init];
     
-//    NSLog([data objectForKey:@"])
-    
-    
-//    for(id key in data){
-//        
-//        NSMutableString *firstName = [NSMutableString string];
-//        [firstName appendString: key];
-//        [firstName appendString: @".firstName"];
-//        
-//        NSMutableString *lastName = [NSMutableString string];
-//        [lastName appendString: key];
-//        [lastName appendString: @".lastName"];
-//        
-//        NSMutableString *imageUrl = [NSMutableString string];
-//        [imageUrl appendString: key];
-//        [imageUrl appendString: @".pictureURl"];
-//        
-//        NSMutableString *headline = [NSMutableString string];
-//        [headline appendString:key];
-//        [headline appendString:@".headline"];
-//        
-//        NSMutableString *name = [NSMutableString string];
-//        
-//        NSString *firstNameData = [data valueForKeyPath:firstName];
-//        NSString *lastNameData = [data valueForKeyPath:lastName];
-//        
-//        [name appendString:firstNameData];
-//        [name appendString:@" "];
-//        [name appendString:lastNameData];
-//        
-//        NSString *imageUrlData = [data valueForKeyPath:imageUrl];
-//        NSString *headlineData = [data valueForKeyPath:headline];
-//        
-//        bleDevice = [[BLEDevice alloc] init];
-//        [bleDevice setName:name];
-//        [bleDevice setHeadline:headlineData];
-//        [bleDevice setImageUrl:imageUrlData];
-//        [bleDevice setUuid:key];
-//        [peripheralArray addObject:bleDevice];
-//    }
+    for (int i = 0; i < [data count]; i++){
+        NSDictionary *dict = [data objectAtIndex:i];
+
+        for(id key in dict){
+            NSMutableString *firstNameIndex = [NSMutableString stringWithFormat:@"%@%@", key, @".firstName"];
+            NSMutableString *lastNameIndex = [NSMutableString stringWithFormat:@"%@%@", key ,@".lastName"];
+            NSMutableString *headlineIndex = [NSMutableString stringWithFormat:@"%@%@", key, @".headline"];
+            NSMutableString *pictureURLIndex = [NSMutableString stringWithFormat:@"%@%@", key, @".pictureURL"];
+
+            NSMutableString *firstLastName = [NSMutableString stringWithFormat:@"%@%@%@", [dict valueForKeyPath:firstNameIndex],@" ", [dict valueForKeyPath: lastNameIndex]];
+            NSString * headline = [dict valueForKeyPath:headlineIndex];
+            NSString * pictureURL = [dict valueForKeyPath:pictureURLIndex];
+            
+            bleDevice = [[BLEDevice alloc] init];
+            [bleDevice setName:firstLastName];
+            [bleDevice setHeadline:headline];
+            [bleDevice setImageUrl:pictureURL];
+            [bleDevice setUuid:key];
+            [peripheralArray addObject:bleDevice];
+
+        }
+    }
     
     [self.tableView reloadData];
     [self alert:NO];
