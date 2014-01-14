@@ -36,7 +36,7 @@
 		9B4CA2F2182294A800D770FC /* SocialNetworkControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4CA2F1182294A800D770FC /* SocialNetworkControllerViewController.m */; };
 		9B57AF7318205396002F7FCF /* DesignLibaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B57AF7218205396002F7FCF /* DesignLibaryModel.m */; };
 		9B59570E1810E86C00802BDC /* still2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B59570D1810E86C00802BDC /* still2.png */; };
-		9B67C3B6181AF73300C76E9B /* ScanHTTPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B67C3B5181AF73300C76E9B /* ScanHTTPModel.m */; };
+		9B67C3B6181AF73300C76E9B /* ScanHTTPAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B67C3B5181AF73300C76E9B /* ScanHTTPAdapter.m */; };
 		9B67C3BA181C31F100C76E9B /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67C3B9181C31F100C76E9B /* gear.png */; };
 		9B6FDC8718155AC4004B0ECB /* prof.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6FDC8618155AC4004B0ECB /* prof.png */; };
 		9B73B31A182C636A006C58A2 /* LXCBPeripheralServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B73B319182C636A006C58A2 /* LXCBPeripheralServer.m */; };
@@ -113,8 +113,8 @@
 		9B57AF7118205396002F7FCF /* DesignLibaryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignLibaryModel.h; sourceTree = "<group>"; };
 		9B57AF7218205396002F7FCF /* DesignLibaryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignLibaryModel.m; sourceTree = "<group>"; };
 		9B59570D1810E86C00802BDC /* still2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = still2.png; sourceTree = "<group>"; };
-		9B67C3B4181AF73300C76E9B /* ScanHTTPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanHTTPModel.h; sourceTree = "<group>"; };
-		9B67C3B5181AF73300C76E9B /* ScanHTTPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanHTTPModel.m; sourceTree = "<group>"; };
+		9B67C3B4181AF73300C76E9B /* ScanHTTPAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanHTTPAdapter.h; sourceTree = "<group>"; };
+		9B67C3B5181AF73300C76E9B /* ScanHTTPAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanHTTPAdapter.m; sourceTree = "<group>"; };
 		9B67C3B9181C31F100C76E9B /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		9B6FDC8618155AC4004B0ECB /* prof.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prof.png; sourceTree = "<group>"; };
 		9B73B318182C636A006C58A2 /* LXCBPeripheralServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXCBPeripheralServer.h; sourceTree = "<group>"; };
@@ -278,6 +278,8 @@
 			children = (
 				9B4BB40F187E4BD500005815 /* KeychainAdapter.h */,
 				9B4BB410187E4BD500005815 /* KeychainAdapter.m */,
+				9B67C3B4181AF73300C76E9B /* ScanHTTPAdapter.h */,
+				9B67C3B5181AF73300C76E9B /* ScanHTTPAdapter.m */,
 			);
 			name = Adapters;
 			path = ..;
@@ -334,8 +336,6 @@
 				9B48255918198C26003B875D /* Peripheral.m */,
 				9B57AF7118205396002F7FCF /* DesignLibaryModel.h */,
 				9B57AF7218205396002F7FCF /* DesignLibaryModel.m */,
-				9B67C3B4181AF73300C76E9B /* ScanHTTPModel.h */,
-				9B67C3B5181AF73300C76E9B /* ScanHTTPModel.m */,
 				9BB3D03118292D9000E58670 /* DataClass.h */,
 				9BB3D03218292D9000E58670 /* DataClass.m */,
 				9B73B318182C636A006C58A2 /* LXCBPeripheralServer.h */,
@@ -462,7 +462,7 @@
 				9B4CA2F2182294A800D770FC /* SocialNetworkControllerViewController.m in Sources */,
 				2750E77D14CDB0DF007727A0 /* main.m in Sources */,
 				9BB3D03318292D9000E58670 /* DataClass.m in Sources */,
-				9B67C3B6181AF73300C76E9B /* ScanHTTPModel.m in Sources */,
+				9B67C3B6181AF73300C76E9B /* ScanHTTPAdapter.m in Sources */,
 				9B7AE56A1810AB3C00E9B0AA /* BLEDevice.m in Sources */,
 				2750E78114CDB0DF007727A0 /* AppDelegate.m in Sources */,
 				9B2F2EDB1816B7280054631F /* SignUpViewController.m in Sources */,

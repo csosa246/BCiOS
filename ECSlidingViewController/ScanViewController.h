@@ -10,7 +10,7 @@
 #import "ECSlidingViewController.h"
 #import "BLE.h"
 #import "BLEDevice.h"
-#import "ScanHTTPModel.h"
+#import "ScanHTTPAdapter.h"
 #import "Peripheral.h"
 
 

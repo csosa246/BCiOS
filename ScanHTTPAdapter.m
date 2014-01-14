@@ -4,7 +4,7 @@
 //
 //  Created by Crae Sosa on 10/25/13.
 
-#import "ScanHTTPModel.h"
+#import "ScanHTTPAdapter.h"
 
 @implementation ScanHTTPModel
 @synthesize responseData,delegate;
