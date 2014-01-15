@@ -117,8 +117,8 @@
 		9B67C3B5181AF73300C76E9B /* ScanHTTPAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanHTTPAdapter.m; sourceTree = "<group>"; };
 		9B67C3B9181C31F100C76E9B /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		9B6FDC8618155AC4004B0ECB /* prof.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prof.png; sourceTree = "<group>"; };
-		9B73B318182C636A006C58A2 /* LXCBPeripheralServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXCBPeripheralServer.h; sourceTree = "<group>"; };
-		9B73B319182C636A006C58A2 /* LXCBPeripheralServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXCBPeripheralServer.m; sourceTree = "<group>"; };
+		9B73B318182C636A006C58A2 /* LXCBPeripheralServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LXCBPeripheralServer.h; path = ../LXCBPeripheralServer.h; sourceTree = "<group>"; };
+		9B73B319182C636A006C58A2 /* LXCBPeripheralServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LXCBPeripheralServer.m; path = ../LXCBPeripheralServer.m; sourceTree = "<group>"; };
 		9B74DE9A18116428006545CA /* text-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-left.png"; sourceTree = "<group>"; };
 		9B74DE9C1812014B006545CA /* LinkedInProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedInProfileViewController.h; sourceTree = "<group>"; };
 		9B74DE9D1812014B006545CA /* LinkedInProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedInProfileViewController.m; sourceTree = "<group>"; };
@@ -292,6 +292,8 @@
 		9B4BB412187EE1B200005815 /* UnusedFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9B73B318182C636A006C58A2 /* LXCBPeripheralServer.h */,
+				9B73B319182C636A006C58A2 /* LXCBPeripheralServer.m */,
 				9B4CA2EF1822945600D770FC /* SignUpViewControllers */,
 				9B23A394181427E90014E0B0 /* LinkedInAuthenticationViewController.h */,
 				9B23A395181427E90014E0B0 /* LinkedInAuthenticationViewController.m */,
@@ -338,8 +340,6 @@
 				9B48255918198C26003B875D /* Peripheral.m */,
 				9BB3D03118292D9000E58670 /* DataClass.h */,
 				9BB3D03218292D9000E58670 /* DataClass.m */,
-				9B73B318182C636A006C58A2 /* LXCBPeripheralServer.h */,
-				9B73B319182C636A006C58A2 /* LXCBPeripheralServer.m */,
 				9BBC335218404EBE000280D8 /* KeychainItemWrapper.h */,
 				9BBC335318404EBE000280D8 /* KeychainItemWrapper.m */,
 			);
