@@ -243,13 +243,10 @@ static int rssi = 0;
         //Call the method that no devices were found
         //NSLog(closestPeripheral);
 //        [self alert:YES message:closestPeripheral addButtonWithTitle:YES];
+        [[self delegate] bleDidFindPeripheralToRegister];
         NSLog(closestPeripheral);
     }else{
-        
-        
-        //All
-        
-        
+        [[self delegate] bleDidNotFindPeripheralToRegister];
 //        [self alert:YES message:@"No devices found" addButtonWithTitle:YES];
         NSLog(@"No devices found");
 

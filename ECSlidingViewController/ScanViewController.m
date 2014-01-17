@@ -108,10 +108,10 @@ NSString *linkedinURLToLoad;
     NSLog(@"Cell being reloaded");
     //FIND A WAY TO GET THIS INTO THE CONDITIONAL SO THAT IMAGES ARENT DOWNLOADED EVERY FUCKING TIME IT LEAVES THE VIEW
     BLEDevice *current = [peripheralArray objectAtIndex:indexPath.row];
-    [cell.imageView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:current.imageURL]]]];
-    cell.textLabel.text = current.name;
+    cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:current.imageURL]]];
+    cell.textLabel.text = [current name];
     cell.textLabel.font = [UIFont fontWithName:@"Roboto-Light" size:20.0f];
-    cell.detailTextLabel.text = current.headline;
+    cell.detailTextLabel.text = [current headline];
     cell.detailTextLabel.font = [UIFont fontWithName:@"Roboto-Light" size:12.0f];
     cell.detailTextLabel.textColor = [UIColor grayColor];
     return cell;
