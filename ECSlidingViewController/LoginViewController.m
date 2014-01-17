@@ -41,6 +41,7 @@
 }
 
 -(void)userCredentialsDoExist{
+    NSLog(@"CREDENTIALS DO EXIST YALL");
     [self performSegueWithIdentifier:@"login2initial" sender:nil];
 }
 

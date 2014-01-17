@@ -44,12 +44,13 @@
     loadedPage++;
     if(loadedPage==2){
         NSString *currentURL = webView.request.URL.absoluteString;
+        NSLog(currentURL);
         if([currentURL rangeOfString:@"error=access_denied"].location != NSNotFound){
-            [self dismissViewControllerAnimated:YES completion:nil];
+//            [self dismissViewControllerAnimated:YES completion:nil];
         }else{
             NSString *bid = [currentURL substringFromIndex: [currentURL length] - 1];
             [keychainAdapter setKeyChain:bid];
-            [self dismissViewControllerAnimated:YES completion:nil];
+//            [self dismissViewControllerAnimated:YES completion:nil];
         }
     }
 }

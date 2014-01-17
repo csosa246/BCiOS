@@ -70,8 +70,11 @@ NSString *linkedinURLToLoad;
 //    NSString *uuidsToLoad = @"FC01C226-0EF5-8F59-75C6-1E3CCCFBCA01-ED";
 //    NSString *uuidsToLoad = [uuids substringToIndex:[uuids length]-1];
     NSString *bidsToLoad = [bidCollection substringToIndex:[bidCollection length]-1];
+    NSLog(bidsToLoad);
 
-    [scanHttp serverConfirmation:@"1" bid:@"1,2,3"];
+//    [scanHttp serverConfirmation:@"1" bid:@"1,2,3"];
+    [scanHttp serverConfirmation:@"1" bid:bidsToLoad];
+
 }
 
 -(void) bleDidReceivePeripheralAdvertisementData:(NSNumber *)rssi uuid:(NSString *)uuid{}
