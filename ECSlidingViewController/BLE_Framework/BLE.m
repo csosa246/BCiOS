@@ -39,10 +39,7 @@ static int rssi = 0;
 - (int) controlSetup: (int) s{
     self.CM = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     
-    
-    
     peripheralDeviceArray = [[NSMutableArray alloc] init];
-
     
     return 0;
 }
@@ -70,12 +67,12 @@ static int rssi = 0;
     isConnected = false;
 }
 
-- (void) connectPeripheral:(CBPeripheral *)peripheral {
-    //printf("Connecting to peripheral with UUID : %s\r\n",[self UUIDToString:peripheral.UUID]);
-    self.activePeripheral = peripheral;
-    self.activePeripheral.delegate = self;
-    [self.CM connectPeripheral:self.activePeripheral options:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey]];
-}
+//- (void) connectPeripheral:(CBPeripheral *)peripheral {
+//    //printf("Connecting to peripheral with UUID : %s\r\n",[self UUIDToString:peripheral.UUID]);
+//    self.activePeripheral = peripheral;
+//    self.activePeripheral.delegate = self;
+//    [self.CM connectPeripheral:self.activePeripheral options:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey]];
+//}
 
 - (const char *) centralManagerStateToString: (int)state{
     switch(state){
@@ -102,17 +99,14 @@ static int rssi = 0;
     printf("Stopped Scanning\r\n");
     printf("Known peripherals : %d\r\n",[self.peripherals count]);
     [self printKnownPeripherals];
-//    [self ]
     [delegate bleDidStopScanning];
 }
 
 - (void) printKnownPeripherals{
-    //int i;
     printf("List of currently known peripherals : \r\n");
 
     [[self delegate] bleDidReceivePeripherals:peripherals];
 }
-
 
 - (int) UUIDSAreEqual:(CFUUIDRef)u1 u2:(CFUUIDRef)u2{
     CFUUIDBytes b1 = CFUUIDGetUUIDBytes(u1);
@@ -131,7 +125,6 @@ static int rssi = 0;
 -(const char *) UUIDToString:(CFUUIDRef)UUID{
     if (!UUID)
         return "NULL";
-    
     CFStringRef s = CFUUIDCreateString(NULL, UUID);
     return CFStringGetCStringPtr(s, 0);
 }
@@ -183,15 +176,14 @@ static int rssi = 0;
     NSString *manufacturerData = [NSString stringWithFormat:@"%@",[advertisementData valueForKey: @"kCBAdvDataManufacturerData"]];
     manufacturerData = [manufacturerData stringByReplacingOccurrencesOfString:@">" withString:@""];
     manufacturerData = [manufacturerData stringByReplacingOccurrencesOfString:@"<" withString:@""];
-    
     NSLog(manufacturerData);
     
     NSString *rssi = [NSString stringWithFormat:@"%@",RSSI];
     CFStringRef s = CFUUIDCreateString(NULL, peripheral.UUID);
-    NSString *uuidFormatted = (__bridge NSString *)s;
+//    NSString *uuidFormatted = (__bridge NSString *)s;
     
-//    [[self delegate] bleDidReceivePeripheralAdvertisementData:RSSI uuid:uuidFormatted] ;
-    [self bleDidReceivePeripheralAdvertisementData:RSSI uuid:uuidFormatted] ;
+    //Did discover something, and so send this data to a method along with RSSI and UUID
+    [self bleDidReceivePeripheralAdvertisementData:RSSI manufactureData:manufacturerData] ;
 
     
     Peripheral *peripheralModel = [[Peripheral alloc] init];
@@ -216,15 +208,14 @@ static int rssi = 0;
         [self.peripherals addObject:peripheralModel];
         printf("New UUID, adding\r\n");
     }
-    
     printf("didDiscoverPeripheral\r\n");
 }
 
 //i less than 5
--(void) bleDidReceivePeripheralAdvertisementData:(NSNumber *)rssi uuid:(NSString *)uuid {
+-(void) bleDidReceivePeripheralAdvertisementData:(NSNumber *)rssi manufactureData:(NSString *)manufactureData {
     NSString *rssiText = [NSString stringWithFormat:@"%@",rssi];
     Peripheral *peripheralDevice = [[Peripheral alloc] init];
-    [peripheralDevice setUuid:uuid];
+    [peripheralDevice setUuid:manufactureData];
     [peripheralDevice setRssi:rssi];
     [peripheralDeviceArray addObject:peripheralDevice];
 }
@@ -245,24 +236,26 @@ static int rssi = 0;
         }
     }
 //    [self alert:NO message:nil addButtonWithTitle:NO];
-    
     if(peripheralDeviceArray.count!=0 && ([greatestRssi intValue] > -45) && ([greatestRssi intValue] <0)){
         Peripheral *peripheralToConnect = [peripheralDeviceArray objectAtIndex:indexOfGreatestRssi];
         NSString *closestPeripheral = [peripheralToConnect uuid];
+        
+        //Call the method that no devices were found
         //NSLog(closestPeripheral);
 //        [self alert:YES message:closestPeripheral addButtonWithTitle:YES];
         NSLog(closestPeripheral);
     }else{
+        
+        
+        //All
+        
+        
 //        [self alert:YES message:@"No devices found" addButtonWithTitle:YES];
         NSLog(@"No devices found");
 
     }
     [peripheralDeviceArray removeAllObjects];
 }
-
-
-
-
 
 static bool done = false;
 @end

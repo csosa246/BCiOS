@@ -55,17 +55,22 @@ NSString *linkedinURLToLoad;
         return;
     }
     
-//    NSMutableString *uuids = [NSMutableString string];
+    NSMutableString *bidCollection = [NSMutableString string];
     for (int i = 0; i < peripherals.count; i++){
         Peripheral *p = [peripherals objectAtIndex:i];
         NSString *manufacturerData = [p manufacturerData];
         NSString *bid = [manufacturerData substringWithRange:NSMakeRange(1, 1)];
         NSLog(@"Coming from the BLE model:");
-        NSLog(bid);
+        [bidCollection appendString:bid];
+        [bidCollection appendString:@","];
     }
+    NSLog(bidCollection);
+
     
 //    NSString *uuidsToLoad = @"FC01C226-0EF5-8F59-75C6-1E3CCCFBCA01-ED";
 //    NSString *uuidsToLoad = [uuids substringToIndex:[uuids length]-1];
+    NSString *bidsToLoad = [bidCollection substringToIndex:[bidCollection length]-1];
+
     [scanHttp serverConfirmation:@"1" bid:@"1,2,3"];
 }
 
