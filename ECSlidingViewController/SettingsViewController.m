@@ -32,7 +32,6 @@ int i;
     self.peekLeftAmount = 40.0f;
     [self.slidingViewController setAnchorLeftPeekAmount:self.peekLeftAmount];
     self.slidingViewController.underRightWidthLayout = ECVariableRevealWidth;
-    
     //NOTE THAT THIS WILL DESTROY THE PERIPHERALS ABILITY TO BROADCAST
     
     ble = [[BLE alloc] init];
@@ -73,26 +72,12 @@ int i;
     [im setFonts:socialNetworkLabel];
 }
 
-- (void)underRightWillAppear:(NSNotification *)notification{
-    NSLog(@"under right will appear");
-}
-- (void)topDidReset:(NSNotification *)notification{
-    //Not so sure about whats going on here....
-    NSLog(@"top did reset");
-    editStateEnabled = YES;
-    [self didClickEdit:nil];
-}
-
 - (void) bleDidReceivePeripherals:(NSMutableArray *)peripherals{
     
 }
 
 -(void) bleDidReceivePeripheralAdvertisementData:(NSNumber *)rssi uuid:(NSString *)uuid {
-    NSString *rssiText = [NSString stringWithFormat:@"%@",rssi];
-    Peripheral *peripheralDevice = [[Peripheral alloc] init];
-    [peripheralDevice setUuid:uuid];
-    [peripheralDevice setRssi:rssi];
-    [peripheralDeviceArray addObject:peripheralDevice];
+    
 }
 
 - (IBAction)didPressRegister:(id)sender{
@@ -105,31 +90,8 @@ int i;
     if(i<5){
         [ble findBLEPeripherals:1];
     }else{
-        //Reset the count
-        i=0;
-        //Do some comparitive data analysis
-        NSNumber *greatestRssi = [[NSNumber alloc] initWithDouble:-9999];
-        int indexOfGreatestRssi = 0;
-        for(int j = 0; j<peripheralDeviceArray.count; j ++){
-            Peripheral *peripheral = [peripheralDeviceArray objectAtIndex:j];
-            NSNumber *rssi = [peripheral rssi];
-            //NSLog([NSString stringWithFormat:@"%@",rssi]);
-            if ([rssi intValue] > [greatestRssi intValue]){
-                greatestRssi = rssi;
-                indexOfGreatestRssi = j;
-            }
-        }
-        [self alert:NO message:nil addButtonWithTitle:NO];
-
-        if(peripheralDeviceArray.count!=0 && ([greatestRssi intValue] > -45) && ([greatestRssi intValue] <0)){
-            Peripheral *peripheralToConnect = [peripheralDeviceArray objectAtIndex:indexOfGreatestRssi];
-            NSString *closestPeripheral = [peripheralToConnect uuid];
-            //NSLog(closestPeripheral);
-            [self alert:YES message:closestPeripheral addButtonWithTitle:YES];
-        }else{
-            [self alert:YES message:@"No devices found" addButtonWithTitle:YES];
-        }
-        [peripheralDeviceArray removeAllObjects];
+        i = 0;
+        [ble didFinishScanAndCompiling];
     }
 }
 
@@ -176,6 +138,16 @@ int i;
     }else{
         [(AppDelegate *)[[UIApplication sharedApplication] delegate] pauseAdvertising];
     }
+}
+
+- (void)underRightWillAppear:(NSNotification *)notification{
+    NSLog(@"under right will appear");
+}
+- (void)topDidReset:(NSNotification *)notification{
+    //Not so sure about whats going on here....
+    NSLog(@"top did reset");
+    editStateEnabled = YES;
+    [self didClickEdit:nil];
 }
 
 -(void) transitionView:(UIView *)view isHidden:(BOOL)isHidden{

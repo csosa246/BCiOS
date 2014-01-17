@@ -8,6 +8,7 @@
 @synthesize CM;
 @synthesize peripherals;
 @synthesize activePeripheral;
+@synthesize peripheralDeviceArray;
 static UInt16 libver = 0;
 static unsigned char vendor_name[20] = {0};
 static bool isConnected = false;
@@ -37,6 +38,12 @@ static int rssi = 0;
 
 - (int) controlSetup: (int) s{
     self.CM = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+    
+    
+    
+    peripheralDeviceArray = [[NSMutableArray alloc] init];
+
+    
     return 0;
 }
 
@@ -95,6 +102,7 @@ static int rssi = 0;
     printf("Stopped Scanning\r\n");
     printf("Known peripherals : %d\r\n",[self.peripherals count]);
     [self printKnownPeripherals];
+//    [self ]
     [delegate bleDidStopScanning];
 }
 
@@ -182,7 +190,9 @@ static int rssi = 0;
     CFStringRef s = CFUUIDCreateString(NULL, peripheral.UUID);
     NSString *uuidFormatted = (__bridge NSString *)s;
     
-    [[self delegate] bleDidReceivePeripheralAdvertisementData:RSSI uuid:uuidFormatted] ;
+//    [[self delegate] bleDidReceivePeripheralAdvertisementData:RSSI uuid:uuidFormatted] ;
+    [self bleDidReceivePeripheralAdvertisementData:RSSI uuid:uuidFormatted] ;
+
     
     Peripheral *peripheralModel = [[Peripheral alloc] init];
     [peripheralModel setManufacturerData:manufacturerData];
@@ -209,6 +219,50 @@ static int rssi = 0;
     
     printf("didDiscoverPeripheral\r\n");
 }
+
+//i less than 5
+-(void) bleDidReceivePeripheralAdvertisementData:(NSNumber *)rssi uuid:(NSString *)uuid {
+    NSString *rssiText = [NSString stringWithFormat:@"%@",rssi];
+    Peripheral *peripheralDevice = [[Peripheral alloc] init];
+    [peripheralDevice setUuid:uuid];
+    [peripheralDevice setRssi:rssi];
+    [peripheralDeviceArray addObject:peripheralDevice];
+}
+
+
+//i greater than 5
+-(void) didFinishScanAndCompiling{
+    //Do some comparitive data analysis
+    NSNumber *greatestRssi = [[NSNumber alloc] initWithDouble:-9999];
+    int indexOfGreatestRssi = 0;
+    for(int j = 0; j<peripheralDeviceArray.count; j ++){
+        Peripheral *peripheral = [peripheralDeviceArray objectAtIndex:j];
+        NSNumber *rssi = [peripheral rssi];
+        //NSLog([NSString stringWithFormat:@"%@",rssi]);
+        if ([rssi intValue] > [greatestRssi intValue]){
+            greatestRssi = rssi;
+            indexOfGreatestRssi = j;
+        }
+    }
+//    [self alert:NO message:nil addButtonWithTitle:NO];
+    
+    if(peripheralDeviceArray.count!=0 && ([greatestRssi intValue] > -45) && ([greatestRssi intValue] <0)){
+        Peripheral *peripheralToConnect = [peripheralDeviceArray objectAtIndex:indexOfGreatestRssi];
+        NSString *closestPeripheral = [peripheralToConnect uuid];
+        //NSLog(closestPeripheral);
+//        [self alert:YES message:closestPeripheral addButtonWithTitle:YES];
+        NSLog(closestPeripheral);
+    }else{
+//        [self alert:YES message:@"No devices found" addButtonWithTitle:YES];
+        NSLog(@"No devices found");
+
+    }
+    [peripheralDeviceArray removeAllObjects];
+}
+
+
+
+
 
 static bool done = false;
 @end

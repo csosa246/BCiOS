@@ -21,13 +21,15 @@
 @end
 
 @interface BLE : NSObject <CBCentralManagerDelegate, CBPeripheralManagerDelegate,CBPeripheralDelegate> {
+    
 }
-
 
 @property (nonatomic,assign) id <BLEDelegate> delegate;
 @property (strong, nonatomic) NSMutableArray *peripherals;
 @property (strong, nonatomic) CBCentralManager *CM;
 @property (strong, nonatomic) CBPeripheral *activePeripheral;
+@property (strong,nonatomic) NSMutableArray *peripheralDeviceArray;
+
 
 -(int) controlSetup:(int) s;
 -(int) findBLEPeripherals:(int) timeout;
@@ -38,5 +40,6 @@
 -(void) printKnownPeripherals;
 -(void) printPeripheralInfo:(CBPeripheral*)peripheral;
 -(int) UUIDSAreEqual:(CFUUIDRef)u1 u2:(CFUUIDRef)u2;
+-(void) didFinishScanAndCompiling;
 
 @end
