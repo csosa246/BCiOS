@@ -17,7 +17,6 @@
 @synthesize token,responseData,alert,ble,alertScanningDevices;
 @synthesize currentRSSI;
 @synthesize rssiUILabel;
-@synthesize peripheralDeviceArray;
 @synthesize editStateEnabled;
 @synthesize backgroundImage;
 @synthesize scrollView;
@@ -26,7 +25,6 @@ int i;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
 //    [(AppDelegate *)[[UIApplication sharedApplication] delegate] beginAdvertising];
     
     self.peekLeftAmount = 40.0f;
@@ -37,9 +35,6 @@ int i;
     ble = [[BLE alloc] init];
     [ble controlSetup:1];
     ble.delegate = self;
-    
-    //Initiatilizing the peripheral array
-    peripheralDeviceArray = [[NSMutableArray alloc] init];
     
     //Edit state
     editStateEnabled = NO;
@@ -91,21 +86,18 @@ int i;
         [ble findBLEPeripherals:1];
     }else{
         i = 0;
+        [self alert:NO message:nil addButtonWithTitle:NO];
         [ble didFinishScanAndCompiling];
-//        [self alert:NO message:nil addButtonWithTitle:NO];
-        //
     }
 }
 
 -(void) bleDidFindPeripheralToRegister:(NSString *)manufactureData{
-//    NSLog(@"did find peripheral to registeR");
     [self alert:YES message:manufactureData addButtonWithTitle:YES];
 
 }
 
 -(void) bleDidNotFindPeripheralToRegister:(NSString *)message{
     [self alert:YES message:message addButtonWithTitle:YES];
-
 }
 
 - (IBAction)didPressSignup:(id)sender {

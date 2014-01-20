@@ -9,26 +9,6 @@
 @synthesize peripherals;
 @synthesize activePeripheral;
 @synthesize peripheralDeviceArray;
-static UInt16 libver = 0;
-static unsigned char vendor_name[20] = {0};
-static bool isConnected = false;
-static int rssi = 0;
-
--(int) readRSSI{
-    return rssi;
-}
-
--(UInt16) readLibVer{
-    return libver;
-}
-
--(UInt16) readFrameworkVersion{
-    return BLE_FRAMEWORK_VERSION;
-}
-
--(NSString *) readVendorName{
-    return [NSString stringWithFormat:@"%s", vendor_name];
-}
 
 -(UInt16) swap:(UInt16)s{
     UInt16 temp = s << 8;
@@ -38,9 +18,7 @@ static int rssi = 0;
 
 - (int) controlSetup: (int) s{
     self.CM = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
-    
     peripheralDeviceArray = [[NSMutableArray alloc] init];
-    
     return 0;
 }
 
@@ -56,15 +34,8 @@ static int rssi = 0;
     [NSTimer scheduledTimerWithTimeInterval:(float)timeout target:self selector:@selector(scanTimer:) userInfo:nil repeats:NO];
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], CBCentralManagerScanOptionAllowDuplicatesKey, nil];
     [self.CM scanForPeripheralsWithServices:nil options:options]; // Start scanning
-    
     NSLog(@"scanForPeripheralsWithServices");
-    return 0; // Started scanning OK !
-}
-
-- (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error;{
-    done = false;
-    [[self delegate] bleDidDisconnect];
-    isConnected = false;
+    return 0;
 }
 
 - (const char *) centralManagerStateToString: (int)state{
@@ -97,7 +68,6 @@ static int rssi = 0;
 
 - (void) printKnownPeripherals{
     printf("List of currently known peripherals : \r\n");
-
     [[self delegate] bleDidReceivePeripherals:peripherals];
 }
 
@@ -109,17 +79,6 @@ static int rssi = 0;
         return 1;
     }else
         return 0;
-}
-
--(const char *) CBUUIDToString:(CBUUID *) UUID{
-    return [[UUID.data description] cStringUsingEncoding:NSStringEncodingConversionAllowLossy];
-}
-
--(const char *) UUIDToString:(CFUUIDRef)UUID{
-    if (!UUID)
-        return "NULL";
-    CFStringRef s = CFUUIDCreateString(NULL, UUID);
-    return CFStringGetCStringPtr(s, 0);
 }
 
 #if TARGET_OS_IPHONE
@@ -146,7 +105,6 @@ static int rssi = 0;
     }
     
     NSLog(@"Central manager state: %@", state);
-    
     NSAlert *alert = [[NSAlert alloc] init];
     [alert setMessageText:state];
     [alert addButtonWithTitle:@"OK"];
@@ -169,9 +127,7 @@ static int rssi = 0;
     manufacturerData = [manufacturerData stringByReplacingOccurrencesOfString:@">" withString:@""];
     manufacturerData = [manufacturerData stringByReplacingOccurrencesOfString:@"<" withString:@""];
     NSLog(manufacturerData);
-    
     NSString *rssi = [NSString stringWithFormat:@"%@",RSSI];
-    
     //Did discover something, and so send this data to a method along with RSSI and UUID
     [self bleDidReceivePeripheralAdvertisementData:RSSI manufactureData:manufacturerData] ;
     
@@ -184,7 +140,6 @@ static int rssi = 0;
     else{
         for(int i = 0; i < self.peripherals.count; i++){
             Peripheral *p = [self.peripherals objectAtIndex:i];
-            
             if ((p.peripheral.UUID == NULL) || (peripheral.UUID == NULL))
                 continue;
             if ([self UUIDSAreEqual:p.peripheral.UUID u2:peripheral.UUID]){
@@ -217,12 +172,16 @@ static int rssi = 0;
         Peripheral *peripheral = [peripheralDeviceArray objectAtIndex:j];
         NSNumber *rssi = [peripheral rssi];
         NSLog(@"%@",rssi);
-        if ([rssi intValue] > [greatestRssi intValue]){
+        if ([rssi intValue] > [greatestRssi intValue] & [rssi intValue] < 0){
             greatestRssi = rssi;
             indexOfGreatestRssi = j;
         }
     }
+    NSLog(@"GREATEST RSSI");
+    NSLog(@"%@",greatestRssi);
+
     if(peripheralDeviceArray.count!=0 && ([greatestRssi intValue] > -60) && ([greatestRssi intValue] <0)){
+        NSLog(@"ARE WE EVERY GOING IN HERE");
         Peripheral *peripheralToConnect = [peripheralDeviceArray objectAtIndex:indexOfGreatestRssi];
         NSString *closestPeripheral = [peripheralToConnect manufacturerData];
         [[self delegate] bleDidFindPeripheralToRegister:closestPeripheral];
@@ -233,6 +192,4 @@ static int rssi = 0;
     }
     [peripheralDeviceArray removeAllObjects];
 }
-
-static bool done = false;
 @end

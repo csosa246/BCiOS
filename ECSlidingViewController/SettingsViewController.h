@@ -51,7 +51,6 @@
 @property (strong, nonatomic) BLE *ble;
 @property (strong,nonatomic) NSNumber *currentRSSI;
 @property (weak, nonatomic) IBOutlet UILabel *rssiUILabel;
-@property (strong,nonatomic) NSMutableArray *peripheralDeviceArray;
 - (IBAction)didClickEdit:(id)sender;
 - (IBAction)didClickBroadcastSwitch:(id)sender;
 
