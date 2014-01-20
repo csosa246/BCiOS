@@ -106,7 +106,6 @@ int i;
 -(void) bleDidNotFindPeripheralToRegister:(NSString *)message{
     [self alert:YES message:message addButtonWithTitle:YES];
 
-//    NSLog(@"did not find a peripheral to registeR");
 }
 
 - (IBAction)didPressSignup:(id)sender {

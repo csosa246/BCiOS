@@ -204,7 +204,7 @@ static int rssi = 0;
 -(void) bleDidReceivePeripheralAdvertisementData:(NSNumber *)rssi manufactureData:(NSString *)manufactureData {
     NSString *rssiText = [NSString stringWithFormat:@"%@",rssi];
     Peripheral *peripheralDevice = [[Peripheral alloc] init];
-    [peripheralDevice setUuid:manufactureData];
+    [peripheralDevice setManufacturerData:manufactureData];
     [peripheralDevice setRssi:rssi];
     [peripheralDeviceArray addObject:peripheralDevice];
 }
@@ -222,7 +222,7 @@ static int rssi = 0;
             indexOfGreatestRssi = j;
         }
     }
-    if(peripheralDeviceArray.count!=0 && ([greatestRssi intValue] > -45) && ([greatestRssi intValue] <0)){
+    if(peripheralDeviceArray.count!=0 && ([greatestRssi intValue] > -60) && ([greatestRssi intValue] <0)){
         Peripheral *peripheralToConnect = [peripheralDeviceArray objectAtIndex:indexOfGreatestRssi];
         NSString *closestPeripheral = [peripheralToConnect manufacturerData];
         [[self delegate] bleDidFindPeripheralToRegister:closestPeripheral];
