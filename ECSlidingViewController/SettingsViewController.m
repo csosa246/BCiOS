@@ -27,7 +27,7 @@ int i;
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    [(AppDelegate *)[[UIApplication sharedApplication] delegate] beginAdvertising];
+//    [(AppDelegate *)[[UIApplication sharedApplication] delegate] beginAdvertising];
     
     self.peekLeftAmount = 40.0f;
     [self.slidingViewController setAnchorLeftPeekAmount:self.peekLeftAmount];
@@ -92,7 +92,21 @@ int i;
     }else{
         i = 0;
         [ble didFinishScanAndCompiling];
+//        [self alert:NO message:nil addButtonWithTitle:NO];
+        //
     }
+}
+
+-(void) bleDidFindPeripheralToRegister:(NSString *)manufactureData{
+//    NSLog(@"did find peripheral to registeR");
+    [self alert:YES message:manufactureData addButtonWithTitle:YES];
+
+}
+
+-(void) bleDidNotFindPeripheralToRegister:(NSString *)message{
+    [self alert:YES message:message addButtonWithTitle:YES];
+
+//    NSLog(@"did not find a peripheral to registeR");
 }
 
 - (IBAction)didPressSignup:(id)sender {

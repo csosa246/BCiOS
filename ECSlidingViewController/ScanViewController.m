@@ -22,7 +22,7 @@ NSString *linkedinURLToLoad;
 
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+//    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
 }
 
 - (void) viewDidLoad{
@@ -66,7 +66,6 @@ NSString *linkedinURLToLoad;
     }
     NSLog(bidCollection);
 
-    
 //    NSString *uuidsToLoad = @"FC01C226-0EF5-8F59-75C6-1E3CCCFBCA01-ED";
 //    NSString *uuidsToLoad = [uuids substringToIndex:[uuids length]-1];
     NSString *bidsToLoad = [bidCollection substringToIndex:[bidCollection length]-1];

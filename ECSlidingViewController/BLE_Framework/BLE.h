@@ -17,8 +17,8 @@
 -(void) bleDidReceivePeripherals:(NSMutableArray *)peripherals;
 -(void) bleDidReceivePeripheralAdvertisementData:(NSNumber *)rssi uuid:(NSString *)uuid;
 -(void) bleDidStopScanning;
--(void) bleDidFindPeripheralToRegister;
--(void) bleDidNotFindPeripheralToRegister;
+-(void) bleDidFindPeripheralToRegister:(NSString *)manufactureData;
+-(void) bleDidNotFindPeripheralToRegister:(NSString *)message;
 @end
 
 @interface BLE : NSObject <CBCentralManagerDelegate, CBPeripheralManagerDelegate,CBPeripheralDelegate> {

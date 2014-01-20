@@ -67,13 +67,6 @@ static int rssi = 0;
     isConnected = false;
 }
 
-//- (void) connectPeripheral:(CBPeripheral *)peripheral {
-//    //printf("Connecting to peripheral with UUID : %s\r\n",[self UUIDToString:peripheral.UUID]);
-//    self.activePeripheral = peripheral;
-//    self.activePeripheral.delegate = self;
-//    [self.CM connectPeripheral:self.activePeripheral options:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey]];
-//}
-
 - (const char *) centralManagerStateToString: (int)state{
     switch(state){
         case CBCentralManagerStateUnknown:
@@ -172,19 +165,15 @@ static int rssi = 0;
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI{
-    
     NSString *manufacturerData = [NSString stringWithFormat:@"%@",[advertisementData valueForKey: @"kCBAdvDataManufacturerData"]];
     manufacturerData = [manufacturerData stringByReplacingOccurrencesOfString:@">" withString:@""];
     manufacturerData = [manufacturerData stringByReplacingOccurrencesOfString:@"<" withString:@""];
     NSLog(manufacturerData);
     
     NSString *rssi = [NSString stringWithFormat:@"%@",RSSI];
-    CFStringRef s = CFUUIDCreateString(NULL, peripheral.UUID);
-//    NSString *uuidFormatted = (__bridge NSString *)s;
     
     //Did discover something, and so send this data to a method along with RSSI and UUID
     [self bleDidReceivePeripheralAdvertisementData:RSSI manufactureData:manufacturerData] ;
-
     
     Peripheral *peripheralModel = [[Peripheral alloc] init];
     [peripheralModel setManufacturerData:manufacturerData];
@@ -219,8 +208,6 @@ static int rssi = 0;
     [peripheralDevice setRssi:rssi];
     [peripheralDeviceArray addObject:peripheralDevice];
 }
-
-
 //i greater than 5
 -(void) didFinishScanAndCompiling{
     //Do some comparitive data analysis
@@ -229,26 +216,19 @@ static int rssi = 0;
     for(int j = 0; j<peripheralDeviceArray.count; j ++){
         Peripheral *peripheral = [peripheralDeviceArray objectAtIndex:j];
         NSNumber *rssi = [peripheral rssi];
-        //NSLog([NSString stringWithFormat:@"%@",rssi]);
+        NSLog(@"%@",rssi);
         if ([rssi intValue] > [greatestRssi intValue]){
             greatestRssi = rssi;
             indexOfGreatestRssi = j;
         }
     }
-//    [self alert:NO message:nil addButtonWithTitle:NO];
     if(peripheralDeviceArray.count!=0 && ([greatestRssi intValue] > -45) && ([greatestRssi intValue] <0)){
         Peripheral *peripheralToConnect = [peripheralDeviceArray objectAtIndex:indexOfGreatestRssi];
-        NSString *closestPeripheral = [peripheralToConnect uuid];
-        
-        //Call the method that no devices were found
-        //NSLog(closestPeripheral);
-//        [self alert:YES message:closestPeripheral addButtonWithTitle:YES];
-        [[self delegate] bleDidFindPeripheralToRegister];
-        NSLog(closestPeripheral);
+        NSString *closestPeripheral = [peripheralToConnect manufacturerData];
+        [[self delegate] bleDidFindPeripheralToRegister:closestPeripheral];
     }else{
-        [[self delegate] bleDidNotFindPeripheralToRegister];
-//        [self alert:YES message:@"No devices found" addButtonWithTitle:YES];
-        NSLog(@"No devices found");
+        NSString *message = @"No devices found.";
+        [[self delegate] bleDidNotFindPeripheralToRegister:message];
 
     }
     [peripheralDeviceArray removeAllObjects];
