@@ -24,7 +24,8 @@
 @end
 
 
-@interface ScanViewController : UITableViewController <UITableViewDataSource,BLEDelegate,ScanHTTPDelegate>
+
+@interface ScanViewController : UITableViewController <CLLocationManagerDelegate>
 
 
 @property (strong,nonatomic) UIAlertView *alertScanningDevices;

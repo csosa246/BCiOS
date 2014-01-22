@@ -152,7 +152,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3b-ql-eKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1422" y="-2558"/>
+            <point key="canvasLocation" x="1408" y="-2558"/>
         </scene>
         <!--Linked In Profile View Controller - LinkedIn-->
         <scene sceneID="R5h-Q0-VoN">

@@ -11,10 +11,10 @@
  Abstract: View controller that illustrates how to start and stop ranging for a beacon region.
  */
 
-#import "ALRangingViewController.h"
+#import "ScanViewController.h"
 #import "ALDefaults.h"
 
-@implementation ALRangingViewController
+@implementation ScanViewController
 {
     NSMutableDictionary *_beacons;
     CLLocationManager *_locationManager;
@@ -31,7 +31,7 @@
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
 	}
-	
+
 	return self;
 }
 
@@ -80,10 +80,9 @@
     }];
 }
 
+
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    self.title = @"Ranging";
     
     // Populate the regions we will range once.
     _rangedRegions = [NSMutableArray array];
@@ -136,7 +135,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	static NSString *identifier = @"Cell";
+    static NSString *identifier = @"PhotoCell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
 	if (cell == nil)
 	{
@@ -153,7 +152,7 @@
     return cell;
 }
 
-@end
+//@end
 
 
 
@@ -289,29 +288,30 @@
     [label setFont:[UIFont fontWithName:@"Roboto-Light" size:label.font.pointSize]];
 }
 
--(void)alert:(BOOL)showAlert{
-    if(showAlert){
-        alertScanningDevices = [[UIAlertView alloc] initWithTitle:@"Scanning..." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
-        [alertScanningDevices show];
-    }else{
-        [alertScanningDevices dismissWithClickedButtonIndex:0 animated:YES];
-    }
-}
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"scan2linkedin"]){
-        LinkedInProfileViewController *viewController = (LinkedInProfileViewController *) segue.destinationViewController;
-        viewController.linkedinURL = linkedinURLToLoad;
-    }
-}
+//-(void)alert:(BOOL)showAlert{
+//    if(showAlert){
+//        alertScanningDevices = [[UIAlertView alloc] initWithTitle:@"Scanning..." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+//        [alertScanningDevices show];
+//    }else{
+//        [alertScanningDevices dismissWithClickedButtonIndex:0 animated:YES];
+//    }
+//}
+//
+//
+//- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if([segue.identifier isEqualToString:@"scan2linkedin"]){
+//        LinkedInProfileViewController *viewController = (LinkedInProfileViewController *) segue.destinationViewController;
+//        viewController.linkedinURL = linkedinURLToLoad;
+//    }
+//}
 
 - (IBAction)revealMenu:(id)sender{
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
 -(void) removeViewController{
-    peripheralArray = nil;
-    scanHttp = nil;
+//    peripheralArray = nil;
+//    scanHttp = nil;
 }
 
 - (IBAction)revealUnderRight:(id)sender{
