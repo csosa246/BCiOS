@@ -1,13 +1,15 @@
 //
-//  ScanHTTPModel.m
+//  BeaconRegisterHTTPAdapter.m
 //  Blue Canary
 //
-//  Created by Crae Sosa on 10/25/13.
+//  Created by Crae Sosa on 1/20/14.
+//
+//
 
-#import "ScanHTTPAdapter.h"
+#import "BeaconRegisterHTTPAdapter.h"
 
-@implementation ScanHTTPAdapter
-@synthesize responseData,delegate;
+@implementation BeaconRegisterHTTPAdapter
+@synthesize responseData;
 
 -(int) controlSetup:(int) s{
     return 0;
@@ -15,7 +17,7 @@
 
 -(void) serverConfirmation:(NSString*)pid bid:(NSString*) bid{
     self.responseData = [NSMutableData data];
-    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[@"https://bluecanaryalpha.herokuapp.com/mobile" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
+    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[@"https://bluecanaryalpha.herokuapp.com/beacon_register" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithObjectsAndKeys: pid, @"id", bid, @"bid", nil];
@@ -40,12 +42,12 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSError *error = nil;
-//    NSArray *array = [NSJSONSerialization JSONObjectWithData:self.responseData options:0 error:&jsonParsingError];
-//    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
+    //    NSArray *array = [NSJSONSerialization JSONObjectWithData:self.responseData options:0 error:&jsonParsingError];
+    //    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
     NSArray *array = [NSJSONSerialization JSONObjectWithData: responseData options:NSJSONReadingMutableContainers error:&error];
     NSString *response = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
     NSLog(response);
-    [[self delegate] scanHTTPconnectionDidFinishLoading:array];
+//    [[self delegate] scanHTTPconnectionDidFinishLoading:array];
 }
 
 @end

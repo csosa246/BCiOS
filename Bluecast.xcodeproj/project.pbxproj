@@ -51,6 +51,9 @@
 		9B7AE5661810A93A00E9B0AA /* ScanTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AE5651810A93A00E9B0AA /* ScanTopViewController.m */; };
 		9B7AE56A1810AB3C00E9B0AA /* BLEDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AE5691810AB3C00E9B0AA /* BLEDevice.m */; };
 		9B889E881813173500952C05 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B889E871813173500952C05 /* LoginViewController.m */; };
+		9B95449A188F72DB00E6C808 /* IBeaconAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B954499188F72DB00E6C808 /* IBeaconAdapter.m */; };
+		9BAC4995188E2A2F0048ACFB /* bluecast.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAC4994188E2A2F0048ACFB /* bluecast.png */; };
+		9BAC499B188E315B0048ACFB /* BeaconRegisterHTTPAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAC499A188E315B0048ACFB /* BeaconRegisterHTTPAdapter.m */; };
 		9BB3D02D1828519200E58670 /* LoginHTTPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB3D02C1828519200E58670 /* LoginHTTPModel.m */; };
 		9BB3D03318292D9000E58670 /* DataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB3D03218292D9000E58670 /* DataClass.m */; };
 		9BBC335418404EBE000280D8 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBC335318404EBE000280D8 /* KeychainItemWrapper.m */; };
@@ -69,11 +72,11 @@
 		27407EEB14D8787E0035FD7F /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		27498DD314E96EEF005C043E /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
 		27498DD414E96EEF005C043E /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
-		2750E76C14CDB0DF007727A0 /* Blue Canary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blue Canary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2750E76C14CDB0DF007727A0 /* Bluecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bluecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2750E77014CDB0DF007727A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2750E77214CDB0DF007727A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2750E77414CDB0DF007727A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2750E77814CDB0DF007727A0 /* Blue Canary-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Blue Canary-Info.plist"; sourceTree = "<group>"; };
+		2750E77814CDB0DF007727A0 /* Bluecast-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bluecast-Info.plist"; sourceTree = "<group>"; };
 		2750E77A14CDB0DF007727A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2750E77C14CDB0DF007727A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2750E77E14CDB0DF007727A0 /* ECSlidingViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ECSlidingViewController-Prefix.pch"; sourceTree = "<group>"; };
@@ -136,6 +139,11 @@
 		9B7AE5691810AB3C00E9B0AA /* BLEDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEDevice.m; sourceTree = "<group>"; };
 		9B889E861813173500952C05 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9B889E871813173500952C05 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		9B954498188F72DB00E6C808 /* IBeaconAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBeaconAdapter.h; sourceTree = "<group>"; };
+		9B954499188F72DB00E6C808 /* IBeaconAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBeaconAdapter.m; sourceTree = "<group>"; };
+		9BAC4994188E2A2F0048ACFB /* bluecast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluecast.png; sourceTree = "<group>"; };
+		9BAC4999188E315B0048ACFB /* BeaconRegisterHTTPAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconRegisterHTTPAdapter.h; sourceTree = "<group>"; };
+		9BAC499A188E315B0048ACFB /* BeaconRegisterHTTPAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconRegisterHTTPAdapter.m; sourceTree = "<group>"; };
 		9BB3D02B1828519200E58670 /* LoginHTTPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginHTTPModel.h; path = ../LoginHTTPModel.h; sourceTree = "<group>"; };
 		9BB3D02C1828519200E58670 /* LoginHTTPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginHTTPModel.m; path = ../LoginHTTPModel.m; sourceTree = "<group>"; };
 		9BB3D03118292D9000E58670 /* DataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataClass.h; sourceTree = "<group>"; };
@@ -176,7 +184,7 @@
 				9BFA62591810C7B3006D4D59 /* Images */,
 				9BFA62531810B6FB006D4D59 /* Fonts */,
 				9B7AE55A1810839900E9B0AA /* BLE_Framework */,
-				2750E77614CDB0DF007727A0 /* BlueCanary */,
+				2750E77614CDB0DF007727A0 /* Bluecast */,
 				2750E76F14CDB0DF007727A0 /* Frameworks */,
 				2750E76D14CDB0DF007727A0 /* Products */,
 			);
@@ -185,7 +193,7 @@
 		2750E76D14CDB0DF007727A0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2750E76C14CDB0DF007727A0 /* Blue Canary.app */,
+				2750E76C14CDB0DF007727A0 /* Bluecast.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,7 +212,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2750E77614CDB0DF007727A0 /* BlueCanary */ = {
+		2750E77614CDB0DF007727A0 /* Bluecast */ = {
 			isa = PBXGroup;
 			children = (
 				2750E78714CDB114007727A0 /* iPhone.storyboard */,
@@ -219,14 +227,14 @@
 				2750E77714CDB0DF007727A0 /* Supporting Files */,
 				05EA26FD17F12A4200E6F107 /* Images.xcassets */,
 			);
-			name = BlueCanary;
+			name = Bluecast;
 			path = ECSlidingViewController;
 			sourceTree = "<group>";
 		};
 		2750E77714CDB0DF007727A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2750E77814CDB0DF007727A0 /* Blue Canary-Info.plist */,
+				2750E77814CDB0DF007727A0 /* Bluecast-Info.plist */,
 				2750E77914CDB0DF007727A0 /* InfoPlist.strings */,
 				2750E77C14CDB0DF007727A0 /* main.m */,
 				2750E77E14CDB0DF007727A0 /* ECSlidingViewController-Prefix.pch */,
@@ -280,10 +288,14 @@
 			children = (
 				9B57AF7118205396002F7FCF /* DesignLibaryAdapter.h */,
 				9B57AF7218205396002F7FCF /* DesignLibaryAdapter.m */,
+				9B954498188F72DB00E6C808 /* IBeaconAdapter.h */,
+				9B954499188F72DB00E6C808 /* IBeaconAdapter.m */,
 				9B4BB40F187E4BD500005815 /* KeychainAdapter.h */,
 				9B4BB410187E4BD500005815 /* KeychainAdapter.m */,
 				9B67C3B4181AF73300C76E9B /* ScanHTTPAdapter.h */,
 				9B67C3B5181AF73300C76E9B /* ScanHTTPAdapter.m */,
+				9BAC4999188E315B0048ACFB /* BeaconRegisterHTTPAdapter.h */,
+				9BAC499A188E315B0048ACFB /* BeaconRegisterHTTPAdapter.m */,
 			);
 			name = Adapters;
 			path = ..;
@@ -358,6 +370,7 @@
 		9BFA62591810C7B3006D4D59 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9BAC4994188E2A2F0048ACFB /* bluecast.png */,
 				9B2F2EDC1817707A0054631F /* linkedinbg.png */,
 				9B6FDC8618155AC4004B0ECB /* prof.png */,
 				9B67C3B9181C31F100C76E9B /* gear.png */,
@@ -381,9 +394,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2750E76B14CDB0DF007727A0 /* Blue Canary */ = {
+		2750E76B14CDB0DF007727A0 /* Bluecast */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2750E78414CDB0DF007727A0 /* Build configuration list for PBXNativeTarget "Blue Canary" */;
+			buildConfigurationList = 2750E78414CDB0DF007727A0 /* Build configuration list for PBXNativeTarget "Bluecast" */;
 			buildPhases = (
 				2750E76814CDB0DF007727A0 /* Sources */,
 				2750E76914CDB0DF007727A0 /* Frameworks */,
@@ -393,9 +406,9 @@
 			);
 			dependencies = (
 			);
-			name = "Blue Canary";
+			name = Bluecast;
 			productName = ECSlidingViewController;
-			productReference = 2750E76C14CDB0DF007727A0 /* Blue Canary.app */;
+			productReference = 2750E76C14CDB0DF007727A0 /* Bluecast.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -406,7 +419,7 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = 2750E76614CDB0DF007727A0 /* Build configuration list for PBXProject "Blue Canary" */;
+			buildConfigurationList = 2750E76614CDB0DF007727A0 /* Build configuration list for PBXProject "Bluecast" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -418,7 +431,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2750E76B14CDB0DF007727A0 /* Blue Canary */,
+				2750E76B14CDB0DF007727A0 /* Bluecast */,
 			);
 		};
 /* End PBXProject section */
@@ -432,6 +445,7 @@
 				9BFA62551810B760006D4D59 /* Roboto-Light.ttf in Resources */,
 				9BFA62651810C820006D4D59 /* man.png in Resources */,
 				9B74DEAB18121E5B006545CA /* linkedin-icon.png in Resources */,
+				9BAC4995188E2A2F0048ACFB /* bluecast.png in Resources */,
 				9BFA62621810C820006D4D59 /* iconbig.png in Resources */,
 				9BFA62641810C820006D4D59 /* iphone.png in Resources */,
 				9BFA62631810C820006D4D59 /* info.png in Resources */,
@@ -459,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BAC499B188E315B0048ACFB /* BeaconRegisterHTTPAdapter.m in Sources */,
 				9B4CA2F2182294A800D770FC /* SocialNetworkControllerViewController.m in Sources */,
 				2750E77D14CDB0DF007727A0 /* main.m in Sources */,
 				9BB3D03318292D9000E58670 /* DataClass.m in Sources */,
@@ -473,6 +488,7 @@
 				9B74DE9E1812014B006545CA /* LinkedInProfileViewController.m in Sources */,
 				9B889E881813173500952C05 /* LoginViewController.m in Sources */,
 				9BBC335418404EBE000280D8 /* KeychainItemWrapper.m in Sources */,
+				9B95449A188F72DB00E6C808 /* IBeaconAdapter.m in Sources */,
 				9B73B31A182C636A006C58A2 /* LXCBPeripheralServer.m in Sources */,
 				2750E79A14CDB99A007727A0 /* SecondTopViewController.m in Sources */,
 				9B7AE5661810A93A00E9B0AA /* ScanTopViewController.m in Sources */,
@@ -554,10 +570,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ECSlidingViewController/Blue Canary-Prefix.pch";
-				INFOPLIST_FILE = "ECSlidingViewController/Blue Canary-Info.plist";
+				GCC_PREFIX_HEADER = "ECSlidingViewController/Bluecast-Prefix.pch";
+				INFOPLIST_FILE = "ECSlidingViewController/Bluecast-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "Blue Canary";
+				PRODUCT_NAME = Bluecast;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -569,10 +585,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ECSlidingViewController/Blue Canary-Prefix.pch";
-				INFOPLIST_FILE = "ECSlidingViewController/Blue Canary-Info.plist";
+				GCC_PREFIX_HEADER = "ECSlidingViewController/Bluecast-Prefix.pch";
+				INFOPLIST_FILE = "ECSlidingViewController/Bluecast-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "Blue Canary";
+				PRODUCT_NAME = Bluecast;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -581,7 +597,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2750E76614CDB0DF007727A0 /* Build configuration list for PBXProject "Blue Canary" */ = {
+		2750E76614CDB0DF007727A0 /* Build configuration list for PBXProject "Bluecast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2750E78214CDB0DF007727A0 /* Debug */,
@@ -590,7 +606,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2750E78414CDB0DF007727A0 /* Build configuration list for PBXNativeTarget "Blue Canary" */ = {
+		2750E78414CDB0DF007727A0 /* Build configuration list for PBXNativeTarget "Bluecast" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2750E78514CDB0DF007727A0 /* Debug */,
