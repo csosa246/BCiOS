@@ -34,17 +34,15 @@
 	<string>iPhone</string>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string>iPad</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>bluetooth-central</string>
-		<string>bluetooth-peripheral</string>
-	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
+		<string>bluetooth-le</string>
 	</array>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
+	<key>NSLocationUsageDescription</key>
+	<string>Demonstate beacon monitoring and registering</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

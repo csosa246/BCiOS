@@ -7,15 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+
 #import "ECSlidingViewController.h"
 #import "ScanViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
--(void) beginAdvertising;
--(void) resumeAdvertising;
--(void) pauseAdvertising;
 
 @end

@@ -138,11 +138,7 @@ int i;
 }
 
 - (IBAction)didClickBroadcastSwitch:(id)sender {
-    if(broadcastSwitch.on){
-        [(AppDelegate *)[[UIApplication sharedApplication] delegate] resumeAdvertising];
-    }else{
-        [(AppDelegate *)[[UIApplication sharedApplication] delegate] pauseAdvertising];
-    }
+
 }
 
 - (void)underRightWillAppear:(NSNotification *)notification{

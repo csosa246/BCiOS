@@ -8,31 +8,28 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-
 #import "ECSlidingViewController.h"
-#import "BLE.h"
-#import "BLEDevice.h"
-#import "ScanHTTPAdapter.h"
-#import "Peripheral.h"
-#import "ALDefaults.h"
+//#import "BLE.h"
+//#import "BLEDevice.h"
+//#import "ScanHTTPAdapter.h"
+//#import "Peripheral.h"
 
 
-@protocol BluetoothActivationDelegate
-
--(void)startScanning;
-
-@end
+//@protocol BluetoothActivationDelegate
+//
+//-(void)startScanning;
+//
+//@end
 
 
 
 @interface ScanViewController : UITableViewController <CLLocationManagerDelegate>
 
-
-@property (strong,nonatomic) UIAlertView *alertScanningDevices;
-@property (strong,nonatomic) NSMutableData *responseData;
-@property (strong, nonatomic) BLE *ble;
-@property(strong,nonatomic) UIRefreshControl *refresh;
-@property (strong, nonatomic) ScanHTTPAdapter *scanHttp;
+//@property (strong,nonatomic) UIAlertView *alertScanningDevices;
+//@property (strong,nonatomic) NSMutableData *responseData;
+//@property (strong, nonatomic) BLE *ble;
+//@property(strong,nonatomic) UIRefreshControl *refresh;
+//@property (strong, nonatomic) ScanHTTPAdapter *scanHttp;
 
 -(void) removeViewController;
 

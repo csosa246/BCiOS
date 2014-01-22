@@ -6,11 +6,6 @@
 //  Copyright (c) 2012 EdgeCase. All rights reserved.
 //
 
-/*
- File: ALRangingViewController.m
- Abstract: View controller that illustrates how to start and stop ranging for a beacon region.
- */
-
 #import "ScanViewController.h"
 #import "ALDefaults.h"
 
@@ -31,12 +26,14 @@
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
 	}
-
+	
 	return self;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
+    
+    NSLog(@"manager was called");
     // CoreLocation will call this delegate method at 1 Hz with updated range information.
     // Beacons will be categorized and displayed by proximity.
     [_beacons removeAllObjects];
@@ -56,9 +53,7 @@
     if([farBeacons count])
         [_beacons setObject:farBeacons forKey:[NSNumber numberWithInt:CLProximityFar]];
     
-    [self.tableView reloadData];
-    //    [_locationManager stopRangingBeaconsInRegion:region];
-    
+    [self.tableView reloadData];    
     
 }
 
@@ -80,14 +75,14 @@
     }];
 }
 
-
 - (void)viewDidLoad
 {
-    
+    [super viewDidLoad];
     // Populate the regions we will range once.
     _rangedRegions = [NSMutableArray array];
     [[ALDefaults sharedDefaults].supportedProximityUUIDs enumerateObjectsUsingBlock:^(id uuidObj, NSUInteger uuidIdx, BOOL *uuidStop) {
         NSUUID *uuid = (NSUUID *)uuidObj;
+        
         CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:[uuid UUIDString]];
         [_rangedRegions addObject:region];
     }];
@@ -135,7 +130,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *identifier = @"PhotoCell";
+	static NSString *identifier = @"Cell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
 	if (cell == nil)
 	{
@@ -148,7 +143,6 @@
     CLBeacon *beacon = [[_beacons objectForKey:sectionKey] objectAtIndex:indexPath.row];
     cell.textLabel.text = [beacon.proximityUUID UUIDString];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Major: %@, Minor: %@, Acc: %.2fm", beacon.major, beacon.minor, beacon.accuracy];
-    
     return cell;
 }
 
