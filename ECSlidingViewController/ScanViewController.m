@@ -10,99 +10,71 @@
 #import "ALDefaults.h"
 
 @implementation ScanViewController
-{
-    NSMutableDictionary *_beacons;
-    CLLocationManager *_locationManager;
-    NSMutableArray *_rangedRegions;
-}
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-	self = [super initWithStyle:style];
-	if(self)
-	{
-        _beacons = [[NSMutableDictionary alloc] init];
-        // This location manager will be used to demonstrate how to range beacons.
-        _locationManager = [[CLLocationManager alloc] init];
-        _locationManager.delegate = self;
-	}
-	
-	return self;
-}
-
-- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
-{
-    
-    NSLog(@"manager was called");
-    // CoreLocation will call this delegate method at 1 Hz with updated range information.
-    // Beacons will be categorized and displayed by proximity.
-    [_beacons removeAllObjects];
-    NSArray *unknownBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityUnknown]];
-    if([unknownBeacons count])
-        [_beacons setObject:unknownBeacons forKey:[NSNumber numberWithInt:CLProximityUnknown]];
-    
-    NSArray *immediateBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityImmediate]];
-    if([immediateBeacons count])
-        [_beacons setObject:immediateBeacons forKey:[NSNumber numberWithInt:CLProximityImmediate]];
-    
-    NSArray *nearBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityNear]];
-    if([nearBeacons count])
-        [_beacons setObject:nearBeacons forKey:[NSNumber numberWithInt:CLProximityNear]];
-    
-    NSArray *farBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityFar]];
-    if([farBeacons count])
-        [_beacons setObject:farBeacons forKey:[NSNumber numberWithInt:CLProximityFar]];
-    
-    [self.tableView reloadData];    
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    // Start ranging when the view appears.
-    [_rangedRegions enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        CLBeaconRegion *region = obj;
-        [_locationManager startRangingBeaconsInRegion:region];
-    }];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    // Stop ranging when the view goes away.
-    [_rangedRegions enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        CLBeaconRegion *region = obj;
-        [_locationManager stopRangingBeaconsInRegion:region];
-    }];
-}
+@synthesize myBeaconRegion,locationManager,statusLabel,beaconsArray;
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
-    // Populate the regions we will range once.
-    _rangedRegions = [NSMutableArray array];
-    [[ALDefaults sharedDefaults].supportedProximityUUIDs enumerateObjectsUsingBlock:^(id uuidObj, NSUInteger uuidIdx, BOOL *uuidStop) {
-        NSUUID *uuid = (NSUUID *)uuidObj;
-        
-        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:[uuid UUIDString]];
-        [_rangedRegions addObject:region];
-    }];
+    
+    ble = [[BLE alloc] init];
+    [ble controlSetup:1];
+    ble.delegate = self;
+    
+//    beaconsArray = [[NSMutableDictionary alloc] init];
+//    // Do any additional setup after loading the view, typically from a nib.
+//    // Initialize location manager and set ourselves as the delegate
+//    self.locationManager = [[CLLocationManager alloc] init];
+//    self.locationManager.delegate = self;
+//    // Create a NSUUID with the same UUID as the broadcasting beacon
+//    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"];
+//    // Setup a new region with that UUID and same identifier as the broadcasting beacon
+//    self.myBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
+//                                                             identifier:@"com.appcoda.testregion"];
+//    // Tell location manager to start ranging for the beacon region
+//    [self.locationManager startRangingBeaconsInRegion:self.myBeaconRegion];
 }
+
+//- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region{
+//
+//    NSLog(@"manager was called");
+//    // CoreLocation will call this delegate method at 1 Hz with updated range information.
+//    // Beacons will be categorized and displayed by proximity.
+//    [beaconsArray removeAllObjects];
+//    NSArray *unknownBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityUnknown]];
+//    if([unknownBeacons count])
+//        [beaconsArray setObject:unknownBeacons forKey:[NSNumber numberWithInt:CLProximityUnknown]];
+//
+//    NSArray *immediateBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityImmediate]];
+//    if([immediateBeacons count])
+//        [beaconsArray setObject:immediateBeacons forKey:[NSNumber numberWithInt:CLProximityImmediate]];
+//
+//    NSArray *nearBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityNear]];
+//    if([nearBeacons count])
+//        [beaconsArray setObject:nearBeacons forKey:[NSNumber numberWithInt:CLProximityNear]];
+//
+//    NSArray *farBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityFar]];
+//    if([farBeacons count])
+//        [beaconsArray setObject:farBeacons forKey:[NSNumber numberWithInt:CLProximityFar]];
+//
+//    [self.tableView reloadData];
+//}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return _beacons.count;
+    return beaconsArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSArray *sectionValues = [_beacons allValues];
+    NSArray *sectionValues = [beaconsArray allValues];
     return [[sectionValues objectAtIndex:section] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *title = nil;
-    NSArray *sectionKeys = [_beacons allKeys];
+    NSArray *sectionKeys = [beaconsArray allKeys];
     
     // The table view will display beacons by proximity.
     NSNumber *sectionKey = [sectionKeys objectAtIndex:section];
@@ -139,8 +111,8 @@
 	}
     
     // Display the UUID, major, minor and accuracy for each beacon.
-    NSNumber *sectionKey = [[_beacons allKeys] objectAtIndex:indexPath.section];
-    CLBeacon *beacon = [[_beacons objectForKey:sectionKey] objectAtIndex:indexPath.row];
+    NSNumber *sectionKey = [[beaconsArray allKeys] objectAtIndex:indexPath.section];
+    CLBeacon *beacon = [[beaconsArray objectForKey:sectionKey] objectAtIndex:indexPath.row];
     cell.textLabel.text = [beacon.proximityUUID UUIDString];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Major: %@, Minor: %@, Acc: %.2fm", beacon.major, beacon.minor, beacon.accuracy];
     return cell;

@@ -31,6 +31,12 @@
 //@property(strong,nonatomic) UIRefreshControl *refresh;
 //@property (strong, nonatomic) ScanHTTPAdapter *scanHttp;
 
+@property (strong, nonatomic) CLBeaconRegion *myBeaconRegion;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (strong, nonatomic) NSMutableDictionary *beaconsArray;
+
+
 -(void) removeViewController;
 
 - (IBAction)revealMenu:(id)sender;
