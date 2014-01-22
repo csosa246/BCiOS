@@ -48,14 +48,6 @@
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
     
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    // Display the main menu.
-//    _menuViewController = [[ALMenuViewController alloc] initWithStyle:UITableViewStylePlain];
-//    _rootViewController = [[UINavigationController alloc] initWithRootViewController:_menuViewController];
-    
-//    self.window.rootViewController = _rootViewController;
-    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
     return YES;

@@ -3,10 +3,10 @@
  Abstract: View controller that illustrates how to start and stop ranging for a beacon region.
  */
 
-#import "IBeaconAdapter.h"
+#import "BeaconAdapter.h"
 #import "ALDefaults.h"
 
-@implementation IBeaconAdapter
+@implementation BeaconAdapter
 @synthesize beaconArray,locationManager,beaconRegion;
 
 -(void) controlSetup:(int)s{

@@ -51,7 +51,7 @@
 		9B7AE5661810A93A00E9B0AA /* ScanTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AE5651810A93A00E9B0AA /* ScanTopViewController.m */; };
 		9B7AE56A1810AB3C00E9B0AA /* BLEDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AE5691810AB3C00E9B0AA /* BLEDevice.m */; };
 		9B889E881813173500952C05 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B889E871813173500952C05 /* LoginViewController.m */; };
-		9B95449A188F72DB00E6C808 /* IBeaconAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B954499188F72DB00E6C808 /* IBeaconAdapter.m */; };
+		9B95449A188F72DB00E6C808 /* BeaconAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B954499188F72DB00E6C808 /* BeaconAdapter.m */; };
 		9B95449D188F741400E6C808 /* ALDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95449C188F741400E6C808 /* ALDefaults.m */; };
 		9B95449F188F746F00E6C808 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B95449E188F746F00E6C808 /* CoreLocation.framework */; };
 		9BAC4995188E2A2F0048ACFB /* bluecast.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAC4994188E2A2F0048ACFB /* bluecast.png */; };
@@ -141,8 +141,8 @@
 		9B7AE5691810AB3C00E9B0AA /* BLEDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEDevice.m; sourceTree = "<group>"; };
 		9B889E861813173500952C05 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9B889E871813173500952C05 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		9B954498188F72DB00E6C808 /* IBeaconAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBeaconAdapter.h; sourceTree = "<group>"; };
-		9B954499188F72DB00E6C808 /* IBeaconAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBeaconAdapter.m; sourceTree = "<group>"; };
+		9B954498188F72DB00E6C808 /* BeaconAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconAdapter.h; sourceTree = "<group>"; };
+		9B954499188F72DB00E6C808 /* BeaconAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconAdapter.m; sourceTree = "<group>"; };
 		9B95449B188F741400E6C808 /* ALDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALDefaults.h; sourceTree = "<group>"; };
 		9B95449C188F741400E6C808 /* ALDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALDefaults.m; sourceTree = "<group>"; };
 		9B95449E188F746F00E6C808 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -295,8 +295,8 @@
 			children = (
 				9B57AF7118205396002F7FCF /* DesignLibaryAdapter.h */,
 				9B57AF7218205396002F7FCF /* DesignLibaryAdapter.m */,
-				9B954498188F72DB00E6C808 /* IBeaconAdapter.h */,
-				9B954499188F72DB00E6C808 /* IBeaconAdapter.m */,
+				9B954498188F72DB00E6C808 /* BeaconAdapter.h */,
+				9B954499188F72DB00E6C808 /* BeaconAdapter.m */,
 				9B4BB40F187E4BD500005815 /* KeychainAdapter.h */,
 				9B4BB410187E4BD500005815 /* KeychainAdapter.m */,
 				9B67C3B4181AF73300C76E9B /* ScanHTTPAdapter.h */,
@@ -498,7 +498,7 @@
 				9B74DE9E1812014B006545CA /* LinkedInProfileViewController.m in Sources */,
 				9B889E881813173500952C05 /* LoginViewController.m in Sources */,
 				9BBC335418404EBE000280D8 /* KeychainItemWrapper.m in Sources */,
-				9B95449A188F72DB00E6C808 /* IBeaconAdapter.m in Sources */,
+				9B95449A188F72DB00E6C808 /* BeaconAdapter.m in Sources */,
 				9B73B31A182C636A006C58A2 /* LXCBPeripheralServer.m in Sources */,
 				2750E79A14CDB99A007727A0 /* SecondTopViewController.m in Sources */,
 				9B7AE5661810A93A00E9B0AA /* ScanTopViewController.m in Sources */,

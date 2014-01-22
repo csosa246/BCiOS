@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "ECSlidingViewController.h"
+#import "BeaconAdapter.h"
 //#import "BLE.h"
 //#import "BLEDevice.h"
 //#import "ScanHTTPAdapter.h"
@@ -23,7 +24,7 @@
 
 
 
-@interface ScanViewController : UITableViewController <CLLocationManagerDelegate>
+@interface ScanViewController : UITableViewController <CLLocationManagerDelegate,BeaconAdapterDelegate>
 
 //@property (strong,nonatomic) UIAlertView *alertScanningDevices;
 //@property (strong,nonatomic) NSMutableData *responseData;
@@ -35,14 +36,9 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (strong, nonatomic) NSMutableDictionary *beaconsArray;
-
+@property (strong, nonatomic) BeaconAdapter *beaconAdapter;
 
 -(void) removeViewController;
-
 - (IBAction)revealMenu:(id)sender;
-
 - (IBAction)revealUnderRight:(id)sender;
-
-
-
 @end

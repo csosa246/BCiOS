@@ -10,76 +10,38 @@
 #import "ALDefaults.h"
 
 @implementation ScanViewController
-@synthesize myBeaconRegion,locationManager,statusLabel,beaconsArray;
+@synthesize myBeaconRegion,locationManager,statusLabel,beaconsArray,beaconAdapter;
 
-- (void)viewDidLoad
-{
-    
+- (void)viewDidLoad{
     [super viewDidLoad];
-    
-    ble = [[BLE alloc] init];
-    [ble controlSetup:1];
-    ble.delegate = self;
-    
-//    beaconsArray = [[NSMutableDictionary alloc] init];
-//    // Do any additional setup after loading the view, typically from a nib.
-//    // Initialize location manager and set ourselves as the delegate
-//    self.locationManager = [[CLLocationManager alloc] init];
-//    self.locationManager.delegate = self;
-//    // Create a NSUUID with the same UUID as the broadcasting beacon
-//    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"];
-//    // Setup a new region with that UUID and same identifier as the broadcasting beacon
-//    self.myBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
-//                                                             identifier:@"com.appcoda.testregion"];
-//    // Tell location manager to start ranging for the beacon region
-//    [self.locationManager startRangingBeaconsInRegion:self.myBeaconRegion];
+    beaconAdapter = [[BeaconAdapter alloc] init];
+    [beaconAdapter controlSetup:1];
+    [beaconAdapter startRangingBeacons];
+    beaconAdapter.delegate = self;
 }
 
-//- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region{
-//
-//    NSLog(@"manager was called");
-//    // CoreLocation will call this delegate method at 1 Hz with updated range information.
-//    // Beacons will be categorized and displayed by proximity.
-//    [beaconsArray removeAllObjects];
-//    NSArray *unknownBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityUnknown]];
-//    if([unknownBeacons count])
-//        [beaconsArray setObject:unknownBeacons forKey:[NSNumber numberWithInt:CLProximityUnknown]];
-//
-//    NSArray *immediateBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityImmediate]];
-//    if([immediateBeacons count])
-//        [beaconsArray setObject:immediateBeacons forKey:[NSNumber numberWithInt:CLProximityImmediate]];
-//
-//    NSArray *nearBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityNear]];
-//    if([nearBeacons count])
-//        [beaconsArray setObject:nearBeacons forKey:[NSNumber numberWithInt:CLProximityNear]];
-//
-//    NSArray *farBeacons = [beacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", CLProximityFar]];
-//    if([farBeacons count])
-//        [beaconsArray setObject:farBeacons forKey:[NSNumber numberWithInt:CLProximityFar]];
-//
-//    [self.tableView reloadData];
-//}
+-(void)didReceiveBeaconArray:(NSMutableDictionary *)beaconArray{
+//    NSLog(@"Just making sure we're getting it");
+    beaconsArray = beaconArray;
+    [self.tableView reloadData];
+}
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return beaconsArray.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSArray *sectionValues = [beaconsArray allValues];
     return [[sectionValues objectAtIndex:section] count];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     NSString *title = nil;
     NSArray *sectionKeys = [beaconsArray allKeys];
     
     // The table view will display beacons by proximity.
     NSNumber *sectionKey = [sectionKeys objectAtIndex:section];
-    switch([sectionKey integerValue])
-    {
+    switch([sectionKey integerValue]){
         case CLProximityImmediate:
             title = @"Immediate";
             break;
@@ -100,8 +62,7 @@
     return title;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 	static NSString *identifier = @"Cell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
 	if (cell == nil)
@@ -117,9 +78,6 @@
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Major: %@, Minor: %@, Acc: %.2fm", beacon.major, beacon.minor, beacon.accuracy];
     return cell;
 }
-
-//@end
-
 
 
 //- (void)awakeFromNib{

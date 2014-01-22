@@ -9,16 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@protocol IBeaconAdapterDelegate
+@protocol BeaconAdapterDelegate
 -(void) didReceiveBeaconArray:(NSMutableDictionary *) beaconArray;
 @end
 
-@interface IBeaconAdapter : NSObject <CLLocationManagerDelegate>
+@interface BeaconAdapter : NSObject <CLLocationManagerDelegate>
+-(void) controlSetup:(int)s;
+-(void) startRangingBeacons;
+-(void) stopRangingBeacons;
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableDictionary *beaconArray;
-@property (nonatomic,assign) id <IBeaconAdapterDelegate> delegate;
+@property (nonatomic,assign) id <BeaconAdapterDelegate> delegate;
 
 
 @end
