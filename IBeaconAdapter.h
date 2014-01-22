@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface IBeaconAdapter : NSObject
+@interface IBeaconAdapter : NSObject <CLLocationManagerDelegate>
 
 @end

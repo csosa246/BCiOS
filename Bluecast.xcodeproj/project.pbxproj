@@ -52,6 +52,8 @@
 		9B7AE56A1810AB3C00E9B0AA /* BLEDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7AE5691810AB3C00E9B0AA /* BLEDevice.m */; };
 		9B889E881813173500952C05 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B889E871813173500952C05 /* LoginViewController.m */; };
 		9B95449A188F72DB00E6C808 /* IBeaconAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B954499188F72DB00E6C808 /* IBeaconAdapter.m */; };
+		9B95449D188F741400E6C808 /* ALDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95449C188F741400E6C808 /* ALDefaults.m */; };
+		9B95449F188F746F00E6C808 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B95449E188F746F00E6C808 /* CoreLocation.framework */; };
 		9BAC4995188E2A2F0048ACFB /* bluecast.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAC4994188E2A2F0048ACFB /* bluecast.png */; };
 		9BAC499B188E315B0048ACFB /* BeaconRegisterHTTPAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAC499A188E315B0048ACFB /* BeaconRegisterHTTPAdapter.m */; };
 		9BB3D02D1828519200E58670 /* LoginHTTPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB3D02C1828519200E58670 /* LoginHTTPModel.m */; };
@@ -141,6 +143,9 @@
 		9B889E871813173500952C05 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9B954498188F72DB00E6C808 /* IBeaconAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBeaconAdapter.h; sourceTree = "<group>"; };
 		9B954499188F72DB00E6C808 /* IBeaconAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBeaconAdapter.m; sourceTree = "<group>"; };
+		9B95449B188F741400E6C808 /* ALDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALDefaults.h; sourceTree = "<group>"; };
+		9B95449C188F741400E6C808 /* ALDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALDefaults.m; sourceTree = "<group>"; };
+		9B95449E188F746F00E6C808 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9BAC4994188E2A2F0048ACFB /* bluecast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluecast.png; sourceTree = "<group>"; };
 		9BAC4999188E315B0048ACFB /* BeaconRegisterHTTPAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconRegisterHTTPAdapter.h; sourceTree = "<group>"; };
 		9BAC499A188E315B0048ACFB /* BeaconRegisterHTTPAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconRegisterHTTPAdapter.m; sourceTree = "<group>"; };
@@ -165,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B95449F188F746F00E6C808 /* CoreLocation.framework in Frameworks */,
 				9B246BD7181E96F800F29E41 /* CoreImage.framework in Frameworks */,
 				9B246BD5181E96A800F29E41 /* QuartzCore.framework in Frameworks */,
 				9BD20F2D18138CCF006262AC /* Security.framework in Frameworks */,
@@ -201,6 +207,7 @@
 		2750E76F14CDB0DF007727A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B95449E188F746F00E6C808 /* CoreLocation.framework */,
 				9B246BD6181E96F800F29E41 /* CoreImage.framework */,
 				9BD20F2C18138CCF006262AC /* Security.framework */,
 				9B7AE55F1810A73500E9B0AA /* CoreBluetooth.framework */,
@@ -296,6 +303,8 @@
 				9B67C3B5181AF73300C76E9B /* ScanHTTPAdapter.m */,
 				9BAC4999188E315B0048ACFB /* BeaconRegisterHTTPAdapter.h */,
 				9BAC499A188E315B0048ACFB /* BeaconRegisterHTTPAdapter.m */,
+				9B95449B188F741400E6C808 /* ALDefaults.h */,
+				9B95449C188F741400E6C808 /* ALDefaults.m */,
 			);
 			name = Adapters;
 			path = ..;
@@ -479,6 +488,7 @@
 				9BB3D03318292D9000E58670 /* DataClass.m in Sources */,
 				9B67C3B6181AF73300C76E9B /* ScanHTTPAdapter.m in Sources */,
 				9B7AE56A1810AB3C00E9B0AA /* BLEDevice.m in Sources */,
+				9B95449D188F741400E6C808 /* ALDefaults.m in Sources */,
 				2750E78114CDB0DF007727A0 /* AppDelegate.m in Sources */,
 				9B2F2EDB1816B7280054631F /* SignUpViewController.m in Sources */,
 				2750E79414CDB93A007727A0 /* MenuViewController.m in Sources */,

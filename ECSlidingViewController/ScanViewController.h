@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+
 #import "ECSlidingViewController.h"
 #import "BLE.h"
 #import "BLEDevice.h"
 #import "ScanHTTPAdapter.h"
 #import "Peripheral.h"
+#import "ALDefaults.h"
 
 
 @protocol BluetoothActivationDelegate
@@ -21,8 +24,7 @@
 @end
 
 
-@interface ScanViewController : UITableViewController <UITableViewDataSource,BLEDelegate,ScanHTTPDelegate>{
-}
+@interface ScanViewController : UITableViewController <UITableViewDataSource,BLEDelegate,ScanHTTPDelegate>
 
 
 @property (strong,nonatomic) UIAlertView *alertScanningDevices;
