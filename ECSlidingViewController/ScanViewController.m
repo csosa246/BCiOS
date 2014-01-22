@@ -148,7 +148,7 @@
     CLBeacon *beacon = [[_beacons objectForKey:sectionKey] objectAtIndex:indexPath.row];
     cell.textLabel.text = [beacon.proximityUUID UUIDString];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Major: %@, Minor: %@, Acc: %.2fm", beacon.major, beacon.minor, beacon.accuracy];
-	
+    
     return cell;
 }
 
