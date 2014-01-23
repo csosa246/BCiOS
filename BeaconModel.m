@@ -6,9 +6,9 @@
 //
 //
 
-#import "Beacon.h"
+#import "BeaconModel.h"
 
-@implementation Beacon
+@implementation BeaconModel
 @synthesize name,uuid,imageURL,headline,linkedinURL;
 
 @end

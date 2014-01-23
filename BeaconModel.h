@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Beacon : NSObject
+@interface BeaconModel : NSObject
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *headline;

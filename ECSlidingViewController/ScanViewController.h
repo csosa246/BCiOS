@@ -10,8 +10,10 @@
 #import <CoreLocation/CoreLocation.h>
 #import "ECSlidingViewController.h"
 #import "BeaconAdapter.h"
+#import "BeaconModel.h"
 //#import "BLEDevice.h"
 #import "ScanHTTPAdapter.h"
+#import "LinkedInProfileViewController.h"
 //#import "Peripheral.h"
 
 
@@ -25,6 +27,7 @@
 
 //@property (strong,nonatomic) UIAlertView *alertScanningDevices;
 //@property (strong,nonatomic) NSMutableData *responseData;
+
 @property(strong,nonatomic) UIRefreshControl *refresh;
 @property (strong, nonatomic) ScanHTTPAdapter *scanHttp;
 @property (strong, nonatomic) CLBeaconRegion *myBeaconRegion;
@@ -32,6 +35,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (strong, nonatomic) NSMutableDictionary *beaconsDictionary;
 @property (strong, nonatomic) BeaconAdapter *beaconAdapter;
+@property (strong,nonatomic) NSMutableArray *peripheralArray;
+@property (weak, nonatomic) NSString *linkedInURLToLoad;
 
 -(void) removeViewController;
 - (IBAction)revealMenu:(id)sender;

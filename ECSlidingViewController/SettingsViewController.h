@@ -14,9 +14,10 @@
 #import "Peripheral.h"
 #import "DesignLibaryAdapter.h"
 #import "AppDelegate.h"
+#import "BeaconAdapter.h"
 
 
-@interface SettingsViewController : UIViewController<BLEDelegate>{
+@interface SettingsViewController : UIViewController<BeaconAdapterDelegate> {
     
     IBOutlet UIButton *registerCanaryButton;
     
@@ -48,7 +49,7 @@
 @property (strong,nonatomic) UIAlertView *alertScanningDevices;
 @property (strong,nonatomic) NSMutableData *responseData;
 @property (strong,nonatomic) UIAlertView *alert;
-@property (strong, nonatomic) BLE *ble;
+@property (strong,nonatomic) BeaconAdapter *beaconAdapter;
 @property (strong,nonatomic) NSNumber *currentRSSI;
 @property (weak, nonatomic) IBOutlet UILabel *rssiUILabel;
 - (IBAction)didClickEdit:(id)sender;

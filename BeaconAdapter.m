@@ -7,7 +7,7 @@
 #import "ALDefaults.h"
 
 @implementation BeaconAdapter
-@synthesize beaconDictionary,locationManager,beaconRegion;
+@synthesize beaconDictionary,locationManager,beaconRegion,shouldContinuouslyScanForBeacons;
 
 -(void) controlSetup:(int)s{
     beaconDictionary = [[NSMutableDictionary alloc] init];
@@ -15,6 +15,12 @@
     locationManager.delegate = self;
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"];
     beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"com.appcoda.testregion"];
+    shouldContinuouslyScanForBeacons = NO;
+}
+
+-(void) setShouldContinuouslyScanForBeacons:(BOOL)scanForBeacons{
+    NSLog(@"SETTING");
+    shouldContinuouslyScanForBeacons = !shouldContinuouslyScanForBeacons;
 }
 
 -(void) startRangingBeacons{
@@ -46,6 +52,8 @@
     if([farBeacons count])
         [beaconDictionary setObject:farBeacons forKey:[NSNumber numberWithInt:CLProximityFar]];
     [self.delegate didReceiveBeaconDictionary:beaconDictionary];
-    [self stopRangingBeacons];
+    if(!shouldContinuouslyScanForBeacons){
+        [self stopRangingBeacons];
+    }
 }
 @end

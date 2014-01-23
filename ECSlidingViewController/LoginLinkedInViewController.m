@@ -59,11 +59,6 @@
     [super didReceiveMemoryWarning];
 }
 
-
-
-//- (IBAction)buttonBack:(id)sender {
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
 - (IBAction)buttonBack:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

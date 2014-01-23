@@ -73,7 +73,6 @@
     }else{
         [self viewToLoad:identifier];
     }
-    
 
 }
 

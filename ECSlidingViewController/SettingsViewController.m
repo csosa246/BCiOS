@@ -14,27 +14,27 @@
 
 @implementation SettingsViewController
 @synthesize peekLeftAmount;
-@synthesize token,responseData,alert,ble,alertScanningDevices;
+@synthesize token,responseData,alert,alertScanningDevices;
 @synthesize currentRSSI;
 @synthesize rssiUILabel;
 @synthesize editStateEnabled;
 @synthesize backgroundImage;
 @synthesize scrollView;
+@synthesize beaconAdapter;
 
 int i;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-//    [(AppDelegate *)[[UIApplication sharedApplication] delegate] beginAdvertising];
     
     self.peekLeftAmount = 40.0f;
     [self.slidingViewController setAnchorLeftPeekAmount:self.peekLeftAmount];
     self.slidingViewController.underRightWidthLayout = ECVariableRevealWidth;
-    //NOTE THAT THIS WILL DESTROY THE PERIPHERALS ABILITY TO BROADCAST
     
-    ble = [[BLE alloc] init];
-    [ble controlSetup:1];
-    ble.delegate = self;
+    beaconAdapter = [[BeaconAdapter alloc] init];
+    [beaconAdapter controlSetup:1];
+    [beaconAdapter setShouldContinuouslyScanForBeacons:YES];
+    beaconAdapter.delegate = self;
     
     //Edit state
     editStateEnabled = NO;
@@ -43,7 +43,6 @@ int i;
 
 -(void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    NSLog(@"View did appear called");
     [scrollView setScrollEnabled:YES];
     [scrollView setContentSize:CGSizeMake(320, 2000)];
 }
@@ -67,33 +66,14 @@ int i;
     [im setFonts:socialNetworkLabel];
 }
 
-- (void) bleDidReceivePeripherals:(NSMutableArray *)peripherals{
-    
-}
-
--(void) bleDidReceivePeripheralAdvertisementData:(NSNumber *)rssi uuid:(NSString *)uuid {
-    
-}
 
 - (IBAction)didPressRegister:(id)sender{
-    [self alert:YES message:@"Please hold Canary up to device and wait 5 seconds..." addButtonWithTitle:NO];
-    [ble findBLEPeripherals:1];
-}
-
--(void) bleDidStopScanning{
-    i++;
-    if(i<5){
-        [ble findBLEPeripherals:1];
-    }else{
-        i = 0;
-        [self alert:NO message:nil addButtonWithTitle:NO];
-        [ble didFinishScanAndCompiling];
-    }
+    [beaconAdapter startRangingBeacons];
+    [beaconAdapter setShouldContinuouslyScanForBeacons:YES];
 }
 
 -(void) bleDidFindPeripheralToRegister:(NSString *)manufactureData{
     [self alert:YES message:manufactureData addButtonWithTitle:YES];
-
 }
 
 -(void) bleDidNotFindPeripheralToRegister:(NSString *)message{
@@ -102,6 +82,18 @@ int i;
 
 - (IBAction)didPressSignup:(id)sender {
     [self performSegueWithIdentifier:@"mycanary2linkedinauth" sender:self];
+}
+
+-(void) didReceiveBeaconDictionary:(NSMutableDictionary *)beaconArray{
+//    NSLog(@"I GOT YO SHIT YO");
+    NSMutableString *beaconsToIdentify = [NSMutableString string];
+    for(int i = 0; i<beaconArray.count; i ++){
+        NSNumber *sectionKey = [[beaconArray allKeys] objectAtIndex:i];
+        CLBeacon *beacon = [[beaconArray objectForKey:sectionKey] objectAtIndex:0];
+        
+        NSString *accuracy = [NSString stringWithFormat:@"%.2fm",beacon.accuracy];
+        NSLog(accuracy);
+    }
 }
 
 -(void)alert:(BOOL)showAlert message:(NSString*)message addButtonWithTitle:(BOOL)button{

@@ -18,10 +18,15 @@
 -(void) startRangingBeacons;
 -(void) stopRangingBeacons;
 
+-(void) setShouldContinuouslyScanForBeacons:(BOOL)scanForBeacons;
+
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableDictionary *beaconDictionary;
 @property (nonatomic,assign) id <BeaconAdapterDelegate> delegate;
+@property (nonatomic,assign) BOOL shouldContinuouslyScanForBeacons;
+
+
 
 
 @end
