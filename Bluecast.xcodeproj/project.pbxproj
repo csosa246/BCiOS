@@ -54,7 +54,8 @@
 		9B95449A188F72DB00E6C808 /* BeaconAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B954499188F72DB00E6C808 /* BeaconAdapter.m */; };
 		9B95449D188F741400E6C808 /* ALDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B95449C188F741400E6C808 /* ALDefaults.m */; };
 		9B95449F188F746F00E6C808 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B95449E188F746F00E6C808 /* CoreLocation.framework */; };
-		9BAC4995188E2A2F0048ACFB /* bluecast.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAC4994188E2A2F0048ACFB /* bluecast.png */; };
+		9B9BD2A0189073380042CBDC /* Beacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9BD29F189073380042CBDC /* Beacon.m */; };
+		9BAC4995188E2A2F0048ACFB /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAC4994188E2A2F0048ACFB /* icon.png */; };
 		9BAC499B188E315B0048ACFB /* BeaconRegisterHTTPAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAC499A188E315B0048ACFB /* BeaconRegisterHTTPAdapter.m */; };
 		9BB3D02D1828519200E58670 /* LoginHTTPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB3D02C1828519200E58670 /* LoginHTTPModel.m */; };
 		9BB3D03318292D9000E58670 /* DataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB3D03218292D9000E58670 /* DataClass.m */; };
@@ -62,8 +63,6 @@
 		9BD20F2D18138CCF006262AC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD20F2C18138CCF006262AC /* Security.framework */; };
 		9BEFE32B18186A2F007D5294 /* facebookbgimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEFE32A18186A2F007D5294 /* facebookbgimage.png */; };
 		9BFA62551810B760006D4D59 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BFA62541810B706006D4D59 /* Roboto-Light.ttf */; };
-		9BFA62611810C820006D4D59 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFA625B1810C820006D4D59 /* icon.png */; };
-		9BFA62621810C820006D4D59 /* iconbig.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFA625C1810C820006D4D59 /* iconbig.png */; };
 		9BFA62631810C820006D4D59 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFA625D1810C820006D4D59 /* info.png */; };
 		9BFA62641810C820006D4D59 /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFA625E1810C820006D4D59 /* iphone.png */; };
 		9BFA62651810C820006D4D59 /* man.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFA625F1810C820006D4D59 /* man.png */; };
@@ -146,7 +145,9 @@
 		9B95449B188F741400E6C808 /* ALDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALDefaults.h; sourceTree = "<group>"; };
 		9B95449C188F741400E6C808 /* ALDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALDefaults.m; sourceTree = "<group>"; };
 		9B95449E188F746F00E6C808 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		9BAC4994188E2A2F0048ACFB /* bluecast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluecast.png; sourceTree = "<group>"; };
+		9B9BD29E189073380042CBDC /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beacon.h; sourceTree = "<group>"; };
+		9B9BD29F189073380042CBDC /* Beacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beacon.m; sourceTree = "<group>"; };
+		9BAC4994188E2A2F0048ACFB /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		9BAC4999188E315B0048ACFB /* BeaconRegisterHTTPAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconRegisterHTTPAdapter.h; sourceTree = "<group>"; };
 		9BAC499A188E315B0048ACFB /* BeaconRegisterHTTPAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconRegisterHTTPAdapter.m; sourceTree = "<group>"; };
 		9BB3D02B1828519200E58670 /* LoginHTTPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginHTTPModel.h; path = ../LoginHTTPModel.h; sourceTree = "<group>"; };
@@ -158,8 +159,6 @@
 		9BD20F2C18138CCF006262AC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9BEFE32A18186A2F007D5294 /* facebookbgimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookbgimage.png; sourceTree = "<group>"; };
 		9BFA62541810B706006D4D59 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
-		9BFA625B1810C820006D4D59 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		9BFA625C1810C820006D4D59 /* iconbig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconbig.png; sourceTree = "<group>"; };
 		9BFA625D1810C820006D4D59 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		9BFA625E1810C820006D4D59 /* iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone.png; sourceTree = "<group>"; };
 		9BFA625F1810C820006D4D59 /* man.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = man.png; sourceTree = "<group>"; };
@@ -357,6 +356,8 @@
 			children = (
 				9B7AE5681810AB3C00E9B0AA /* BLEDevice.h */,
 				9B7AE5691810AB3C00E9B0AA /* BLEDevice.m */,
+				9B9BD29E189073380042CBDC /* Beacon.h */,
+				9B9BD29F189073380042CBDC /* Beacon.m */,
 				9B48255818198C26003B875D /* Peripheral.h */,
 				9B48255918198C26003B875D /* Peripheral.m */,
 				9BB3D03118292D9000E58670 /* DataClass.h */,
@@ -379,7 +380,7 @@
 		9BFA62591810C7B3006D4D59 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				9BAC4994188E2A2F0048ACFB /* bluecast.png */,
+				9BAC4994188E2A2F0048ACFB /* icon.png */,
 				9B2F2EDC1817707A0054631F /* linkedinbg.png */,
 				9B6FDC8618155AC4004B0ECB /* prof.png */,
 				9B67C3B9181C31F100C76E9B /* gear.png */,
@@ -391,8 +392,6 @@
 				9B2F2EDE181770980054631F /* facebookbg.png */,
 				9B74DE9A18116428006545CA /* text-left.png */,
 				9B59570D1810E86C00802BDC /* still2.png */,
-				9BFA625B1810C820006D4D59 /* icon.png */,
-				9BFA625C1810C820006D4D59 /* iconbig.png */,
 				9BFA625D1810C820006D4D59 /* info.png */,
 				9BFA625E1810C820006D4D59 /* iphone.png */,
 				9BFA625F1810C820006D4D59 /* man.png */,
@@ -454,11 +453,9 @@
 				9BFA62551810B760006D4D59 /* Roboto-Light.ttf in Resources */,
 				9BFA62651810C820006D4D59 /* man.png in Resources */,
 				9B74DEAB18121E5B006545CA /* linkedin-icon.png in Resources */,
-				9BAC4995188E2A2F0048ACFB /* bluecast.png in Resources */,
-				9BFA62621810C820006D4D59 /* iconbig.png in Resources */,
+				9BAC4995188E2A2F0048ACFB /* icon.png in Resources */,
 				9BFA62641810C820006D4D59 /* iphone.png in Resources */,
 				9BFA62631810C820006D4D59 /* info.png in Resources */,
-				9BFA62611810C820006D4D59 /* icon.png in Resources */,
 				9B59570E1810E86C00802BDC /* still2.png in Resources */,
 				2750E77B14CDB0DF007727A0 /* InfoPlist.strings in Resources */,
 				05EA26FE17F12A4200E6F107 /* Images.xcassets in Resources */,
@@ -505,6 +502,7 @@
 				9B57AF7318205396002F7FCF /* DesignLibaryAdapter.m in Sources */,
 				2750E79D14CDBA48007727A0 /* ThirdTopViewController.m in Sources */,
 				2750E7A014CDBC32007727A0 /* SettingsViewController.m in Sources */,
+				9B9BD2A0189073380042CBDC /* Beacon.m in Sources */,
 				9B4BB40D187D8BC600005815 /* LoginLinkedInViewController.m in Sources */,
 				2750E7AE14CF1306007727A0 /* ECSlidingViewController.m in Sources */,
 				9B23A396181427E90014E0B0 /* LinkedInAuthenticationViewController.m in Sources */,

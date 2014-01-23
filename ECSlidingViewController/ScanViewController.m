@@ -10,58 +10,87 @@
 #import "ALDefaults.h"
 
 @implementation ScanViewController
-@synthesize myBeaconRegion,locationManager,statusLabel,beaconsArray,beaconAdapter;
+@synthesize myBeaconRegion,locationManager,statusLabel,beaconsDictionary,beaconAdapter,refresh,scanHttp;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    //Setting up Beacon Adapter
     beaconAdapter = [[BeaconAdapter alloc] init];
     [beaconAdapter controlSetup:1];
-    [beaconAdapter startRangingBeacons];
     beaconAdapter.delegate = self;
+    
+    //Scan HTTP Adapter
+    scanHttp = [[ScanHTTPAdapter alloc] init];
+    [scanHttp controlSetup:1];
+    scanHttp.delegate = self;
+    
+    //Setting up refresh controls
+    refresh = [[UIRefreshControl alloc] init];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    [refresh addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
 }
 
--(void)didReceiveBeaconArray:(NSMutableDictionary *)beaconArray{
-//    NSLog(@"Just making sure we're getting it");
-    beaconsArray = beaconArray;
+-(void)refreshView:(UIRefreshControl *)refresh {
+    [beaconAdapter startRangingBeacons];
+    [refresh endRefreshing];
+}
+
+-(void)didReceiveBeaconDictionary:(NSMutableDictionary *)beaconArray{
+    beaconsDictionary = beaconArray;
+    NSMutableString *beaconsToIdentify = [NSMutableString string];
+    for(int i = 0; i<beaconsDictionary.count; i ++){
+        NSNumber *sectionKey = [[beaconsDictionary allKeys] objectAtIndex:i];
+        CLBeacon *beacon = [[beaconsDictionary objectForKey:sectionKey] objectAtIndex:0];
+        [beaconsToIdentify appendString:[beacon.major stringValue]];
+    }
+    NSLog(beaconsToIdentify);
+    
+    [scanHttp shouldIdentifyBeaconsThroughServer:@"1" bid:@"9,2"];
     [self.tableView reloadData];
 }
 
+-(void) scanHTTPconnectionDidFinishLoading:(NSArray *)data{
+    
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return beaconsArray.count;
+//    return beaconsDictionary.count;
+    return 1;
 }
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    NSArray *sectionValues = [beaconsDictionary allValues];
+//    return [[sectionValues objectAtIndex:section] count];
+//}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSArray *sectionValues = [beaconsArray allValues];
-    return [[sectionValues objectAtIndex:section] count];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    NSString *title = nil;
-    NSArray *sectionKeys = [beaconsArray allKeys];
-    
-    // The table view will display beacons by proximity.
-    NSNumber *sectionKey = [sectionKeys objectAtIndex:section];
-    switch([sectionKey integerValue]){
-        case CLProximityImmediate:
-            title = @"Immediate";
-            break;
-            
-        case CLProximityNear:
-            title = @"Near";
-            break;
-            
-        case CLProximityFar:
-            title = @"Far";
-            break;
-            
-        default:
-            title = @"Unknown";
-            break;
-    }
-    
-    return title;
-}
-
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//    NSString *title = nil;
+//    NSArray *sectionKeys = [beaconsDictionary allKeys];
+//    
+//    // The table view will display beacons by proximity.
+//    NSNumber *sectionKey = [sectionKeys objectAtIndex:section];
+//    switch([sectionKey integerValue]){
+//        case CLProximityImmediate:
+//            title = @"Immediate";
+//            break;
+//            
+//        case CLProximityNear:
+//            title = @"Near";
+//            break;
+//            
+//        case CLProximityFar:
+//            title = @"Far";
+//            break;
+//            
+//        default:
+//            title = @"Unknown";
+//            break;
+//    }
+//    
+//    return title;
+//}
+//
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 	static NSString *identifier = @"Cell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -72,8 +101,8 @@
 	}
     
     // Display the UUID, major, minor and accuracy for each beacon.
-    NSNumber *sectionKey = [[beaconsArray allKeys] objectAtIndex:indexPath.section];
-    CLBeacon *beacon = [[beaconsArray objectForKey:sectionKey] objectAtIndex:indexPath.row];
+    NSNumber *sectionKey = [[beaconsDictionary allKeys] objectAtIndex:indexPath.section];
+    CLBeacon *beacon = [[beaconsDictionary objectForKey:sectionKey] objectAtIndex:indexPath.row];
     cell.textLabel.text = [beacon.proximityUUID UUIDString];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Major: %@, Minor: %@, Acc: %.2fm", beacon.major, beacon.minor, beacon.accuracy];
     return cell;
@@ -220,7 +249,6 @@
 //        [alertScanningDevices dismissWithClickedButtonIndex:0 animated:YES];
 //    }
 //}
-//
 //
 //- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 //    if([segue.identifier isEqualToString:@"scan2linkedin"]){

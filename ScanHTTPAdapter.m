@@ -13,7 +13,7 @@
     return 0;
 }
 
--(void) serverConfirmation:(NSString*)pid bid:(NSString*) bid{
+-(void) shouldIdentifyBeaconsThroughServer:(NSString*)pid bid:(NSString*) bid{
     self.responseData = [NSMutableData data];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[@"https://bluecanaryalpha.herokuapp.com/mobile" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
     [request setHTTPMethod:@"POST"];

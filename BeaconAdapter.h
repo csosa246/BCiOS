@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 @protocol BeaconAdapterDelegate
--(void) didReceiveBeaconArray:(NSMutableDictionary *) beaconArray;
+-(void) didReceiveBeaconDictionary:(NSMutableDictionary *) beaconArray;
 @end
 
 @interface BeaconAdapter : NSObject <CLLocationManagerDelegate>
@@ -20,7 +20,7 @@
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) NSMutableDictionary *beaconArray;
+@property (strong, nonatomic) NSMutableDictionary *beaconDictionary;
 @property (nonatomic,assign) id <BeaconAdapterDelegate> delegate;
 
 

@@ -10,9 +10,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import "ECSlidingViewController.h"
 #import "BeaconAdapter.h"
-//#import "BLE.h"
 //#import "BLEDevice.h"
-//#import "ScanHTTPAdapter.h"
+#import "ScanHTTPAdapter.h"
 //#import "Peripheral.h"
 
 
@@ -22,20 +21,16 @@
 //
 //@end
 
-
-
-@interface ScanViewController : UITableViewController <CLLocationManagerDelegate,BeaconAdapterDelegate>
+@interface ScanViewController : UITableViewController <CLLocationManagerDelegate,BeaconAdapterDelegate,ScanHTTPDelegate>
 
 //@property (strong,nonatomic) UIAlertView *alertScanningDevices;
 //@property (strong,nonatomic) NSMutableData *responseData;
-//@property (strong, nonatomic) BLE *ble;
-//@property(strong,nonatomic) UIRefreshControl *refresh;
-//@property (strong, nonatomic) ScanHTTPAdapter *scanHttp;
-
+@property(strong,nonatomic) UIRefreshControl *refresh;
+@property (strong, nonatomic) ScanHTTPAdapter *scanHttp;
 @property (strong, nonatomic) CLBeaconRegion *myBeaconRegion;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (strong, nonatomic) NSMutableDictionary *beaconsArray;
+@property (strong, nonatomic) NSMutableDictionary *beaconsDictionary;
 @property (strong, nonatomic) BeaconAdapter *beaconAdapter;
 
 -(void) removeViewController;

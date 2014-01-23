@@ -16,7 +16,7 @@
 @interface ScanHTTPAdapter : NSObject <NSURLConnectionDelegate>
 
 -(int) controlSetup:(int) s;
--(void) serverConfirmation:(NSString*)pid bid:(NSString*) bid;
+-(void) shouldIdentifyBeaconsThroughServer:(NSString*)pid bid:(NSString*) bid;
 @property (nonatomic,assign) id <ScanHTTPDelegate> delegate;
 @property (strong,nonatomic) NSMutableData *responseData;
 
