@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "ECSlidingViewController.h"
-#import "BLE.h"
+//#import "BLE.h"
 #import "Peripheral.h"
 #import "DesignLibaryAdapter.h"
 #import "AppDelegate.h"

@@ -9,17 +9,13 @@
 #import "KeychainItemWrapper.h"
 
 @interface LoginLinkedInViewController ()
-
 @end
 
 @implementation LoginLinkedInViewController
 @synthesize webView,keychainAdapter;
 
-
 - (void)viewDidLoad{
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    loadedPage = 0;
     webView.delegate = self;
     //Setting up the keychain
     keychainAdapter = [[KeychainAdapter alloc] init];
@@ -29,8 +25,7 @@
 }
 
 -(void) willLoadWebView{
-    NSString *urlText = @"https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=ul2re6tij2go&state=STATE&redirect_uri=https://bluecanaryalpha.herokuapp.com/linkedin_redirect";
-    
+    NSString *urlText = @"https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=77upwjrghunhka&state=KNO&redirect_uri=https://bluecastalpha.herokuapp.com/mobile/linkedin/login";
     NSURL *url = [NSURL URLWithString:urlText];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [webView loadRequest:requestObj];
@@ -40,18 +35,26 @@
     NSLog(@"Webview failed");
 }
 
--(void)webViewDidFinishLoad:(UIWebView *)webView{
-    loadedPage++;
-    if(loadedPage==2){
-        NSString *currentURL = webView.request.URL.absoluteString;
-        NSLog(currentURL);
-        if([currentURL rangeOfString:@"error=access_denied"].location != NSNotFound){
-//            [self dismissViewControllerAnimated:YES completion:nil];
-        }else{
-            NSString *bid = [currentURL substringFromIndex: [currentURL length] - 1];
-            [keychainAdapter setKeyChain:bid];
-//            [self dismissViewControllerAnimated:YES completion:nil];
-        }
+-(void)webViewDidFinishLoad:(UIWebView *)webViewFinal{
+    NSString *url = webViewFinal.request.URL.absoluteString;
+    NSLog(url);
+    if([url isEqualToString:@"https://www.linkedin.com/uas/oauth2/authorizedialog/submit"]){
+        NSLog(@"Wrong login information");
+        return;
+    }else if ([url isEqualToString:@"https://bluecastalpha.herokuapp.com/mobile/linkedin/login?error=access_denied&error_description=the+user+denied+your+request&state=KNO"]){
+        NSLog(@"Hit cancel");
+        [self dismissViewControllerAnimated:YES completion:nil];
+        return;
+    }
+    
+    NSString *html = [webViewFinal stringByEvaluatingJavaScriptFromString:@"document.body.textContent"];
+    NSError *error;
+    NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    
+    if([json count]!=0){
+        NSLog( @"%@", json );
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
